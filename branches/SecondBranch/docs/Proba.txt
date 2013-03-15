@@ -3,6 +3,7 @@ Cim
 Valami modositas az uj branchen belul!
 
 Ez egy szoveg.
-
++++++
+Meg plussz szoveg.
 Hello hello hello
 Modositas1
