@@ -6,7 +6,7 @@ echo "3. Masodik commit teszt.<br/>\n";
 
 ?>
 
-<input type="submit" name="a" value="OK/Esc" />
+<input type="submit" name="a" value="OK" />
 
 <?php
 
