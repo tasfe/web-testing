@@ -22,7 +22,7 @@
 	      <h1><span>Tesztelo</span> rendszer</h1>
 	    </div><!--close welcome-->
 	    <div id="welcome_slogan">
-	      <h1>"Szeretnünk és ápolnunk kell a tévedést, mert o a megismerés anyaöle." (Nietzsche)</h1>
+	      <h1>"Szeretnï¿½nk ï¿½s ï¿½polnunk kell a tï¿½vedï¿½st, mert o a megismerï¿½s anyaï¿½le." (Nietzsche)</h1>
 	    </div><!--close welcome_slogan-->
 	  </div><!--close banner-->
     </div><!--close header-->
@@ -30,7 +30,7 @@
 	<div id="menubar">
       <ul id="menu">
         <li class="current"><a href="index.html">Fooldal</a></li>
-        <li><a href="login.html">Bejelentkezés</a></li>
+        <li><a href="login.html">Bejelentkezï¿½s</a></li>
       </ul>
     </div><!--close menubar-->	
     
@@ -46,21 +46,21 @@
 
 			<br></br>
 		
-			<h1>Üdvözlünk az oldalunkon!</h1> 
-			<p>Az oldal rövid leírása itt található.</p>
+			<h1>ï¿½dvï¿½zlï¿½nk az oldalunkon!</h1> 
+			<p>Az oldal rï¿½vid leï¿½rï¿½sa itt talï¿½lhatï¿½.</p>
 			
 			<div class="content_image" align = "left">
 				<img src="images/content_image1.jpg" alt="image1"/>
 			</div>
-			<p>Kép melletti szöveg itt található.</p>
-			<p>Újabb kép melletti szöveg bekezdés.</p>
+			<p>Kï¿½p melletti szï¿½veg itt talï¿½lhatï¿½.</p>
+			<p>ï¿½jabb kï¿½p melletti szï¿½veg bekezdï¿½s.</p>
 			<br style="clear:both"/>
 			
 			<br></br>
 			<br></br>
 			
-			<h1>Elérhetoség</h1>
-			<p>Telefonszám: +44 (0)1234 567891</p>
+			<h1>Elï¿½rhetosï¿½g</h1>
+			<p>Telefonszï¿½m: +44 (0)1234 567891</p>
 			<p>Email: <a href="mailto:info@youremail.co.uk">info@youremail.co.uk</a></p>
 					  
 		</div><!--close content_item-->
