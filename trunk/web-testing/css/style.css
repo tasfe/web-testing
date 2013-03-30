@@ -309,7 +309,7 @@ ul#menu li:hover a
  .button_small
 { font: normal 110% Arial, Helvetica, sans-serif;
   height: 15px;
-  width: 80px;
+  width: 150px;
   padding: 5px 2px 7px 2px;
   background: transparent url(../images/menu_pattern.jpg) repeat;
   border-radius: 15px 15px 15px 15px;
@@ -320,6 +320,23 @@ ul#menu li:hover a
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;}
   
 .button_small a
+{ color: #FFF;
+  padding-left: 5px;}
+  
+ .button_long
+{ font: normal 110% Arial, Helvetica, sans-serif;
+  height: 15px;
+  width: 300px;
+  padding: 5px 2px 7px 2px;
+  background: transparent url(../images/menu_pattern.jpg) repeat;
+  border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  -webkit-border: 15px 15px 15px 15px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;}
+  
+.button_long a
 { color: #FFF;
   padding-left: 5px;}
 
