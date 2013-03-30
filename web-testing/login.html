@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
@@ -25,8 +25,8 @@
 
 	<div id="menubar">
       <ul id="menu">
-        <li><a href="index.html">Főoldal</a></li>
-        <li class="current"><a href="contact.html">Bejelentkezés</a></li>
+        <li><a href="index.php">Főoldal</a></li>
+        <li class="current"><a href="login.html">Bejelentkezés</a></li>
       </ul>
     </div><!--close menubar-->
 	
@@ -42,7 +42,7 @@
 		  <div class="form_settings"> 
 			<table  border="0" cellpadding="2" cellspacing="10" align = "center">
 				<tr>
-					<td colspan="2"><h2>Bejelentkezés<h2></td>
+					<td colspan="2"><h2>Bejelentkezés</h2></td>
 				</tr>
 				<tr>
 					<td><span>Email cím:</span></td>
@@ -57,10 +57,48 @@
 					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Bejelentkezés" /></td>
 				</tr>
 				<tr>
-					<td><p><span>Még nem regisztráltál?</span></p>
-					<p><span>Itt megteheted:</p></span></td>
+					<td>
+					<p><span>Még nem regisztráltál?</span></p>
+					<p><span>Itt megteheted:</span></p>
+					</td>
 					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_submitted" value="Regisztráció" /></td>
+				<tr style="visibility: hidden; display:none;">
+					<td style="padding-top: 15px"><span>Családnév:</span></td>
+					<td style="padding-top: 15px"><input class="contact" type="text" name="registration_surname" value="" /></td>
 				</tr>
+				<tr style="visibility: hidden; display:none;">
+					<td><span>Keresztnév:</span></td>
+					<td><input class="contact" type="text" name="registration_first_name" value="" /></td>
+				</tr>								
+				<tr style="visibility: hidden; display:none;">
+					<td><span>Email cím:</span></td>
+					<td><input class="contact" type="text" name="registration_email" value="" /></td>
+				</tr>
+				<tr style="visibility: hidden; display:none;">
+					<td><span>Város:</span></td>
+					<td><input class="contact" type="text" name="registration_city" value="" /></td>
+				</tr>
+				<tr style="visibility: hidden; display:none;">
+					<td><span>Születési dátum(év, hónap, nap):</span></td>
+					<td>
+					<select name = "year">
+					<option value = "1991">1991
+					<option value = "1992" selected = "selected">1992
+					</select>
+					<select name = "month">
+					<option value = "1">1
+					<option value = "2" selected = "selected">2
+					</select>
+					<select name = "day">
+					<option value = "1">1
+					<option value = "2" selected = "selected">2
+					</select>										
+					</td>
+				</tr>				
+				<tr style="visibility: hidden; display:none;">
+					<td>&nbsp;</td>
+					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_form_submitted" value="Mehet" /></td>
+				</tr>				
 			</table>
 	      </div><!--close form_settings-->
 		</div><!--close content_item-->
