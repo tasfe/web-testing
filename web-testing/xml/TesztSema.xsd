@@ -8,7 +8,7 @@
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="kerdes" type="xsd:string"/>
-							<xsd:element name="valasz" minOccurs="3" maxOccurs="5">
+							<xsd:element name="valasz" minOccurs="2" maxOccurs="5">
 								<xsd:complexType>
 									<xsd:sequence>
 										<xsd:element name="szoveg" type="xsd:string"/>
