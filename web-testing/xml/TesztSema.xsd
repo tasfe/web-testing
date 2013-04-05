@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="teszt">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="cim" type="xsd:string"/>
+				<xsd:element name="feladat" minOccurs="1" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="kerdes" type="xsd:string"/>
+							<xsd:element name="valasz" minOccurs="3" maxOccurs="5">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="szoveg" type="xsd:string"/>
+										<xsd:element name="helyes" type="xsd:boolean"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="egyhelyesvalaszp" type="xsd:integer"/>
+				<xsd:element name="reszpont">
+  					<xsd:complexType>
+    					<xsd:choice>
+      						<xsd:element name="igen" />
+      						<xsd:element name="nem" />
+    					</xsd:choice>
+  					</xsd:complexType>
+				</xsd:element> 
+				<xsd:element name="jellemzok">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="kategoria" type="xsd:string"/>
+							<xsd:element name="kitoltesszam" type="xsd:integer"/>
+							<xsd:element name="helyesvalaszszam" type="xsd:integer"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
