@@ -48,7 +48,7 @@ span
 { color: #5C3A18;}
 
 a, a:hover
-{ color: #1D1D1D;
+{ /* color: #1D1D1D; */
   background: transparent;
   outline: none;
   text-decoration: none;}
@@ -428,4 +428,26 @@ table {
   width:50%;
   float: center;
   text-align: center;
+}
+
+table.categories {
+  width:100%;
+  float: center;
+  text-align: left;
+}
+
+th {
+	font-size: 20px;
+	padding: 10px;
+}
+
+td {
+	font-size: 14px;
+	padding: 5px;
+	border-bottom: 1px;
+}
+
+hr {
+	width: 75%;
+	color: #663300;
 }
