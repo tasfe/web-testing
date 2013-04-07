@@ -19,7 +19,7 @@ function reg_check($adatok){
 	{
 		$hibak['registration_first_name'] = 'A keresztnév legalább 4 betűs legyen, kitöltése pedig kötelező';
 	}
-	else if (!ereg('^[a-zA-ZáéíóöüóűÁÉÍÓÖÜŐŰ]', $adatok['registration_surname' ]))
+	else if (!ereg('^[a-zA-ZáéíóöüóűÁÉÍÓÖÜŐŰ]', $adatok['registration_first_name' ]))
 		{
 			$hibak['registration_first_name'] = 'A keresztnévben csak a magyar ábécé kis - és nagybetűi engedélyezettek';
 		}
@@ -27,11 +27,8 @@ function reg_check($adatok){
 		{
 			//mehet az adatbazisba
 		}
-	
-	if($adatok['registration_city'] == '') {
-		$hibak['email'] = 'Az e-mail cím kitöltése kötelező';
-	} 
-	else if ($adatok['email'] == (!eregi('^[_\.0-9a-z-]+@([0-9az][0-9a-z-]+\.)+[a-z]{2,6}$',$adatok['email']))) 
+		
+	if ($adatok['email'] == (!eregi('^[_\.0-9a-z-]+@([0-9az][0-9a-z-]+\.)+[a-z]{2,6}$',$adatok['email']))) 
 		{
 			$hibak['email'] = 'Hibás e-mail cím';
 		}
@@ -40,9 +37,27 @@ function reg_check($adatok){
 			//mehet az adatbazisba
 		}
 		
+	if (strlen($adatok['your_password']) < 4)
+		{
+			$hibak['your_password'] = 'A jelszonak legalabb 5 karakterbol kell allnia, es kitoltese kotelezo';
+		}
+		else
+		{
+			//mehet az adatbazisba
+		}
+		
+	if (strlen($adatok['your_password2']) < 4)
+		{
+			$hibak['your_password2'] = 'A jelszonak legalabb 5 karakterbol kell allnia, es kitoltese kotelezo';
+		}
+		else
+		{
+			//mehet az adatbazisba
+		}
+		
 	if(strlen($adatok['registration_city']) < 3)
 	{
-		$hibak['registration_city'] = 'A város legalább 4 betűs legyen, kitöltése pedig kötelező';
+		$hibak['registration_city'] = 'A telepules neve legalább 4 betűs legyen, kitöltése pedig kötelező';
 	}
 	else if (!ereg('^[a-zA-ZáéíóöüóűÁÉÍÓÖÜŐŰ]', $adatok['registration_city' ]))
 		{
@@ -52,7 +67,14 @@ function reg_check($adatok){
 		{
 			//mehet az adatbazisba
 		}
-		
+	if (!ereg('^[0-9]', $adatok['tel_nr' ]))
+		{
+			$hibak['tel_nr'] = 'Hibas telefonszam!';
+		}
+		else
+		{
+			//mehet az adatbazisba
+		}
 		
 	if ($hibak)
 		return $hibak;
