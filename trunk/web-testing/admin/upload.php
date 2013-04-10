@@ -10,9 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Tesztelő rendszer</title>
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/image_slide.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/image_slide.js"></script>
 </head>
 
 <body>
@@ -113,14 +113,14 @@
 
 				<ul class="slideshow">
 					<li class="show"><img width="680" height="250"
-						src="images/home_2.jpg" alt="&quot;Szemelyes adatok&quot;" /></li>
+						src="../images/home_2.jpg" alt="&quot;Szemelyes adatok&quot;" /></li>
 					<li><a href="eredmenyek.php"><img width="680" height="250"
 							src="images/home_2.jpg" alt="&quot;Eredmenyek&quot;" /> </a></li>
 					<li><a href="kitoltott_tesztek.php"><img width="680" height="250"
-							src="images/home_2.jpg" alt="&quot;Kitoltott tesztek&quot;" /> </a>
+							src="../images/home_2.jpg" alt="&quot;Kitoltott tesztek&quot;" /> </a>
 					</li>
 					<li><a href="uj_teszt.php"><img width="680" height="250"
-							src="images/home_1.jpg" alt="&quot;Uj teszt kitoltese&quot;" /> </a>
+							src="../images/home_1.jpg" alt="&quot;Uj teszt kitoltese&quot;" /> </a>
 					</li>
 				</ul>
 
