@@ -130,6 +130,15 @@
 				<p>Itt megtekintheted a regisztrációnál megadott adataidat.</p>
 				<p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő
 					adatok egy táblázatban.</p>
+
+				<form action="admin/upload_file.php" method="post"
+		enctype="multipart/form-data">
+		<label for="file">Filename:</label>
+		<input type="file" name="file" id="file" />
+		<br />
+		<input type="submit" name="submit" value="Submit" />
+	</form>
+				
 				<br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
 				<table border="0" cellpadding="2" cellspacing="10" align="center">
 					<tr>
@@ -183,6 +192,8 @@
 		<!--close content-->
 	</div>
 	<!--site content-->
+	
+	
 
 
 	<div id="content_grey">
