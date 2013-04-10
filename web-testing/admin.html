@@ -13,9 +13,9 @@
 
 <body>
 
-  <div id="main">
+ <div id="main">
   
-    <div id="header">
+ <div id="header">
 	  <div id="banner">
 	    <div id="welcome">
 	      <h1>Tesztelő rendszer</h1>
@@ -29,70 +29,73 @@
 	<div id="menubar">
       <ul id="menu">
         <li><a href="index.php">Főoldal</a></li>
-        <li class="current"><a href="admin.html">Bejelentkezés</a></li>
+        <li class="current"><a href="admin.html">Admin</a></li>
         <li><a href="test.html">Tesztek</a></li>
       </ul>
     </div><!--close menubar-->
     
-    <div id="site_content" align = "center">	     		
+    <div id="site_content">	     		
+	
+	<div id="site_content">	
+	
+    <div class="sidebar_container"> 
+    
+    	<div class="sidebar">
+          <div class="sidebar_item">
+            <h2>Személyes adatok</h2>
+            <p>A fenti menüpont alatt megtekintheted a regisztrácio során megadott adataid. </p>
+          </div><!--close sidebar_item--> 
+        </div><!--close sidebar-->       
+        
+		<div class="sidebar">
+          <div class="sidebar_item">
+            <h2>Jelenlegi tesztkitöltések</h2>
+            <p>A fenti menüpontot kiválasztva megtekintheted a folyamatban levő tesztkitöltéseket.</p>
+          </div><!--close sidebar_item--> 
+        </div><!--close sidebar-->  
+           		
+		<div class="sidebar">
+          <div class="sidebar_item">
+            <h2>Kitöltött tesztek</h2>
+            <p>A fenti menüpontot kiválasztva megtekintheted a kitöltött teszteket.</p>         
+		  </div><!--close sidebar_item--> 
+        </div><!--close sidebar--> 	
+        	
+        <div class="sidebar">
+          <div class="sidebar_item">
+            <h2>Kimutatás</h2>
+            <p>A fenti menüpontot kiválasztva megtekinthetsz kimutatásokat.</p>
+          </div><!--close sidebar_item--> 
+        </div><!--close sidebar-->
+        
+        <div class="sidebar">
+          <div class="sidebar_item">
+            <h2>Teszt aktiválás/inaktiválás</h2>
+            <p>A fenti menüpontot kiválasztva lehetőséged van teszteket aktiválni és inaktiválni.</p>
+          </div><!--close sidebar_item--> 
+        </div><!--close sidebar-->
+        
+        <div class="sidebar">
+          <div class="sidebar_item">
+            <h2>Új teszt feltöltése</h2>
+            <p>A fenti menüpontot kiválasztva új teszteket tölthetsz fel.</p>
+          </div><!--close sidebar_item--> 
+        </div><!--close sidebar-->
+        
+       </div><!--close sidebar_container-->	
 	
       <ul class="slideshow">
-        <li class="show"><img width="680" height="250" src="images/home_1.jpg" alt="&quot;Enter your caption here&quot;" /></li>
-        <li><img width="680" height="250" src="images/home_2.jpg" alt="&quot;Enter your caption here&quot;" /></li>
-      </ul> 	
-      
-      <br></br>
-      <br></br>
-      
-	  <h2>Bejelentkezve: Név</h2> 
-	  <h2>Itt vannak az adataid.</h2>
-	  
-      <br></br> 
+      	<li class="show"><img width="680" height="250" src="images/home_2.jpg" alt="&quot;Szemelyes adatok&quot;" /></li>
+      	<li><a href="eredmenyek.php"><img width="680" height="250" src="images/home_2.jpg" alt="&quot;Eredmenyek&quot;" /></a></li>
+      	<li><a href="kitoltott_tesztek.php"><img width="680" height="250" src="images/home_2.jpg" alt="&quot;Kitoltott tesztek&quot;" /></a></li>
+        <li><a href="uj_teszt.php"><img width="680" height="250" src="images/home_1.jpg" alt="&quot;Uj teszt kitoltese&quot;" /></a></li>
+      </ul> 
 
-	  <div id="content">
-        <div class="content_item">
-		   <div class="content_container">
-			<table  border="0" cellpadding="2" cellspacing="20" align = "center">
-				<tr>
-					<td>
-					<div class="button_long">
-		        	<a href="#">Folyamatban levő tesztkitöltések</a>
-		        	</div><!--close button_long-->
-					</td>
-				</tr>
-				<tr>
-					<td>
-					<div class="button_long">
-		        	<a href="#">Kitöltött tesztek</a>
-		        	</div><!--close button_long-->	
-					</td>
-				</tr>
-				<tr>
-					<td>
-					<div class="button_long">
-		        	<a href="#">Kimutatás</a>
-		        	</div><!--close button_long-->	
-					</td>
-				</tr>
-				<tr>
-					<td>
-					<div class="button_long">
-		        	<a href="#">Teszt aktiválás/inaktiválás</a>
-		        	</div><!--close button_long-->	
-					</td>
-				</tr>
-				<tr>
-					<td>
-					<div class="button_long">
-		        	<a href="#">Új teszt feltöltése</a>
-		        	</div><!--close button_long-->	
-					</td>
-				</tr>
-			</table>
-		  </div><!--close content_container-->
-
-          <div class="content_container">
-		    <p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő adatok egy táblázatban.</p> 
+      
+	  <br></br>
+			  <h2 align="center">Szemelyes adatok</h2>     
+			  <p>Itt megtekintheted a regisztrációnál megadott adataidat. </p>
+			  <p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő adatok egy táblázatban.</p> 
 		    <br></br>
       		<br></br>
             <br></br>
@@ -135,9 +138,7 @@
 		    		</div><!--close button_small-->
 		    		</td>
 		    	</tr>
-		    </table>	        
-		  </div><!--close content_container-->	  
-		    	
+		    </table>	
 	      
 		</div><!--close content_item-->
       </div><!--close content-->   
@@ -152,7 +153,6 @@
     <br></br>
     <br></br>
     
-  </div><!-- close main -->
 
 </body>
 
