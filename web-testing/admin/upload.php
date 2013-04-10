@@ -52,7 +52,7 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Személyes adatok</h2>
+							<a href="admin.html"><h2>Személyes adatok</h2></a>
 							<p>A fenti menüpont alatt megtekintheted a regisztrácio során
 								megadott adataid.</p>
 						</div>
@@ -115,7 +115,7 @@
 					<li class="show"><img width="680" height="250"
 						src="../images/home_2.jpg" alt="&quot;Szemelyes adatok&quot;" /></li>
 					<li><a href="eredmenyek.php"><img width="680" height="250"
-							src="images/home_2.jpg" alt="&quot;Eredmenyek&quot;" /> </a></li>
+							src="../images/home_2.jpg" alt="&quot;Eredmenyek&quot;" /> </a></li>
 					<li><a href="kitoltott_tesztek.php"><img width="680" height="250"
 							src="../images/home_2.jpg" alt="&quot;Kitoltott tesztek&quot;" /> </a>
 					</li>
@@ -126,19 +126,20 @@
 
 
 				<br></br>
-				<h2 align="center">Szemelyes adatok</h2>
-				<p>Itt megtekintheted a regisztrációnál megadott adataidat.</p>
-				<p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő
-					adatok egy táblázatban.</p>
+				<h2 align="center">Teszt feltöltés</h2>
+				<p>Válszd ki, hogy melyik tesztet szeretnéd feltölteni(egyenlore kepet lehet feltolteni).</p>
 
-				<form action="admin/upload_file.php" method="post"
-		enctype="multipart/form-data">
-		<label for="file">Filename:</label>
-		<input type="file" name="file" id="file" />
-		<br />
-		<input type="submit" name="submit" value="Submit" />
-	</form>
-				
+				<br></br>
+				<form action = "upload_file.php" method = "post"
+					enctype="multipart/form-data">
+					<label for="file">Fájlnév:</label> <input type="file" name="file"
+						id="file" /> <br /> 
+						
+						<br></br>
+						
+						<input type="submit" name="submit" value="Feltölt" />
+				</form>
+
 				<br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
 				<table border="0" cellpadding="2" cellspacing="10" align="center">
 					<tr>
