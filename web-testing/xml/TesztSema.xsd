@@ -20,14 +20,7 @@
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="egyhelyesvalaszp" type="xsd:integer"/>
-				<xsd:element name="reszpont">
-  					<xsd:complexType>
-    					<xsd:choice>
-      						<xsd:element name="igen" />
-      						<xsd:element name="nem" />
-    					</xsd:choice>
-  					</xsd:complexType>
-				</xsd:element> 
+				<xsd:element name="reszpont" type="xsd:string"/>
 				<xsd:element name="jellemzok">
 					<xsd:complexType>
 						<xsd:sequence>
