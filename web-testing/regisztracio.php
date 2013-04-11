@@ -44,14 +44,15 @@
 	  <div id="content">
         <div class="content_item">
 		  <div class="form_settings"> 
+		  <form action = "insert.php" method = "post">
 			<table  border="0" cellpadding="2" cellspacing="10" align = "center">
 				<tr>
 					<td ><span align="center"><b>Családnév:</b></span></td>
-					<td><input class="contact" type="text" name="registration_surname" value="" /></td>
+					<td><input class="contact" type="text" name="reg_surname" value="" /></td>
 				</tr>		
 				<tr>
 					<td><span align="center"><b>*Keresztnév:</b></span></td>
-					<td><input class="contact" type="text" name="registration_first_name" value="" /></td>
+					<td><input class="contact" type="text" name="reg_first_name" value="" /></td>
 				</tr>						
 				<tr>
 					<td><span><b>*Email cím:</b></span></td>
@@ -67,7 +68,7 @@
 				</tr>
 				<tr>
 					<td><span><b>*Település:</b></span></td>
-					<td><input class="contact" type="text" name="registration_city" value="" /></td>
+					<td><input class="contact" type="text" name="city" value="" /></td>
 				</tr>
 				<tr>
 					<td><span><b>Születési dátum(év, hónap, nap):</b></span></td>
@@ -85,9 +86,17 @@
 					<option value = "2" selected = "selected">2
 					</select>										
 					</td>
+					
 				</tr>
 				<tr>
+							</td><td>
+								<td><input class="contact" type="date" name="date_of_birth"
+									value="" /></td>
+							</tr>
+							<tr>
+				<tr>
 					<td><span><b>Telefonszám:</b></span></td>
+					<br></br>
 					<td><input class="contact" type="text" name="tel_nr" value="" /></td>
 				</tr>				
 				<tr>
@@ -95,11 +104,12 @@
 					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_form_submitted" value="Mehet" /></td>
 				</tr>				
 			</table>
+			</form>
 	      </div><!--close form_settings-->
 		</div><!--close content_item-->
       </div><!--close content-->   
 	</div><!--site content-->
-\
+
     <br></br>
  
     <div id="content_grey">  
