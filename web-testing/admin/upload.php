@@ -127,8 +127,8 @@
 
 				<br></br>
 				<h2 align="center">Teszt feltöltés</h2>
-				<p>Válszd ki, hogy melyik tesztet szeretnéd feltölteni(egyenlore kepet lehet feltolteni).</p>
-
+				<p>Válaszd ki, hogy melyik tesztet szeretnéd feltölteni(egyenlore kepet lehet feltolteni).</p>
+				
 				<br></br>
 				<form action = "upload_file.php" method = "post"
 					enctype="multipart/form-data">
