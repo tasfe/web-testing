@@ -1,7 +1,6 @@
 <?php
 
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -38,7 +37,7 @@
 		<div id="menubar">
 			<ul id="menu">
 				<li><a href="index.php">Főoldal</a></li>
-				<li class="current"><a href="upload.html">Admin</a></li>
+				<li class="current"><a href="admin.html">Admin</a></li>
 				<li><a href="test.html">Tesztek</a></li>
 			</ul>
 		</div>
@@ -52,7 +51,7 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="admin.html"><h2>Személyes adatok</h2></a>
+							<a href="admin.html"><h2>Személyes adatok</h2> </a>
 							<p>A fenti menüpont alatt megtekintheted a regisztrácio során
 								megadott adataid.</p>
 						</div>
@@ -62,7 +61,8 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="view_test_completing.html"><h2>Jelenlegi tesztkitöltések</h2></a>
+							<a href="view_test_completing.php"><h2>Jelenlegi tesztkitöltések</h2>
+							</a>
 							<p>A fenti menüpontot kiválasztva megtekintheted a folyamatban
 								levő tesztkitöltéseket.</p>
 						</div>
@@ -72,7 +72,7 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="view_completed_test.html"><h2>Kitöltött tesztek</h2></a>
+							<h2>Kitöltött tesztek</h2>
 							<p>A fenti menüpontot kiválasztva megtekintheted a kitöltött
 								teszteket.</p>
 						</div>
@@ -82,8 +82,8 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Kimutatás</h2>
-							<a href="statements.php"><p>A fenti menüpontot kiválasztva megtekinthetsz kimutatásokat.</p></a>
+							<a href="statements.php"><h2>Kimutatás</h2> </a>
+							<p>A fenti menüpontot kiválasztva megtekinthetsz kimutatásokat.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -91,7 +91,8 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="test_activate.php"><h2>Teszt aktiválás/inaktiválás</h2></a>
+							<a href="test_activate.php"><h2>Teszt aktiválás/inaktiválás</h2>
+							</a>
 							<p>A fenti menüpontot kiválasztva lehetőséged van teszteket
 								aktiválni és inaktiválni.</p>
 						</div>
@@ -101,7 +102,7 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Új teszt feltöltése</h2>
+							<a href="upload.php"><h2>Új teszt feltöltése</h2> </a>
 							<p>A fenti menüpontot kiválasztva új teszteket tölthetsz fel.</p>
 						</div>
 						<!--close sidebar_item-->
@@ -112,36 +113,53 @@
 				<!--close sidebar_container-->
 
 				<ul class="slideshow">
-				<li class="show">
-					<img width="680" height="250" src="../images/home_1.jpg" alt="&quot;Adminisztrátor&quot;" />
-				</li>
-				<li>
-					<img width="680" height="250" src="../images/home_2.jpg" alt="&quot;Adminisztrátor&quot;" /></li>
+					<li class="show"><img width="680" height="250"
+						src="../images/home_1.jpg" alt="&quot;Adminisztrátor&quot;" />
+					</li>
+					<li><img width="680" height="250" src="../images/home_2.jpg"
+						alt="&quot;Adminisztrátor&quot;" /></li>
 				</ul>
 
 
 				<br></br>
-				<h2 align="center">Teszt feltöltés</h2>
-				<p>Válaszd ki, hogy melyik tesztet szeretnéd feltölteni(egyenlore kepet lehet feltolteni).</p>
-				
-				<br></br>
-				<form action = "upload_file.php" method = "post"
-					enctype="multipart/form-data">
-					<label for="file">Fájlnév:</label> <input type="file" name="file"
-						id="file" /> <br /> 
-						
-						<br></br>
-						
-						<input type="submit" name="submit" value="Feltölt" />
-				</form>
+				<h2 align="center">Kitöltött tesztek megtekintése</h2>
+				<p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő
+					adatok egy táblázatban.</p>
+				<br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
+				<table border="0" cellpadding="2" cellspacing="10" align="center">
+					<tr>
+						<td>
+							<div class="button_small">
+								<a href="#">Letöltés</a>
+							</div> <!--close button_small-->
+						</td>
+						<td>
+							<div class="button_small">
+								<a href="#">Sikeres tesztek</a>
+							</div> <!--close button_small-->
+						</td>
+					
+					
+					<tr>
+						<td>
+							<div class="button_small">
+								<a href="#">Report megtekintése</a>
+							</div> <!--close button_small-->
+						</td>
+						<td>
+							<div class="button_small">
+								<a href="#">Kiterjesztett report</a>
+							</div>
+						</td>
+					</tr>
+				</table>
+
 			</div>
 			<!--close content_item-->
 		</div>
 		<!--close content-->
 	</div>
 	<!--site content-->
-	
-	
 
 
 	<div id="content_grey">
