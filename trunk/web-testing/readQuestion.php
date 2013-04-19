@@ -35,7 +35,7 @@
 		return $string;
 	}
 	
-	//helyes valaszok osszszama
+	//hany helyes valasz van a tesztben
 	function readTrues($teszt) {
 		$dom = new DOMDocument();
 		$dom->load($teszt);
@@ -91,6 +91,7 @@
 		return $osszpontszam;
 	}
 	
+	//egy helyes valasznak a pontszama
 	function readOneCorrectPoint($teszt) {
 		$dom = new DOMDocument();
 		$dom->load($teszt);
@@ -126,6 +127,7 @@
 		return $kerdesek_szama;
 	}
 	
+	//az i. kerdes es valaszai
 	function readQ($i, $teszt) {
 		$dom = new DOMDocument();
 		$dom->load($teszt);
