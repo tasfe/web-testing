@@ -35,15 +35,12 @@ function ujKerdes($kerdes, $pt) {
 	$i = 2;
 	$betu = 'a';
 	while($i < $leng) {
-		$this->pdf->write(5, " ".$betu.") ".$kerdes[$i]);
-		if($kerdes[$i+1] === 'true') {
-			$this->pdf->write(5, " --> helyes\n");
-		    
-		}
-		else 
-			$this->pdf->write(5, "\n");
+		if($kerdes[$i+1] === 'true')
+			$this->pdf->SetFont('Arial','U', 12);
+		$this->pdf->write(5, " ".$betu.") ".$kerdes[$i] ."\n");
 		$i = $i + 2;
 		$betu++;
+		$this->pdf->SetFont('Arial','', 12);
 	}
 	$this->pdf->write(5, "\n\n\n");
 	$this->kerds++;
