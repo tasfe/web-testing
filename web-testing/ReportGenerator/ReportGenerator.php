@@ -64,12 +64,13 @@ function kiiratas()
 	}
 	
 }
-function generald($R=0, $G=0, $B=0, $orientation='P', $unit='mm', $format='A4', $name='Diploma.pdf') 
+function generald($R=0, $G=0, $B=0, $orientation='P', $unit='mm', $format='A4', $name='Diploma.PDF') 
 {
   require('pdfgen/fpdf.php');
-  $pdf=new FPDF($orientation, $unit, $format);
+  $pdf=new FPDF($orientation, $unit, $format, $name);
   $pdf->AddPage();
-  $pdf->Image("valami.jpg", 0, 0, 300, 300);
+  //$pageFormat=$pdf->getFormatsCoords();
+  //$pdf->Image("valami.jpg", 0, 0, 300, 300);
   $pdf->SetFont('Arial', 'B', 62);
   $pdf->Text(60, 80, 'Oklevél');
   
@@ -88,40 +89,42 @@ function generald($R=0, $G=0, $B=0, $orientation='P', $unit='mm', $format='A4', 
     $holvagyunk = $holvagyunk + 5;
     $pdf->Text(30, $holvagyunk, "A helyes válasz, hogy: " .$this->correct_answers[$i]);
     //$pdf->write(50, "Ez meg micsoda ");
-    $holvagyunk = $holvagyunk + 5;
+    $holvagyunk = $holvagyunk + 12;
     if($holvagyunk >= 260) {
-     $pdf->addPage();
+    	$pdf->addPage();
+    	//$pdf->Image("valami.jpg", 0, 0, 300, 300);
      $holvagyunk = 30;
    }
   }
-   $pdf->Output('Diploma.pdf', 'I');
+  $pdf->Output('Diploma.PDF', 'I');
    
    
 }
 
-function generald2($orientation='P', $unit='mm', $format='A4', $name='Diploma.pdf')
+function generald2($R=0, $G=0, $B=0, $orientation='P', $unit='mm', $format='A4', $name='Diploma.pdf')
 {
 	require('pdfgen/fpdf.php');
 	$pdf=new FPDF($orientation, $unit, $format);
 	$pdf->AddPage();
-	$pdf->SetFont('Arial', 'B', 36);
-	$pdf->write(36, 'Oklevél', '\n');
+	$pdf->SetFont('Arial', '', 12);
+	$pdf->SetTextColor($R, $G, $B);
+	$pdf->write(5, "A felhasználó neve: " .$this->name."\n");
+	$pdf->write(5, "Felhasználó felhasználóneve: " .$this->nickName."\n");
+	$pdf->write(5, "Felhasználó emailcíme: " .$this->email."\n\n\n\n");
+	
+	$pdf->SetFont('Arial', 'B', 54);
+	$pdf->SetTextColor(0, 0, 0);
+	$pdf->write(50, '        Oklevél'."\n");
 
-	$holvagyunk = 130;
 	$hossz=count($this->questions);
-	$pdf->SetFont('Arial','B', 20);
-	$pdf->SetTextColor(255, 100, 100);
-	$pdf->write(36, "A felhasználó neve: " .$this->name);
-	/*$pdf->write(12, "Felhasználó felhasználóneve: " .$this->nickName);
-	$pdf->write(12, "Felhasználó emailcíme: " .$this->email);
+	$pdf->SetFont('Arial','', 12);
 	$pdf->SetTextColor(255, 100, 0);
 	for($i = 0; $i < $hossz; ++$i) {
-		$pdf->write(12, $this->questions[$i]);
-		$pdf->write(30, $holvagyunk, "A saját válasz, hogy: " .$this->my_answers[$i]);
-		$pdf->write(12, "A helyes válasz, hogy: " .$this->correct_answers[$i]);
+		$pdf->write(5, $this->questions[$i]."\n");
+		$pdf->write(5, "  A saját válasz, hogy: " .$this->my_answers[$i]."\n");
+		$pdf->write(5, "  A helyes válasz, hogy: " .$this->correct_answers[$i]."\n");
 		//$pdf->write(50, "Ez meg micsoda ")
 		}
-		*/
 		$pdf->Output('Diploma.pdf', 'I');
 	}
 	
