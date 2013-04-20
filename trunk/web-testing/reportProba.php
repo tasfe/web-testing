@@ -1,4 +1,4 @@
 <?php
 require("ReportGenerator/meghivas.php");
-$proba = new meghivas('xml/Proba.xml', 100, 20, 30);
+meghivas('xml/Proba.xml', 100, 20, 30);
 ?>
