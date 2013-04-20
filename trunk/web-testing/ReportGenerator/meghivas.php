@@ -1,5 +1,4 @@
 <?php
-class meghivas {
 function meghivas($teszt, $R=0, $G=0, $B=0) {
   require('readQuestion.php');
   require('report.php');
@@ -17,6 +16,5 @@ function meghivas($teszt, $R=0, $G=0, $B=0) {
 while (ob_get_level())
 	ob_end_clean();
 $generator->lezar();
-}
 }
 ?>
