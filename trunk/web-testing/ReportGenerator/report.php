@@ -19,7 +19,7 @@ function irdKi($user, $R = 0, $G = 0, $B = 0) {
 		$this->pdf=new FPDF();
 		$this->pdf->AddPage();
 		
-		 $this->pdf->SetFont('Arial', '', 12);
+		 $this->pdf->SetFont('arial', '', 12);
 		$this->pdf->SetTextColor($R, $G, $B);
 	 	$this->pdf->write(5, "A felhasználó neve: ". $user[0]."\n");
     	$this->pdf->write(5, "Felhasználó felhasználóneve: ".$user[1]."\n");
