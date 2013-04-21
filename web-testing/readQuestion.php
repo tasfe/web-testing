@@ -170,6 +170,14 @@
 	
 	return $reply;
 }
+// az összes kérdés egybokorban
+function atalakitReportTombe($teszt) {
+	$num = readQnumber($teszt);
+	$tomb = array();
+	for($i = 0; $i < $num; ++$i)
+		$tomb[$i] = readQ($i, $teszt);
+	return $tomb;
+}
 
 //echo readName("Proba.xml");
 
