@@ -27,8 +27,12 @@ require("readQuestion.php");
  // válaszok beálítása
  $ans = array();
  // egy helyes válasz van esetén:
- $ans[0] = 'a';
- $ans[1] = 'b';
+ $ans[0] = 'a';   // elsõ kérdés, ha egy válasz van
+ $valasz = array();
+ // második kérdés, ha több válasz van
+ $valasz[0] = 'a';
+ $valasz[1] = 'b';
+ $ans[1] = $valasz;
  // több helyes válasz van esetén:
  /*
   * $valasz1 = array();
