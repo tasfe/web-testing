@@ -1,4 +1,6 @@
 <?php
 require("ReportGenerator/meghivas.php");
-meghivas('xml/Proba.xml', 100, 20, 30);
+require("readQuestion.php");
+$x = atalakitReportTombe('xml/Proba.xml');
+meghivas($x, 100, 20, 30);
 ?>
