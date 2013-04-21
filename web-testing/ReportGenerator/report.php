@@ -50,7 +50,7 @@ function envalaszaim($ans) {
 	$this->pdf->write(10, "Ezt(ezeket) válaszolta: \n");
 	$num = count($ans);
 	for($i = 0; $i < $num; ++$i) 
-		$this->pdf->write(5, $ans . ", \n");
+		$this->pdf->write(5, $ans[$i] . ",    ");
 	$this->pdf->write(10, "\n");
 } 
 function pontokSzama($pontok) {
