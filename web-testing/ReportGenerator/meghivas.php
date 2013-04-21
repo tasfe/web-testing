@@ -1,4 +1,7 @@
 <?php
+header("Content-Type: text/html; charset=utf-8");
+?>
+<?php
 function meghivas($kerdesek,$pont, $user, $answers, $pontok, $R=0, $G=0, $B=0) {
   require('report.php');
   $generator = new report();
