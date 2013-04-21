@@ -3,10 +3,12 @@
 
 <head>
   <title>Tesztelő rendszer</title>
+  <title>Tesztelő rendszer</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/image_slide.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
 </head>
 
@@ -15,9 +17,11 @@
     <div id="header">
 	  <div id="banner">
 	    <div id="welcome">
+	      <h1><span>Tesztelő</span> rendszer</h1>
 	      <h1>Tesztelő rendszer</h1>
 	    </div><!--close welcome-->
 	    <div id="welcome_slogan">
+	      <h1><span>"Szeretnünk és ápolnunk kell a tévedést,</span> mert ő a megismerés anyaöle." (Nietzsche)</h1>
 	      <h1>"Szeretnünk és ápolnunk kell a tévedést, mert ő a megismerés anyaöle." (Nietzsche)</h1>
 	    </div><!--close welcome_slogan-->
 	  </div><!--close banner-->
@@ -62,44 +66,8 @@
 					<p><span>Még nem regisztráltál?</span></p>
 					<p><span>Itt megteheted:</span></p>
 					</td>
+					<form action="regisztracio.php" type="post" ><td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_submitted" value="Regisztráció" /></td></form>			
 					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_submitted" value="Regisztráció" /></td>
-				<tr style="visibility: hidden; display:none;">
-					<td style="padding-top: 15px"><span>Családnév:</span></td>
-					<td style="padding-top: 15px"><input class="contact" type="text" name="registration_surname" value="" /></td>
-				</tr>
-				<tr style="visibility: hidden; display:none;">
-					<td><span>Keresztnév:</span></td>
-					<td><input class="contact" type="text" name="registration_first_name" value="" /></td>
-				</tr>								
-				<tr style="visibility: hidden; display:none;">
-					<td><span>Email cím:</span></td>
-					<td><input class="contact" type="text" name="registration_email" value="" /></td>
-				</tr>
-				<tr style="visibility: hidden; display:none;">
-					<td><span>Város:</span></td>
-					<td><input class="contact" type="text" name="registration_city" value="" /></td>
-				</tr>
-				<tr style="visibility: hidden; display:none;">
-					<td><span>Születési dátum(év, hónap, nap):</span></td>
-					<td>
-					<select name = "year">
-					<option value = "1991">1991
-					<option value = "1992" selected = "selected">1992
-					</select>
-					<select name = "month">
-					<option value = "1">1
-					<option value = "2" selected = "selected">2
-					</select>
-					<select name = "day">
-					<option value = "1">1
-					<option value = "2" selected = "selected">2
-					</select>										
-					</td>
-				</tr>				
-				<tr style="visibility: hidden; display:none;">
-					<td>&nbsp;</td>
-					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_form_submitted" value="Mehet" /></td>
-				</tr>				
 			</table>
 	      </div><!--close form_settings-->
 		</div><!--close content_item-->
@@ -110,6 +78,7 @@
     <br></br>
  
     <div id="content_grey">  
+      <p>Hasonló weboldalak</p>   
       <p>Hasonlo weboldalak</p>   
 	  <br style="clear:both"/>
     </div><!--close content_grey-->  
