@@ -1,13 +1,11 @@
 <?php
-function meghivas($teszt, $R=0, $G=0, $B=0) {
-  require('readQuestion.php');
+function meghivas($kerdesek, $R=0, $G=0, $B=0) {
   require('report.php');
   $generator = new report("valaki", "valami");
   $generator->irdKi($R, $G, $B);
-  $pont = readOneCorrectPoint($teszt);
-  $num = readQnumber($teszt);
+  $num = count($kerdesek);
   for($i = 0; $i <$num; ++$i) {
- 	$x = readQ($i, $teszt);
+ 	$x = $kerdesek[$i];
  	if($x[0] === 'ok')
  		$generator->ujKerdes($x, $pont[0]);
  	
