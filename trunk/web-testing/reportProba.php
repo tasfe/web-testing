@@ -45,5 +45,8 @@ require("readQuestion.php");
   $pont = readOneCorrectPoint('xml/Proba.xml');
   // elért pontok :
   $pontok = 5;
+  // Generálás meghívása:
  meghivas($kerdesek,$pont, $felhasznalo, $ans, $pontok);
+ // vagy: 
+ //meghivas($kerdesek,$pont, $felhasznalo, $ans, $pontok, 100, 20, 30);
 ?>
