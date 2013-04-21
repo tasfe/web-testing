@@ -69,6 +69,8 @@
 		$dom->load($teszt);
 		$tt = $dom->getElementsByTagName('teszt');
 		
+		$kerdesek_szama = readQnumber($teszt);
+		
 		foreach ($tt as $t) {
 			$helyes_pont = $t->getElementsByTagName('egyhelyesvalaszp')
 			->item(0)

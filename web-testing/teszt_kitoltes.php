@@ -39,8 +39,45 @@
                       if (!empty($_POST['q'])) echo $_POST['q']-1;
                       else echo "0";
                     ?></li>
-        <li>Eddig elért pontszám:<?php if (!empty($_POST['p'])) echo $_POST['p'];
-                      else echo "0";?>/<?php echo readPoints("tests/AlgebraelmH.xml");?></li>
+        <li>Eddig elért pontszám:<?php 
+        							if (!empty($_POST['p'])) {
+
+										$pont = 0;
+										$helyes = 0;
+										$check = readOneCorrectPoint("tests/AlgebraelmH.xml");
+										$reply = readQ($_POST['q']-2, "tests/AlgebraelmH.xml");
+										
+										$answers = 0;
+										foreach ($reply as $r)
+											$answers++;
+										for ($i=3; $i < $answers; $i++) {
+											if (($i % 2 == 1) && ($reply[$i] == "true"))
+												$helyes++;
+										}
+										
+										if(!empty($_POST['valasz'])) {
+											foreach($_POST['valasz'] as $bejelolt) {
+												$index = 3 + 2*$bejelolt;
+												//echo $bejelolt;
+												//echo $reply[$index];
+												if ($reply[$index] == "true") {
+													$pont++;
+												}
+											}
+										}
+										
+										if ($helyes == $pont) {
+											$pont = $pont*$check[0];
+										} else {
+											if ($check[1] == "igen")
+												$pont = $pont*$check[0];
+											else
+												$pont = 0;
+										}
+										
+										echo $_POST['p']+$pont;
+										}
+                      				else echo "0";?>/<?php echo readPoints("tests/AlgebraelmH.xml");?></li>
       </ul>
       </div>
     </div><!--close menubar-->	
@@ -85,46 +122,17 @@
 			<input type="hidden" name="q" value="
 			<?php 
 			
+			
 			if (!empty($_POST['q'])) echo $_POST['q']+1;
                       else echo "2";
             ?>
 			"/>
 			<input type="hidden" name="p" value="
 			<?php
-			$pont = 0;
-			$helyes = 0;
-			$check = readOneCorrectPoint("tests/AlgebraelmH.xml");
-			
-			for ($i=3; $i < $answers; $i++) {
-				if (($i % 2 == 1) && ($reply[$i] == "true"))
-					$helyes++;
-			}
-			
-			if(!empty($_POST['valasz'])) {
-				foreach($_POST['valasz'] as $bejelolt) {
- 					$index = 3 + 2*$bejelolt;
-					//echo $bejelolt;
- 					if ($reply[$index] == "true") {
-						$pont++;	
- 					}
-				}
-			} else echo "itt";
-			
-			if ($helyes == $pont) {
-				$pont = $pont*$check[0];
-			} else {
-				if ($check[1] == "igen")
-					$pont = $pont*$check[0];
-				else
-					$pont = 0;
-			}
-
-			if (!empty($_POST['p']))
-				echo $_POST['p'] + $pont;
-			else
-				echo $pont;
+			if (!empty($_POST['p'])) echo $_POST['p']+$pont;
+					else echo "0";
             ?>
-			"/>
+ 			"/>
 			</font></p>
 			</form>          
 					  
@@ -141,9 +149,6 @@
       </div><!--close content-->  
 	  
 	</div><!--close site_content--> 
-    
-	
-		  
   
 
 	<br></br>
