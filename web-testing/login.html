@@ -3,12 +3,10 @@
 
 <head>
   <title>Tesztelő rendszer</title>
-  <title>Tesztelő rendszer</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/image_slide.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
 </head>
 
@@ -18,11 +16,9 @@
 	  <div id="banner">
 	    <div id="welcome">
 	      <h1><span>Tesztelő</span> rendszer</h1>
-	      <h1>Tesztelő rendszer</h1>
 	    </div><!--close welcome-->
 	    <div id="welcome_slogan">
 	      <h1><span>"Szeretnünk és ápolnunk kell a tévedést,</span> mert ő a megismerés anyaöle." (Nietzsche)</h1>
-	      <h1>"Szeretnünk és ápolnunk kell a tévedést, mert ő a megismerés anyaöle." (Nietzsche)</h1>
 	    </div><!--close welcome_slogan-->
 	  </div><!--close banner-->
     </div><!--close header-->
@@ -31,7 +27,6 @@
       <ul id="menu">
         <li><a href="index.php">Főoldal</a></li>
         <li class="current"><a href="login.html">Bejelentkezés</a></li>
-        <li><a href="test.html">Tesztek</a></li>
       </ul>
     </div><!--close menubar-->
 	
@@ -46,6 +41,7 @@
         <div class="content_item">
 		  <div class="form_settings"> 
 			<table  border="0" cellpadding="2" cellspacing="10" align = "center">
+			<form action="bejelentkezes/check_login.php" method="post" >
 				<tr>
 					<td colspan="2"><h2>Bejelentkezés</h2></td>
 				</tr>
@@ -59,15 +55,15 @@
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Bejelentkezés" /></td>
+					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="login_button" value="Bejelentkezés" /></td>
 				</tr>
+				</form>
 				<tr>
 					<td>
 					<p><span>Még nem regisztráltál?</span></p>
 					<p><span>Itt megteheted:</span></p>
 					</td>
-					<form action="regisztracio.php" type="post" ><td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_submitted" value="Regisztráció" /></td></form>			
-					<td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_submitted" value="Regisztráció" /></td>
+					<form action="regisztracio/regisztracio.php" method="post" ><td style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="registration_submitted" value="Regisztráció" /></td></form>		
 			</table>
 	      </div><!--close form_settings-->
 		</div><!--close content_item-->
@@ -78,8 +74,7 @@
     <br></br>
  
     <div id="content_grey">  
-      <p>Hasonló weboldalak</p>   
-      <p>Hasonlo weboldalak</p>   
+      <p>Hasonló weboldalak</p>     
 	  <br style="clear:both"/>
     </div><!--close content_grey-->  
 
