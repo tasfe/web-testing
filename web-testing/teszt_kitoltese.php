@@ -11,6 +11,19 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
+  <script type = "text/javascript">
+function checkTheBox() {
+	obj = document.answers.elements("valasz[]");
+	for (i = 0; i < obj.length; i++) {
+		if (obj[i].checked) {
+	        return true;
+	        }
+        }
+    alert("Nem jelöltél be választ!");
+    return false;
+}
+</script>
+  
 </head>
 
 <body>
@@ -23,7 +36,7 @@
 	 
 	  <div id="content">
         <div class="content_item" align = "left">
-        <form action="teszt_kitoltese.php" method="post">
+        <form name="answers" action="teszt_kitoltese.php" method="post" onsubmit="return checkTheBox();">
 						<?php
 						include 'readQuestion.php';
                       if (empty($_POST['q'])) {
@@ -73,6 +86,10 @@
 													$index = 3 + 2*$bejelolt;
 													if ($reply2[$index] == "true") {
 														$pont++;
+													}
+													else {
+														$pont = 0;
+														break;
 													}
 												}
 											}
@@ -175,6 +192,10 @@
 													$index = 3 + 2*$bejelolt;
 													if ($reply2[$index] == "true") {
 														$pont++;
+													}
+													else {
+														$pont = 0;
+														break;
 													}
 												}
 											}
