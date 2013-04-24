@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teszt>
+	<cim>
+		Oszthatóság
+	</cim>
+	<feladat>
+		<kerdes>Ha c osztója a-nak és b-nek akkor c osztója (a+b)-nek és (a-b)-nek is.</kerdes>
+		<valasz>
+			<szoveg>Igaz</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Csak (a+b)-nek</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Csak (a-b)-nek</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Egyiknek se</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy páros szám mindig osztható 6-al?</kerdes>
+		<valasz>
+			<szoveg>Igen, mindig</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Nem, csak a páratlanok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Igen, ha a szám osztható 3-al is</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy szám akkor osztható 5-el, ha</kerdes>
+		<valasz>
+			<szoveg>Ha utolsó számjegye 0</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Ha utolsó számjegye 5</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Ha páratlan a szám</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Ha c osztója (a+b)-nek és a-nak is, akkor c osztója b-nek is.</kerdes>
+		<valasz>
+			<szoveg>Hamis</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Igaz</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Nem lehet pontosan eldönteni.</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy szám akkor prím, ha...</kerdes>
+		<valasz>
+			<szoveg>Csak 1-el osztható.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Csak 1-el és önmagával osztható.</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Nem osztható egyetlen számmal sem.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mikor osztható egy szám 9-cel?</kerdes>
+		<valasz>
+			<szoveg>Ha a szám számjegyeinek összege osztható 3-mal.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Ha a szám számjegyeinek összege osztható 9-cel.</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Ha a szám utolsó számjegye 9.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy szám osztható 10-el, ha</kerdes>
+		<valasz>
+			<szoveg>a szám utolsó számjegye páros</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>a szám osztható 2-vel és 5-el</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>utolsó számjegye 0</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy c pozitív egész számot az a és b pozitív egész számok közös osztójának nevezzük, ha c a-t és b-t is osztja.</kerdes>
+		<valasz>
+			<szoveg>Igaz</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Hamis</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Nem teljesen igaz.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy páros számot nem lehet 3-al elosztani úgy, hogy a maradék 0 legyen.</kerdes>
+		<valasz>
+			<szoveg>Igaz</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Hamis</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<egyhelyesvalaszp>5</egyhelyesvalaszp>
+	<reszpont>igen</reszpont>
+	<jellemzok>
+		<kategoria>Algebra Elmelet</kategoria>
+		<kitoltesszam>4</kitoltesszam>
+		<helyesvalaszszam>2</helyesvalaszszam>
+	</jellemzok>
+</teszt>

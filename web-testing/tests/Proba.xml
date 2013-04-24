@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teszt>
+	<cim>
+		Összeadás
+	</cim>
+	<feladat>
+		<kerdes>Mennyi 2 alma + 3 alma?</kerdes>
+		<valasz>
+			<szoveg>5 alma</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>6 alma</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>4 alma</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi 35 + 102?</kerdes>
+		<valasz>
+			<szoveg>155</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>452</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>137</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<egyhelyesvalaszp>5</egyhelyesvalaszp>
+	<reszpont>igen</reszpont>
+	<jellemzok>
+		<kategoria>Algebra gyakorlat</kategoria>
+		<kitoltesszam>3</kitoltesszam>
+		<helyesvalaszszam>1</helyesvalaszszam>
+	</jellemzok>
+</teszt>
