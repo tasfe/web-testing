@@ -81,9 +81,13 @@ function checkTheBox() {
 													$helyes++;
 											}
 											
-																	
+											$ab_kimentes = "";
 											if(!empty($_POST['valasz'])) {
-												foreach($_POST['valasz'] as $bejelolt) {		
+												foreach($_POST['valasz'] as $bejelolt) {
+													$ab_kimentes = $ab_kimentes . $bejelolt . ",";
+												}
+
+												foreach($_POST['valasz'] as $bejelolt) {
 													$index = 3 + 2*$bejelolt;
 													if ($reply2[$index] == "true") {
 														$pont++;
@@ -95,6 +99,8 @@ function checkTheBox() {
 												}
 											}
 										
+											//echo $ab_kimentes;
+											
 											if ($helyes == $pont) {
 												$pont = $pont*$check[0];
 											} 
@@ -189,7 +195,12 @@ function checkTheBox() {
 													$helyes++;
 											}
 										
+											$ab_kimentes = "";
 											if(!empty($_POST['valasz'])) {
+												foreach($_POST['valasz'] as $bejelolt) {
+													$ab_kimentes = $ab_kimentes . $bejelolt . ",";
+												}
+
 												foreach($_POST['valasz'] as $bejelolt) {
 													$index = 3 + 2*$bejelolt;
 													if ($reply2[$index] == "true") {
@@ -202,6 +213,8 @@ function checkTheBox() {
 												}
 											}
 										
+											//echo $ab_kimentes;
+											
 											if ($helyes == $pont) {
 												$pont = $pont*$check[0];
 											} 
