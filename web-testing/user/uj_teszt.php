@@ -80,130 +80,136 @@
 					<p>A teszteket az alábbi kategóriákból választhatod ki.
 						Kívánunk hasznos időtöltést és jó tanulást!</p>
 
-					<table class="categories">
+					<?php include '../readTests.php';?>
+					<table  border="0" cellpadding="2" cellspacing="10" align = "center">
 						<tr>
-							<th rowspan="2" align="right"><img src="../images/algebra_icon.png" alt="image1" height="50"/></th>
+							<th rowspan="2" align="center"><img src="../images/algebra_icon.png" alt="image1" height="50"/></th>
 						</tr>
 						<tr>
-							<th>Algebra elmélet</th>
+							<th align="center">Algebra elmélet</th>
 							<td></td>
 						</tr>
 						<tr>
-							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
+							<td></td><?php
+							$tesztek = readTestName("Algebra elmélet");
+							if ($tesztek[0] == "ok")
+								foreach ($tesztek as $t) {
+									if ($t != "ok") {
+								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+								}
+								}
+							?>
 						</tr>
 						<tr>
 							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><a href="../alg_elm.html" ><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td>
-							<td></td>
-						</tr>
-						</table>
-						<hr>
-					<table class="categories">
-						<tr>
-							<th rowspan="2" align="right"><img src="../images/algebra_icon.png" alt="image1" height="50"/></th>
-						</tr>
-						<tr>
-							<th>Algebra gyakorlat</th>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><a href="../alg_gyak.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td>
+<!-- 							<td><a href="../alg_elm.html" ><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
 							<td></td>
 						</tr>
 						</table>
 						<hr>
-					<table class="categories">
+					<table  border="0" cellpadding="2" cellspacing="10" align = "center">
 						<tr>
-							<th rowspan="2" align="right"><img src="../images/geom_icon.png" alt="image1" height="50"/></th>
+							<th rowspan="2" align="center"><img src="../images/algebra_icon.png" alt="image1" height="50"/></th>
 						</tr>
 						<tr>
-							<th>Mértan elmélet</th>
+							<th align="center">Algebra gyakorlat</th>
 							<td></td>
 						</tr>
 						<tr>
-							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
+							<td></td><?php
+							$tesztek = readTestName("Algebra gyakorlat");
+							if ($tesztek[0] == "ok")
+								foreach ($tesztek as $t) {
+									if ($t != "ok") {
+								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+								}
+								}
+							?>
 						</tr>
 						<tr>
 							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><a href="../geo_elm.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td>
-							<td></td>
-						</tr>
-						</table>
-						<hr>
-					<table class="categories">
-						<tr>
-							<th rowspan="2" align="right"><img src="../images/geom_icon.png" alt="image1" height="50"/></th>
-						</tr>
-						<tr>
-							<th>Mértan gyakorlat</th>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><a href="../geo_gyak.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td>
+<!-- 							<td><a href="../alg_gyak.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
 							<td></td>
 						</tr>
 						</table>
 						<hr>
-					<table class="categories">
+					<table  border="0" cellpadding="2" cellspacing="10" align = "center">
 						<tr>
-							<th rowspan="2" align="right"><img src="../images/geom_icon.png" alt="image1" height="50"/></th>
+							<th rowspan="2" align="center"><img src="../images/geom_icon.png" alt="image1" height="50"/></th>
 						</tr>
 						<tr>
-							<th>Összefoglalók</th>
+							<th align="center">Mértan elmélet</th>
 							<td></td>
 						</tr>
 						<tr>
-							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
+							<td></td><?php
+							$tesztek = readTestName("Mértan elmélet");
+							if ($tesztek[0] == "ok")
+								foreach ($tesztek as $t) {
+									if ($t != "ok") {
+								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+								}
+								}
+							?>
 						</tr>
 						<tr>
 							<td></td>
-							<td>Teszt 2</td>
-							<td>Teszt 3</td>
+<!-- 							<td><a href="../geo_elm.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
+							<td></td>
+						</tr>
+						</table>
+						<hr>
+					<table  border="0" cellpadding="2" cellspacing="10" align = "center">
+						<tr>
+							<th rowspan="2" align="center"><img src="../images/geom_icon.png" alt="image1" height="50"/></th>
+						</tr>
+						<tr>
+							<th align="center">Mértan gyakorlat</th>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td><?php
+							$tesztek = readTestName("Mértan gyakorlat");
+							if ($tesztek[0] == "ok")
+								foreach ($tesztek as $t) {
+									if ($t != "ok") {
+								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+								}
+								}
+							?>
 						</tr>
 						<tr>
 							<td></td>
-							<td><a href="../osszef.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td>
+<!-- 							<td><a href="../geo_gyak.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
 							<td></td>
 						</tr>
-					</table>
+						</table>
+						<hr>
+					<table  border="0" cellpadding="2" cellspacing="10" align = "center">
+						<tr>
+							<th rowspan="2" align="center"><img src="../images/geom_icon.png" alt="image1" height="50"/></th>
+						</tr>
+						<tr>
+							<th align="center">Összefoglalók</th>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td><?php
+							$tesztek = readTestName("Összefoglalók");
+							if ($tesztek[0] == "ok")
+								foreach ($tesztek as $t) {
+									if ($t != "ok") {
+								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+								}
+								}
+							?>
+						</tr>
+						<tr>
+							<td></td>
+<!-- 							<td><a href="../osszef.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
+							<td></td>
+						</tr>
+						</table>
 
 					<br></br> <br></br>
 	      
