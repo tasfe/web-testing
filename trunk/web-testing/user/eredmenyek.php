@@ -50,7 +50,7 @@
 					<div class="sidebar">
 						<div class="sidebar_item">
 							<a href="szemelyes_adatok.php"><h2>Személyes adatok</h2> </a>
-							<p>A fenti menűpont alatt megtekintheted a regisztráció során
+							<p>A fenti menüpont alatt megtekintheted a regisztráció során
 								megadott adataid.</p>
 						</div>
 						<!--close sidebar_item-->
@@ -59,7 +59,7 @@
 					<div class="sidebar">
 						<div class="sidebar_item">
 							<a href="uj_teszt.php"><h2>Új teszt kitöltése</h2> </a>
-							<p>A fenti menűpont alatt kitölthetsz egy tesztet.</p>
+							<p>A fenti menüpont alatt kitölthetsz egy tesztet.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -67,7 +67,7 @@
 					<div class="sidebar">
 						<div class="sidebar_item">
 							<a href="kitoltott_tesztek.php"><h2>Kitöltött tesztek</h2> </a>
-							<p>A fenti menűpont alatt megnézheted, illetve letöltheted a már
+							<p>A fenti menüpont alatt megnézheted, illetve letöltheted a már
 								kitöltött tesztjeid.</p>
 						</div>
 						<!--close sidebar_item-->
@@ -76,7 +76,7 @@
 					<div class="sidebar">
 						<div class="sidebar_item">
 							<h2>Eredmények</h2>
-							<p>A fenti menűpont alatt megnézheted az eddig elért eredmenyeid</p>
+							<p>A fenti menüpont alatt megnézheted az eddig elért eredmenyeid</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
