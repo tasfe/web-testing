@@ -5,77 +5,76 @@ function reg_check(){
 	global $hibak;
 	$hibak = array();
 	//csaladnev pipa
-	//echo strlen($_POST['reg_surname']);
 	if(strlen($_POST['reg_surname']) < 3)
 	{
-		echo "A családnév legalább 3 betûs legyen, kitöltése pedig kötelezõ ! <br/>";
-		$hibak['reg_surname'] = 'A családnév legalább 3 betûs legyen, kitöltése pedig kötelezõ';
+		echo "A csalÃ¡dnÃ©v legalÃ¡bb 3 betÅ±s legyen, kitÃ¶ltÃ©se pedig kÃ¶telezÅ‘ ! <br/>";
+		$hibak['reg_surname'] = 'A csalÃ¡dnÃ©v legalÃ¡bb 3 betÅ±s legyen, kitÃ¶ltÃ©se pedig kÃ¶telezÅ‘';
 	}
-	else if (!preg_match('/[-a-zA-ZáéíóöüóûãîâºşÁÉÍÓÖÜÕÛÃÎÂªŞ]*/', $_POST['reg_surname']))
+	else if (!preg_match('/[-a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ¼Ã¶Å±Å‘ÃÃ‰ÃÃšÅ°ÅÃ“ÃœÃ–ÅŸÅ£ÄƒÃ®Ã¢ÅÅ¢Ä‚ÃÃ‚]*/', $_POST['reg_surname']))
 	{
-		echo "A családnévben csak a magyar és román ábécé kis - és nagybetûi engedélyezettek!<br/>";
-		$hibak['reg_surname'] = 'A családnévben csak a magyar ábécé kis - és nagybetûi engedélyezettek';
+		echo "A csalÃ¡dnÃ©vben csak a magyar Ã©s romÃ¡n Ã¡bÃ©cÃ© kis - Ã©s nagybetÅ±i engedÃ©lyezettek!<br/>";
+		$hibak['reg_surname'] = 'A csalÃ¡dnÃ©vben csak a magyar Ã¡bÃ©cÃ© kis - Ã©s nagybetÅ±i engedÃ©lyezettek';
 	}
 	
 	//keresztnev pipa
 	if(strlen($_POST['reg_first_name']) < 3)
 	{
-		echo "A keresztnév legalább 3 betûs legyen, kitöltése pedig kötelezõ<br/>";
-		$hibak['reg_first_name'] = 'A keresztnév legalább 3 betûs legyen, kitöltése pedig kötelezõ';
+		echo "A keresztnÃ©v legalÃ¡bb 3 betÅ±s legyen, kitÃ¶ltÃ©se pedig kÃ¶telezÅ‘<br/>";
+		$hibak['reg_first_name'] = 'A keresztnÃ©v legalÃ¡bb 3 betÅ±s legyen, kitÃ¶ltÃ©se pedig kÃ¶telezÅ‘';
 	}
-	else if (!preg_match('/[-a-zA-ZáéíóöüóûãîâºşÁÉÍÓÖÜÕÛÃÎÂªŞ]*/', $_POST['reg_first_name']))
+	else if (!preg_match('/[-a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ¼Ã¶Å±Å‘ÃÃ‰ÃÃšÅ°ÅÃ“ÃœÃ–ÅŸÅ£ÄƒÃ®Ã¢ÅÅ¢Ä‚ÃÃ‚]*/', $_POST['reg_first_name']))
 	{
-		echo "A keresztnévben csak a magyar és román ábécé kis - és nagybetûi engedélyezettek!<br/>";
-		$hibak['reg_first_name'] = 'A keresztnévben csak a magyar ábécé kis - és nagybetûi engedélyezettek';
+		echo "A keresztnÃ©vben csak a magyar Ã©s romÃ¡n Ã¡bÃ©cÃ© kis - Ã©s nagybetÅ±i engedÃ©lyezettek!<br/>";
+		$hibak['reg_first_name'] = 'A csalÃ¡dnÃ©vben csak a magyar Ã¡bÃ©cÃ© kis - Ã©s nagybetÅ±i engedÃ©lyezettek';
 		$szam=$szam+1;
 	}
 	
 	//e-mail cim pipa
 	if (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/', $_POST['email']))
 	{
-		echo "Hibás e-mail cím és az e-mail kitöltése kötelezõ!<br/>";
-		$hibak['email'] = 'Hibás e-mail cím és az e-mail kitöltése kötelezõ!';
+		echo "HibÃ¡s e-mail cÃ­m Ã©s az e-mail kitÃ¶ltÃ©se kÃ¶telezÅ‘!<br/>";
+		$hibak['email'] = 'HibÃ¡s e-mail cÃ­m Ã©s az e-mail kitÃ¶ltÃ©se kÃ¶telezÅ‘!';
 	}
 
 	//jelszo1 pipa
 	if (strlen($_POST['your_password']) < 5)
 	{
-		echo "A jelszónak legalább 5 karakterbõl kell állnia, es kitöltése kötelezõ!<br/>";
-		$hibak['your_password'] = 'A jelszónak legalább 5 karakterbõl kell állnia, es kitöltése kötelezõ!';
+		echo "A jelszÃ³nak legalÃ¡bb 5 karakterbÅ‘l kell Ã¡llnia, es kitÃ¶ltÃ©se kÃ¶telezÅ‘!<br/>";
+		$hibak['your_password'] = 'A jelszÃ³nak legalÃ¡bb 5 karakterbÅ‘l kell Ã¡llnia, Ã©s kitÃ¶ltÃ©se kÃ¶telezÅ‘!';
 		
 	}
 	
 	//jelszo2 pipa
 	if (strcmp($_POST['your_password'],$_POST['your_password2']) != 0)
 	{
-		echo "Helytelen jelszó megerõsítés.<br/>";
-		$hibak['your_password2'] = 'Helytelen jelszó megerõsítés.';
+		echo "Helytelen jelszÃ³ megerÅ‘sÃ­tÃ©s.<br/>";
+		$hibak['your_password2'] = 'Helytelen jelszÃ³ megerÅ‘sÃ­tÃ©s.';
 	}
 	
 	//telepules pipa
 	if(strlen($_POST['city']) < 3)
 	{
-		echo "A település neve legalább 4 betûs legyen, kitöltése pedig kötelezõ!<br/>";
-		$hibak['city'] = 'A település neve legalább 4 betûs legyen, kitöltése pedig kötelezõ';
+		echo "A telepÃ¼lÃ©s neve legalÃ¡bb 4 betÅ±s legyen, kitÃ¶ltÃ©se pedig kÃ¶telezÅ‘!<br/>";
+		$hibak['city'] = 'A telepÃ¼lÃ©s neve legalÃ¡bb 4 betÅ±s legyen, kitÃ¶ltÃ©se pedig kÃ¶telezÅ‘!';
 	}
-	else if (!preg_match('/[-a-zA-ZáéíóöüóûãîâºşÁÉÍÓÖÜÕÛÃÎÂªŞ]*/', $_POST['city']))
+	else if (!preg_match('/[-a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ¼Ã¶Å±Å‘ÃÃ‰ÃÃšÅ°ÅÃ“ÃœÃ–ÅŸÅ£ÄƒÃ®Ã¢ÅÅ¢Ä‚ÃÃ‚]*/', $_POST['city']))
 	//else if (!preg_match('/^[[:alpha:]]+$/', $_POST['city']))
 	{
-		echo "A város nevében csak a magyar és román ábécé kis - és nagybetûi engedélyezettek!<br/>";
-		$hibak['city'] = 'A város nevében csak a magyar ábécé kis - és nagybetûi engedélyezettek';
+		echo "A vÃ¡ros nevÃ©ben csak a magyar Ã©s romÃ¡n Ã¡bÃ©cÃ© kis - Ã©s nagybetÅ±i engedÃ©lyezettek!<br/>";
+		$hibak['city'] = 'A vÃ¡ros nevÃ©ben csak a magyar Ã©s romÃ¡n Ã¡bÃ©cÃ© kis - Ã©s nagybetÅ±i engedÃ©lyezettek!';
 	}
-	//szuletesi dátum pipa
+	//szuletesi dï¿½tum pipa
 	if(!preg_match('/^(19|20)\d\d[- \.](0[1-9]|1[012])[- \.](0[1-9]|[12][0-9]|3[01])[\.]$/',$_POST['date_of_birth']))
 	{
-		echo "A születési dátumot a következõ formában adja meg : év.hónap.nap. !<br/>";
-		$hibak['date_of_birth'] = 'A születési dátumot a következõ formában adja meg : év.hónap.nap. ';
+		echo "A szÃ¼letÃ©si dÃ¡tumot a kÃ¶vetkezÅ‘ formÃ¡ban adja meg : Ã©v.hÃ³nap.nap. !<br/>";
+		$hibak['date_of_birth'] = 'A szÃ¼letÃ©si dÃ¡tumot a kÃ¶vetkezÅ‘ formÃ¡ban adja meg : Ã©v.hÃ³nap.nap. ';
 	}
 	//telefonszam pipa
 	if(strlen($_POST['tel_nr']) > 0)
 		if (!preg_match('/^[0-9\+]{10,14}$/', $_POST['tel_nr']))
 		{
-			echo "Hibas telefonszam!<br/>";
-			$hibak['tel_nr'] = 'Hibas telefonszam!';
+			echo "HibÃ¡s telefonszÃ¡m!<br/>";
+			$hibak['tel_nr'] = 'HibÃ¡s telefonszÃ¡m!';
 		}
 		
 	if ($hibak)
@@ -93,27 +92,27 @@ if(reg_check() == "igaz") {
 	
 	//connection to the database
 	$dbhandle = mysql_connect($host, $user, $pass)
-	or die("Unable to connect to MySQL");
-	echo "Connected to MySQL<br>";
+	or die("Nem lehet kapcslodni MySQL-hez!");
+	echo "KapcsolÃ³dva a MySQL-hez<br>";
 	
 	//select a database to work with
 	$selected = mysql_select_db($db)
-	or die("Could not select database");
+	or die("Nem sikerÃ¼lt kapcsolÃ³dni az adatbÃ¡zishoz!");
 	
-	//mysql_query("INSERT INTO `adatok` VALUES (0,'laszlorenata@yahoo.com',1234,'laszlo', 'renata','1991.06.14.','Kolozsvar','0751617904' )");
-	
-	$select = mysql_query("SELECT adatok.emailcím FROM adatok WHERE adatok.emailcím = '$_POST[email]'");
-	if(mysql_num_rows($select) > 0 ) { //check if there is already an entry for that username
+	$select = mysql_query("SELECT adatok.emailcim FROM adatok WHERE adatok.emailcim='$_POST[email]'");
+	if(!$select) {
+		die('Nem megfelelÅ‘ lekÃ©rdezÃ©s: '.mysql_error());
+	}
+	if(mysql_num_rows($select) == 1 ) { //check if there is already an entry for that username
 		echo "Ezzel az e-mail cimmel mar valaki regisztralt. Kerem probalja meg egy masik hasznalatat! <br/>";
 	} else {
-		mysql_query("TRUNCATE adatok.idadatok");
+		//mysql_query("TRUNCATE adatok.idadatok");
 		mysql_query("INSERT INTO adatok VALUES (0,'$_POST[email]','$_POST[your_password]','$_POST[reg_surname]','$_POST[reg_first_name]','$_POST[date_of_birth]','$_POST[city]','$_POST[tel_nr]')");
 	}
 }
 else {
-	echo 'Nem megfelelõ adatok! Kérem ellenõrizze õket!';
+	echo 'Nem megfelelÅ‘ adatok! KÃ©rem ellenÅ‘rizze Å‘ket!';
 	//header('location:regisztracio.php');
 }
-
 
 ?>

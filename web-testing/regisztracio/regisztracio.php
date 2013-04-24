@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-  <title>Tesztelõ rendszer</title>
+  <title>TesztelÅ‘ rendszer</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
   <link rel="stylesheet" type="text/css" href="../css/style.css" />
@@ -15,31 +15,31 @@
     <div id="header">
 	  <div id="banner">
 	    <div id="welcome">
-	      <h1><span>Tesztelõ</span> rendszer</h1>
+	      <h1><span>TesztelÅ‘</span> rendszer</h1>
 	    </div><!--close welcome-->
 	    <div id="welcome_slogan">
-	      <h1><span>"Szeretnünk és ápolnunk kell a tévedést,</span> mert õ a megismerés anyaöle." (Nietzsche)</h1>
+	      <h1><span>"SzeretnÃ¼nk Ã©s Ã¡polnunk kell a tÃ©vedÃ©st,</span> mert Å‘ a megismerÃ©s anyaÃ¶le." (Nietzsche)</h1>
 	    </div><!--close welcome_slogan-->
 	  </div><!--close banner-->
     </div><!--close header-->
 
 	<div id="menubar">
       <ul id="menu">
-        <li><a href="../index.php">Fõoldal</a></li>
-        <li class="current"><a href="../login.html">Bejelentkezés</a></li>
+        <li><a href="../index.php">FÅ‘oldal</a></li>
+        <li class="current"><a href="../login.html">BejelentkezÃ©s</a></li>
       </ul>
     </div><!--close menubar-->
 	
 	<div id="site_content" align = "center">	     		
 	
       <ul class="slideshow">
-        <li class="show"><img width="680" height="250" src="../images/home_1.jpg" alt="&quot;Enter your caption here&quot;" /></li>
-        <li><img width="680" height="250" src="../images/home_2.jpg" alt="&quot;Enter your caption here&quot;" /></li>
+        <li class="show"><img width="680" height="250" src="../images/home_1.jpg" alt="." /></li>
+        <li><img width="680" height="250" src="../images/home_2.jpg" alt="." /></li>
       </ul> 	   
 
       <br></br>
-      <h2 align="center">Regisztráció</h2>
-      <p align="center">FONTOS : A *-al jelolt mezoket kotelezo modon ki kell toltened!</p>
+      <h2 align="center">RegisztrÃ¡ciÃ³</h2>
+      <p align="center">FONTOS : A *-al jelÃ¶lt mezÅ‘ket kÃ¶telezÅ‘ mÃ³don ki kell tÃ¶ltened!</p>
       
 	  <div id="content">
         <div class="content_item">
@@ -47,35 +47,35 @@
 		  <form action = "insert.php" method = "post">
 			<table  border="0" cellpadding="2" cellspacing="10" align = "center">
 				<tr>
-					<td ><span><b>*Családnév:</b></span></td>
+					<td ><span><b>*CsalÃ¡dnÃ©v:</b></span></td>
 					<td><input class="contact" type="text" name="reg_surname" value="" /></td>
 				</tr>		
 				<tr>
-					<td><span><b>*Keresztnév:</b></span></td>
+					<td><span><b>*KeresztnÃ©v:</b></span></td>
 					<td><input class="contact" type="text" name="reg_first_name" value="" /></td>
 				</tr>						
 				<tr>
-					<td><span><b>*Email cím:</b></span></td>
+					<td><span><b>*Email cÃ­m:</b></span></td>
 					<td><input class="contact" type="text" name="email" value="" /></td>
 				</tr>
 				<tr>
-					<td><span><b>*Jelszó:</b></span></td>
+					<td><span><b>*JelszÃ³:</b></span></td>
 					<td><input class="contact" type="password" name="your_password" value="" /></td>
 				</tr>
 				<tr>
-					<td><span><b>*Jelszó megerõstése:</b></span></td>
+					<td><span><b>*JelszÃ³ megerÅ‘sÃ­tÃ©se:</b></span></td>
 					<td><input class="contact" type="password" name="your_password2" value="" /></td>
 				</tr>
 				<tr>
-					<td><span><b>*Település:</b></span></td>
+					<td><span><b>*TelepÃ¼lÃ©s:</b></span></td>
 					<td><input class="contact" type="text" name="city" value="" /></td>
 				</tr>
 				<tr>
-					<td><span><b>*Születési dátum(év.hónap.nap.):</b></span></td>	
+					<td><span><b>*SzÃ¼letÃ©si dÃ¡tum(Ã©v.hÃ³nap.nap.):</b></span></td>	
 					<td><input class="contact" type="date" name="date_of_birth" value="" /></td>
 				</tr>
 				<tr>
-					<td><span><b>Telefonszám:</b></span></td>
+					<td><span><b>TelefonszÃ¡m:</b></span></td>
 					<td><input class="contact" type="text" name="tel_nr" value="" /></td>
 				</tr>				
 				<tr>
@@ -92,7 +92,7 @@
     <br></br>
  
     <div id="content_grey">  
-      <p>Hasonló weboldalak</p>   
+      <p>HasonlÃ³ weboldalak</p>   
 	  <br style="clear:both"/>
     </div><!--close content_grey-->  
 
