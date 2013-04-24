@@ -28,7 +28,7 @@ function checkTheBox() {
 
 <body>
 	<?php
-		$tesztneve = "xml/Proba.xml"; 
+		$tesztneve = $_GET['nev'];
 	?>
 
     
@@ -36,7 +36,7 @@ function checkTheBox() {
 	 
 	  <div id="content">
         <div class="content_item" align = "left">
-        <form name="answers" action="teszt_kitoltese.php" method="post" onsubmit="return checkTheBox();">
+        <form name="answers" action="teszt_kitoltese.php?nev=<?php echo $tesztneve;?>" method="post" onsubmit="return checkTheBox();">
 						<?php
 						include 'readQuestion.php';
                       if (empty($_POST['q'])) {
@@ -80,9 +80,10 @@ function checkTheBox() {
 												if (($i % 2 == 1) && ($reply2[$i] == "true"))
 													$helyes++;
 											}
-										
+											
+																	
 											if(!empty($_POST['valasz'])) {
-												foreach($_POST['valasz'] as $bejelolt) {
+												foreach($_POST['valasz'] as $bejelolt) {		
 													$index = 3 + 2*$bejelolt;
 													if ($reply2[$index] == "true") {
 														$pont++;
@@ -174,6 +175,7 @@ function checkTheBox() {
 	      					<br></br>
 	      					
 	      					<?php
+	      						      					
 											$pont = 0;
 											$helyes = 0;
 											$check = readOneCorrectPoint($tesztneve);
