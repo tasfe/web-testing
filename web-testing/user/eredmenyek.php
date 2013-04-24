@@ -3,7 +3,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="../text/html; charset=utf-8">
-<title>Tesztelo rendszer</title>
+<title>Tesztelő rendszer</title>
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <script type="text/javascript" src="../js/jquery.min.js"></script>
@@ -18,14 +18,14 @@
 			<div id="banner">
 				<div id="welcome">
 					<h1>
-						<span>Tesztelo</span> rendszer
+						<span>Tesztelő</span> rendszer
 					</h1>
 				</div>
 				<!--close welcome-->
 				<div id="welcome_slogan">
 					<h1>
-						<span>"Szeretnunk es apolnunk kell a tevedest,</span> mert o a
-						megismeres anyaole." (Nietzsche)
+						<span>"Szeretnünk és ápolnunk kell a tévedést,</span> mert ő a
+						megismerés anyaöle." (Nietzsche)
 					</h1>
 				</div>
 				<!--close welcome_slogan-->
@@ -36,9 +36,9 @@
 
 		<div id="menubar">
 			<ul id="menu">
-				<li><a href="index.php">Fooldal</a></li>
+				<li><a href="index.php">Főoldal</a></li>
 				<li class="current"><a href="user.php">Profil</a></li>
-				<li><a href="logout.php">Kijelentkezes</a></li>
+				<li><a href="logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -49,8 +49,8 @@
 				<div class="sidebar_container">
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="szemelyes_adatok.php"><h2>Szemelyes adatok</h2> </a>
-							<p>A fenti menupont alatt megtekintheted a regisztracio soran
+							<a href="szemelyes_adatok.php"><h2>Személyes adatok</h2> </a>
+							<p>A fenti menűpont alatt megtekintheted a regisztráció során
 								megadott adataid.</p>
 						</div>
 						<!--close sidebar_item-->
@@ -58,26 +58,25 @@
 					<!--close sidebar-->
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="uj_teszt.php"><h2>Uj teszt kitoltese</h2> </a>
-							<p>A fenti menupont alatt kitolthetsz egy tesztet.</p>
-							<p>FIGYELEM: Minden tesztet maximum 3-szor tolthetsz ki.</p>
+							<a href="uj_teszt.php"><h2>Új teszt kitöltése</h2> </a>
+							<p>A fenti menűpont alatt kitölthetsz egy tesztet.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
 					<!--close sidebar-->
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="kitoltott_tesztek.php"><h2>Kitoltott tesztett</h2> </a>
-							<p>A fenti menupont alatt megnezheted, illetve letoltheted a mar
-								kitoltott tesztjeid.</p>
+							<a href="kitoltott_tesztek.php"><h2>Kitöltött tesztek</h2> </a>
+							<p>A fenti menűpont alatt megnézheted, illetve letöltheted a már
+								kitöltött tesztjeid.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
 					<!--close sidebar-->
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Eredmenyek</h2>
-							<p>A fenti menupont alatt megnezheted az eddig elert eredmenyeid</p>
+							<h2>Eredmények</h2>
+							<p>A fenti menűpont alatt megnézheted az eddig elért eredmenyeid</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -87,24 +86,24 @@
 
 				<ul class="slideshow">
 					<li class="show"><img width="680" height="250"
-						src="../images/home_2.jpg" alt="&quot;Eredmenyek&quot;" /></li>
+						src="../images/home_2.jpg" alt="&quot;Eredmények&quot;" /></li>
 					<li><a href="szemelyes_adatok.php"><img width="680" height="250"
-							src="../images/home_2.jpg" alt="&quot;Szemelyes adatok&quot;" />
+							src="../images/home_2.jpg" alt="&quot;Személyes adatok&quot;" />
 					</a></li>
 					<li><a href="kitoltott_tesztek.php"><img width="680" height="250"
-							src="../images/home_2.jpg" alt="&quot;Kitoltott tesztek&quot;" />
+							src="../images/home_2.jpg" alt="&quot;Kitöltött tesztek&quot;" />
 					</a></li>
 					<li><a href="uj_teszt.php"><img width="680" height="250"
-							src="../images/home_1.jpg" alt="&quot;Uj teszt kitoltese&quot;" />
+							src="../images/home_1.jpg" alt="&quot;Új teszt kitöltése&quot;" />
 					</a></li>
 				</ul>
 
 
 				<br></br>
-				<h2 align="center">Eredmenyek</h2>
-				<p>Itt megtekintheted az eddig kitoltott tesztekre kapott
-					eredmenyeid.</p>
-				<p>Valassz egy temat a felsoroltak kozul:</p>
+				<h2 align="center">Eredmények</h2>
+				<p>Itt megtekintheted az eddig kitöltött tesztekre kapott
+					eredményeid.</p>
+				<p>Válassz egy témát a felsoroltak közül:</p>
 				<ul>
 					<li>Algebra</li>
 					<li>Geometria</li>
@@ -120,7 +119,7 @@
 
 
 	<div id="content_grey">
-		<p>Hasonlo weboldalak</p>
+		<p>Hasonló weboldalak</p>
 		<br style="clear: both" />
 	</div>
 	<!--close content_grey-->
