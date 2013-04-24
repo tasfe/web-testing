@@ -118,11 +118,11 @@ function generald2($R=0, $G=0, $B=0, $orientation='P', $unit='mm', $format='A4',
 
 	$hossz=count($this->questions);
 	$pdf->SetFont('Arial','', 12);
-	$pdf->SetTextColor(255, 100, 0);
+	$pdf->SetTextColor(0, 0, 0);
 	for($i = 0; $i < $hossz; ++$i) {
 		$pdf->write(5, $this->questions[$i]."\n");
-		$pdf->write(5, "  A saját válasz, hogy: " .$this->my_answers[$i]."\n");
-		$pdf->write(5, "  A helyes válasz, hogy: " .$this->correct_answers[$i]."\n");
+		$pdf->write(5, "   A saját válasz, hogy: " .$this->my_answers[$i]."\n");
+		$pdf->write(5, "   A helyes válasz, hogy: " .$this->correct_answers[$i]."\n");
 		//$pdf->write(50, "Ez meg micsoda ")
 		}
 		$pdf->Output('Diploma.pdf', 'I');
