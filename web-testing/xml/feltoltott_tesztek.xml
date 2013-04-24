@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osszes>
+	<teszt>
+		<cim>Proba</cim>
+		<kategoria>Összefoglalók</kategoria>
+	</teszt>
+	<teszt>
+		<cim>Noemi teszt</cim>
+		<kategoria>Algebra</kategoria>
+	</teszt>
+	<teszt>
+		<cim>Hajni teszt</cim>
+		<kategoria>Mértan elmélet</kategoria>
+	</teszt>
+	<teszt>
+		<cim>Utolso</cim>
+		<kategoria>Összefoglalók</kategoria>
+	</teszt>
+	<teszt>
+		<cim>Oszthatosag</cim>
+		<kategoria>Algebra elmélet</kategoria>
+	</teszt>
+</osszes>
