@@ -32,8 +32,16 @@ function irdKi($user, $R = 0, $G = 0, $B = 0) {
 		$this->pdf->SetFont('Arial', '', 12);
 		$this->pdf->SetTextColor($R, $G, $B);
 	}
+function szamoldHelyes($pt, $kerdes){
+	$length = count ($kerdes);
+	$db = 0;
+	for ($i = 0; $i< $length; ++$i)
+		$db += ($kerdes[$i] === 'true') ? $pt:0;
+	return $db;
+}
 function ujKerdes($kerdes, $pt) {
 	$leng = count($kerdes);
+	$pt = $this->szamoldHelyes ($pt, $kerdes);
 	$this->pdf->write(5, $this->kerds . ") ".$kerdes[1]. "   (".$pt . "pont)"."\n\n");
 	$i = 2;
 	$betu = 'a';
@@ -50,7 +58,7 @@ function ujKerdes($kerdes, $pt) {
 	
 }	
 function envalaszaim($ans) {
-	$this->pdf->write(10, "Ezt(ezeket) válaszolta: \n");
+	$this->pdf->write(10, "Felhasználó válaszai: \n");
 	$num = count($ans);
 	for($i = 0; $i < $num; ++$i) 
 		$this->pdf->write(5, $ans[$i] . ",    ");
