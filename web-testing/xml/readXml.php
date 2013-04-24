@@ -1,3 +1,8 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
 <?php
 $dom = new DOMDocument();
 $dom->load('Proba.xml');
@@ -9,11 +14,11 @@ $jellemzok = $dom->getElementsByTagName('jellemzok');
 	<?php 
 	foreach ($teszt as $t) {
 ?>
-	<li><b>CÌm:</b> <?php 
-	$string = $t->getElementsByTagName('cim')
+	<li><b>C√≠m: </b> <?php 
+	echo $t->getElementsByTagName('cim')
 	->item(0)
 	->nodeValue;
-	echo mb_convert_encoding($string,'HTML-ENTITIES','utf-8');
+	
 ?>
 	</li>
 	<?php
@@ -28,29 +33,26 @@ $jellemzok = $dom->getElementsByTagName('jellemzok');
 				foreach($nodename->childNodes as $subNodes)
 				{
 					if($subNodes->nodeName=='szoveg')
-					{?><li><b>V·lasz szˆvege: </b><?php 
-						$string = $subNodes->nodeValue;
-						echo mb_convert_encoding($string,'HTML-ENTITIES','utf-8');?></li><?php
+					{?><li><b>V√°lasz sz√∂vege </b><?php 
+						echo $subNodes->nodeValue;?></li><?php
 					} if ($subNodes->nodeName=="helyes")
-					{?><li><b>HelyessÈg: </b><?php 
-						$string = $subNodes->nodeValue;
-						echo mb_convert_encoding($string,'HTML-ENTITIES','utf-8');?></li><?php
+					{?><li><b>Helyess√©g: </b><?php 
+						echo $subNodes->nodeValue;?></li><?php
 					}
 				}
 			}
 			if ($nodename->nodeName=="kerdes")
-			{?><li></li><li><b>KÈrdÈs: </b><?php 
-				$string = $nodename->nodeValue;
-				echo mb_convert_encoding($string,'HTML-ENTITIES','utf-8');?></li><?php 
+			{?><li></li><li><b>K√©rd√©s: </b><?php 
+				echo $nodename->nodeValue;?></li><?php 
 			}
 		}
 		$i++;
 	}?>
-	<li></li><li><b>Egy helyes v·lasz pontsz·ma:</b> <?php echo $t->getElementsByTagName('egyhelyesvalaszp')
+	<li></li><li><b>Egy helyes v√°lasz pontsz√°ma:</b> <?php echo $t->getElementsByTagName('egyhelyesvalaszp')
 	->item(0)
 	->nodeValue; ?>
 	</li>
-	<li><b>RÈszpont:</b> <?php
+	<li><b>R√©szpont:</b> <?php
 	echo $t->getElementsByTagName('reszpont')
 	->item(0)
 	->nodeValue; ?>
@@ -59,16 +61,15 @@ $jellemzok = $dom->getElementsByTagName('jellemzok');
 	<?php 
 	foreach ($jellemzok as $j) {
 ?>
-	<li><b>KategÛria:</b> <?php $string = $j->getElementsByTagName('kategoria')
-	->item(0)
-	->nodeValue;
-	echo mb_convert_encoding($string,'HTML-ENTITIES','utf-8'); ?>
-	</li>
-	<li><b>Megengedett kitˆltÈsek sz·ma:</b> <?php echo $j->getElementsByTagName('kitoltesszam')
+	<li><b>Kateg√≥ria:</b> <?php echo $j->getElementsByTagName('kategoria')
 	->item(0)
 	->nodeValue; ?>
 	</li>
-	<li><b>LehetsÈges helyes v·laszok sz·ma (maximum):</b> <?php echo $j->getElementsByTagName('helyesvalaszszam')
+	<li><b>Megengedett kit√∂lt√©sek sz√°ma:</b> <?php echo $j->getElementsByTagName('kitoltesszam')
+	->item(0)
+	->nodeValue; ?>
+	</li>
+	<li><b>Lehets√©ges helyes v√°laszok sz√°ma (maximum):</b> <?php echo $j->getElementsByTagName('helyesvalaszszam')
 	->item(0)
 	->nodeValue; ?>
 	</li>
@@ -79,3 +80,5 @@ $jellemzok = $dom->getElementsByTagName('jellemzok');
 }
 ?>
 </ul>
+</body>
+</html>
