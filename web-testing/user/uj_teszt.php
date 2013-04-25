@@ -92,10 +92,15 @@
 						<tr>
 							<td></td><?php
 							$tesztek = readTestName("Algebra elmélet");
-							if ($tesztek[0] == "ok")
-								foreach ($tesztek as $t) {
-									if ($t != "ok") {
-								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+							if ($tesztek[0] == "ok") {
+								$count = 0;
+								foreach ($tesztek as $t)
+									$count++;
+								$count--;
+								
+								for ($i = 1; $i < $count; $i++) {
+									if ($i % 2 == 1)
+										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
 								}
 								}
 							?>
@@ -118,10 +123,16 @@
 						<tr>
 							<td></td><?php
 							$tesztek = readTestName("Algebra gyakorlat");
-							if ($tesztek[0] == "ok")
-								foreach ($tesztek as $t) {
-									if ($t != "ok") {
-								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+														
+							if ($tesztek[0] == "ok") {
+								$count = 0;
+								foreach ($tesztek as $t)
+									$count++;
+								$count--;
+								
+								for ($i = 1; $i < $count; $i++) {
+									if ($i % 2 == 1)
+										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
 								}
 								}
 							?>
@@ -144,10 +155,15 @@
 						<tr>
 							<td></td><?php
 							$tesztek = readTestName("Mértan elmélet");
-							if ($tesztek[0] == "ok")
-								foreach ($tesztek as $t) {
-									if ($t != "ok") {
-								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+							if ($tesztek[0] == "ok") {
+								$count = 0;
+								foreach ($tesztek as $t)
+									$count++;
+								$count--;
+								
+								for ($i = 1; $i < $count; $i++) {
+									if ($i % 2 == 1)
+										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
 								}
 								}
 							?>
@@ -170,10 +186,15 @@
 						<tr>
 							<td></td><?php
 							$tesztek = readTestName("Mértan gyakorlat");
-							if ($tesztek[0] == "ok")
-								foreach ($tesztek as $t) {
-									if ($t != "ok") {
-								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+							if ($tesztek[0] == "ok") {
+								$count = 0;
+								foreach ($tesztek as $t)
+									$count++;
+								$count--;
+								
+								for ($i = 1; $i < $count; $i++) {
+									if ($i % 2 == 1)
+										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
 								}
 								}
 							?>
@@ -196,10 +217,17 @@
 						<tr>
 							<td></td><?php
 							$tesztek = readTestName("Összefoglalók");
-							if ($tesztek[0] == "ok")
-								foreach ($tesztek as $t) {
-									if ($t != "ok") {
-								?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $t;?>.xml" target="_blank"><?php echo $t;?></a></td></tr><?php
+
+							
+							if ($tesztek[0] == "ok") {
+								$count = 0;
+								foreach ($tesztek as $t)
+									$count++;
+								$count--;
+								
+								for ($i = 1; $i < $count; $i++) {
+									if ($i % 2 == 1)
+										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
 								}
 								}
 							?>
