@@ -18,12 +18,21 @@ function readTestName($kategoria) {
 		->nodeValue;
 		
 		if ($temp == $kategoria) {
+			
+			$temp2 = $t->getElementsByTagName('nev')
+			->item(0)
+			->nodeValue;
+			$reply[$i] = $temp2;
+				
+			$i++;
+			
 			$temp2 = $t->getElementsByTagName('cim')
 			->item(0)
 			->nodeValue;
 			$reply[$i] = $temp2;
-			
+				
 			$i++;
+			
 		}
 	}
 	if ($i > 1)
