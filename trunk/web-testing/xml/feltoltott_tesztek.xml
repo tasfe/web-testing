@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osszes>
 	<teszt>
-		<cim>Proba</cim>
-		<kategoria>Összefoglalók</kategoria>
+		<nev>AlgebraelmH.xml</nev>
+		<cim>
+			Oszthatóság
+		</cim>
+		<kategoria>Algebra elmélet</kategoria>
 	</teszt>
 	<teszt>
-		<cim>Noemi teszt</cim>
-		<kategoria>Algebra</kategoria>
+		<nev>AlgebragyH.xml</nev>
+		<cim>
+			Műveletek egész számokkal
+		</cim>
+		<kategoria>Algebra gyakorlat</kategoria>
 	</teszt>
 	<teszt>
-		<cim>Hajni teszt</cim>
+		<nev>MertanelmH.xml</nev>
+		<cim>
+			Háromszögek és azokra vonatkozó tulajdonságok
+		</cim>
 		<kategoria>Mértan elmélet</kategoria>
 	</teszt>
 	<teszt>
-		<cim>Utolso</cim>
+		<nev>Proba.xml</nev>
+		<cim>
+			Összeadás
+		</cim>
 		<kategoria>Összefoglalók</kategoria>
 	</teszt>
 	<teszt>
-		<cim>Oszthatosag</cim>
-		<kategoria>Algebra elmélet</kategoria>
+		<nev>MertangyH.xml</nev>
+		<cim>
+			Szögek mértéke, szögfüggvények
+		</cim>
+		<kategoria>Mértan gyakorlat</kategoria>
 	</teszt>
 </osszes>
