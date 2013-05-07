@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teszt>
+	<cim>
+		Háromszögek és azokra vonatkozó tulajdonságok
+	</cim>
+	<feladat>
+		<kerdes>Valamely pontnak egyenesre eső vetülete egy pontból az egyenesre bocsátott merőleges talppontja.</kerdes>
+		<valasz>
+			<szoveg>Igaz</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Hamis</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Milyen háromszögekre vonatkozik Pitagorasz tétele?</kerdes>
+		<valasz>
+			<szoveg>Pitagorasz háromszögekre</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Egyenlő oldalú háromszögekre</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Derékszögű háromszögekre</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mit mond ki Pitagorasz tétele?</kerdes>
+		<valasz>
+			<szoveg>Bármely derékszögű háromszögben a befogók négyzetének összege egyenlő az átfogó négyzetével.</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Bármely derékszögű háromszögben a befogók négyzetének szorzata egyenlő az átfogó négyzetével.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Bármely derékszögű háromszögben a átfogók négyzetének összege egyenlő az befogó négyzetével.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Hegyesszögeknek nevezzük a</kerdes>
+		<valasz>
+			<szoveg>30 és 60 fok közé eső szögeket</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>0 és 90 fok közé eső szögeket</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>1 és 89 fok közé eső szögeket</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Tartalmazhat egy háromszög tompaszöget és hegyesszöget is egyidejűleg?</kerdes>
+		<valasz>
+			<szoveg>Nem</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Igen</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Melyik/Melyek a kakukktojás(ok)?</kerdes>
+		<valasz>
+			<szoveg>Egyenlő szárú háromszög</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Kör</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Egyenlő oldalú háromszög</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Általános háromszög</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Négyzet</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi egy háromszög belső szögeinek összege?</kerdes>
+		<valasz>
+			<szoveg>90 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>150 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>180 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Ha két szög pótszöge egymásnak, mennyi az összegük?</kerdes>
+		<valasz>
+			<szoveg>90 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>180 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>100</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>A befogó tétele:</kerdes>
+		<valasz>
+			<szoveg>Egy általános háromszög magasságára vonatkozik.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Derékszögű háromszögekre vonatkozik.</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Az egyik befogó hossza egyenlő az átfogó és az illető befogó átfogóra eső vetületének mértani közepével.</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi egy teljes szög mértéke?</kerdes>
+		<valasz>
+			<szoveg>180 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>360 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>90 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>450 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Hogyan számoljuk ki egy háromszög kerületét?</kerdes>
+		<valasz>
+			<szoveg>Összeadjuk a három oldal hosszát.</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Kiszámoljuk a három oldal hosszának számtani középarányosát.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Összeszorozzuk az alapot a magassággal és osztjuk 2-vel.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Kerülhet-e a háromszög magasságvonalainak metszéspontja a háromszögön kívülre? </kerdes>
+		<valasz>
+			<szoveg>Nem</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Igen</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Függ a háromszög méretétől.</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy egyenlő szárú háromszögben milyen szögek jelenhetnek meg?</kerdes>
+		<valasz>
+			<szoveg>Hegyeszögek</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Csak derékszögek</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>Derékszögek és tompaszögek</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>A háromszög bármely két oldalának összege mindig nagyobb, mint...</kerdes>
+		<valasz>
+			<szoveg>a magasság</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>a harmadik oldal</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>az oldalfelező merőleges</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<egyhelyesvalaszp>1</egyhelyesvalaszp>
+	<reszpont>igen</reszpont>
+	<jellemzok>
+		<kategoria>Mértan elmélet</kategoria>
+		<kitoltesszam>5</kitoltesszam>
+		<helyesvalaszszam>2</helyesvalaszszam>
+	</jellemzok>
+</teszt>

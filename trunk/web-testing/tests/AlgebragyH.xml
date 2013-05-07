@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teszt>
+	<cim>
+		Műveletek egész számokkal
+	</cim>
+	<feladat>
+		<kerdes>Mennyi 2*(-10)?</kerdes>
+		<valasz>
+			<szoveg>20</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-20</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-10</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi 35-36?</kerdes>
+		<valasz>
+			<szoveg>1</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>0</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-1</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi (-5)*(-5)?</kerdes>
+		<valasz>
+			<szoveg>-25</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>25</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>55</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi 100/(-2)?</kerdes>
+		<valasz>
+			<szoveg>-200</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>20</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-50</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi -74-19?</kerdes>
+		<valasz>
+			<szoveg>-93</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>92</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-83</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi -18+18?</kerdes>
+		<valasz>
+			<szoveg>-36</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>36</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>0</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi [18*(-2)]-4</kerdes>
+		<valasz>
+			<szoveg>36</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-40</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-36</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi (15+16)/(-2)?</kerdes>
+		<valasz>
+			<szoveg>Nincs megoldása</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-31/2</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>60</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi -23+35?</kerdes>
+		<valasz>
+			<szoveg>12</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>-58</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>265</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi (-75/25)*(-1)?</kerdes>
+		<valasz>
+			<szoveg>-3</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>5</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>3</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<egyhelyesvalaszp>5</egyhelyesvalaszp>
+	<reszpont>igen</reszpont>
+	<jellemzok>
+		<kategoria>Algebra gyakorlat</kategoria>
+		<kitoltesszam>3</kitoltesszam>
+		<helyesvalaszszam>1</helyesvalaszszam>
+	</jellemzok>
+</teszt>
