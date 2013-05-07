@@ -38,7 +38,6 @@
 			<ul id="menu">
 				<li class="current"><a href="index.php">Főoldal</a></li>
 				<li><a href="login.html">Bejelentkezés</a></li>
-				<li><a href="test.html">Tesztek</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
