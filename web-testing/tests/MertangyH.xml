@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teszt>
+	<cim>
+		Szögek mértéke, szögfüggvények
+	</cim>
+	<feladat>
+		<kerdes>Mennyi tangens 45 fok?</kerdes>
+		<valasz>
+			<szoveg>3</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>1</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>1/2</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Ha egy szög mértéke 35 fok, mennyi a neki megfelelő csúcsszög?</kerdes>
+		<valasz>
+			<szoveg>55 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>65 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>35 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi koszinusz 60 fok?</kerdes>
+		<valasz>
+			<szoveg>2/3</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>négyzet gyök alatt 2/4</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>1/2</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Ha egy szög mértéke 60 fok, mennyi lesz a kiegészítő szöge?</kerdes>
+		<valasz>
+			<szoveg>120</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>180</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>30</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi az egyenesszög mértéke?</kerdes>
+		<valasz>
+			<szoveg>0 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>180 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>90</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi az egyenlő oldalú háromszög egy szögének mértéke?</kerdes>
+		<valasz>
+			<szoveg>60 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>30 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>90 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mennyi a derékszögű háromszög belső és külső szögeinek összege?</kerdes>
+		<valasz>
+			<szoveg>180</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>360</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>540</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Melyik szög kotangense gyök 3?</kerdes>
+		<valasz>
+			<szoveg>45 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>30 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>60 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Melyik szög tangense és kotangense is 1?</kerdes>
+		<valasz>
+			<szoveg>45 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>35 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>65 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<egyhelyesvalaszp>1</egyhelyesvalaszp>
+	<reszpont>igen</reszpont>
+	<jellemzok>
+		<kategoria>Mértan gyakorlat</kategoria>
+		<kitoltesszam>5</kitoltesszam>
+		<helyesvalaszszam>1</helyesvalaszszam>
+	</jellemzok>
+</teszt>
