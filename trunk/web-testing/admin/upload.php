@@ -37,9 +37,8 @@
 
 		<div id="menubar">
 			<ul id="menu">
-				<li><a href="index.php">Főoldal</a></li>
+				<li><a href="../index.php">Főoldal</a></li>
 				<li class="current"><a href="upload.html">Admin</a></li>
-				<li><a href="test.html">Tesztek</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -122,7 +121,7 @@
 
 				<br></br>
 				<h2 align="center">Teszt feltöltés</h2>
-				<p>Válaszd ki, hogy melyik tesztet szeretnéd feltölteni(egyenlore kepet lehet feltolteni).</p>
+				<p>Válaszd ki, hogy melyik tesztet szeretnéd feltölteni.</p>
 				
 				<br></br>
 				<form action = "upload_file.php" method = "post"
@@ -145,7 +144,7 @@
 
 
 	<div id="content_grey">
-		<p>Hasonlo weboldalak</p>
+		<p>Hasonló weboldalak</p>
 		<br style="clear: both" />
 	</div>
 	<!--close content_grey-->
