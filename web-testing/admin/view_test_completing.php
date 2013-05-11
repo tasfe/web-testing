@@ -122,9 +122,46 @@
 
 				<br></br>
 				<h2 align="center">Folyamatban levő tesztkitöltések</h2>
-				<p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő
-					adatok egy táblázatban.</p>
+				
+				<?php
+				$db = 'adatok';
+				$host = 'localhost';
+				$user = 'root';
+				$pass = '';
+				
+				//connection to the database
+				$dbhandle = mysql_connect($host, $user, $pass)
+				or die("Nem lehet kapcsolódni MySQL-hez!");
+				echo 'Kapcsolódva a MySQL-hez <br>';
 
+				//select a database to work with
+				$selected = mysql_select_db($db)
+				or die("Nem sikerült kapcsolódni az adatbázishoz!");
+
+				$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam FROM tesztek, adatok 
+					WHERE akt_teszt_kitoltes!=NULL and akt_teszt_kitoltes = idTesztek";
+				$result=mysql_query($sql);
+				if (!$result)
+					die("Sikertelen lekérdezés!");
+				
+				//tablazat, fejleccel
+				echo '<table><th>Családnév</th><th>Keresztnév</th><th>Teszt neve</th><th>Kérdések száma</th>';
+				while ($row = mysql_fetch_assoc($result)) {
+					echo '<tr>
+						<td>'.$row['csaladnev'].'</td>
+						<td>'.$row['keresztnev'].'</td>
+						<td>'.$row['TesztNev'].'</td>
+						<td>'.$row['KerdesSzam'].'</td>
+						</tr>';
+				}
+				echo '</table>';
+			
+				
+				//free the resources associated with the result set
+				mysql_free_result($result);
+				//close connection
+				mysql_close($dbhandle);
+?>
 
 			</div>
 			<!--close content_item-->
