@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -122,23 +122,59 @@
 
 				<br></br>
 				<h2 align="center">Tesztek aktiválása és inaktiválása</h2>
-				<p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő
-					adatok egy táblázatban.</p>
-				<br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
-				<table border="0" cellpadding="2" cellspacing="10" align="center">
-					<tr>
-						<td>
-							<div class="button_small">
-								<a href="#">Teszt aktiválása</a>
-							</div> <!--close button_small-->
-						</td>
-						<td>
-							<div class="button_small">
-								<a href="#">Teszt inaktiválása</a>
-							</div> <!--close button_small-->
-						</td>
-					</tr>
-				</table>
+				
+				
+				<?php
+				$db = 'adatok';
+				$host = 'localhost';
+				$user = 'root';
+				$pass = '';
+				
+				//connection to the database
+				$dbhandle = mysql_connect($host, $user, $pass)
+				or die("Nem lehet kapcsolódni MySQL-hez!");
+				
+				//select a database to work with
+				$selected = mysql_select_db($db)
+				or die("Nem sikerült kapcsolódni az adatbázishoz!");
+
+				$sql="SELECT idTesztek, TesztNev, KerdesSzam, TesztAktivitas FROM tesztek";
+				$result=mysql_query($sql);
+				if(!$result)
+					die("Sikertelen lekérdezés!");
+
+				if (isset($_SESSION['activation_result']))
+				{
+					echo '<br />';
+					echo '<b>'.$_SESSION['activation_result'].'</b>';
+					echo '<br />';
+					unset($_SESSION['activation_result']);
+				}
+							
+				echo '<form action = "activate.php" method = "post">';
+				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
+				echo '<table><th>Check</th><th>Tesztnév</th><th>Kérdések száma</th><th>Teszt aktivitása</th>';
+				//extract($rows);
+				//echo "<TR><TD><INPUT TYPE=radio NAME=\"radio\" VALUE=\"$gid\"/></TD><TD$unitname</TD><TD> $unitpartno</TD><TD$description</TD><TD>$partno</TD></TR>";
+				while ($row = mysql_fetch_assoc($result)) {
+					echo '<tr>
+					<td><input type=\'radio\' name=\'radio\' VALUE="'.$row['idTesztek'].'"></td>
+					<td>'.$row['TesztNev'].'</td>
+					<td>'.$row['KerdesSzam'].'</td>';
+					if($row['TesztAktivitas'] == 0)
+						echo '<td>inaktív</td></tr>';
+					else 
+						echo '<td>aktív</td></tr>';
+				}
+				echo '</TABLE><br /><br />';
+				echo '<input type="submit" name="submit" value="Teszt aktiválása vagy inaktiválása" /></form>';
+				
+				//free the resources associated with the result set
+				mysql_free_result($result);
+				//close connection
+				mysql_close($dbhandle);
+
+			?>
 
 			</div>
 			<!--close content_item-->
