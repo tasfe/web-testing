@@ -40,7 +40,6 @@ require_once("../conf.php");
 			<ul id="menu">
 				<li><a href="index.php">Főoldal</a></li>
 				<li class="current"><a href="admin.html">Admin</a></li>
-				<li><a href="test.html">Tesztek</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
