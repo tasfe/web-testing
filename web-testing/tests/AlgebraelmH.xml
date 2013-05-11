@@ -60,11 +60,11 @@
 		</valasz>
 		<valasz>
 			<szoveg>Igaz</szoveg>
-			<helyes>false</helyes>
+			<helyes>true</helyes>
 		</valasz>
 		<valasz>
 			<szoveg>Nem lehet pontosan eldönteni.</szoveg>
-			<helyes>true</helyes>
+			<helyes>false</helyes>
 		</valasz>
 	</feladat>
 	<feladat>
