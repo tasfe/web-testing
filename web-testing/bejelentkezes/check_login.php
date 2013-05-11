@@ -41,7 +41,7 @@ if (($your_password == "") || ($your_email == "")){
 }
 else {
 	if($your_email=="admin" && $your_password=="admin")
-		header("location:../admin/admin.html");
+		header("location:../admin/admin.php");
 	else {
 		$sql="SELECT * FROM $table_name WHERE emailcim='$your_email' and jelszo='$your_password'";
 		$result=mysql_query($sql);
