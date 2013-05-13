@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -123,36 +123,61 @@
 
 				<br></br>
 				<h2 align="center">Kitöltött tesztek megtekintése</h2>
-				<p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő
-					adatok egy táblázatban.</p>
-				<br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
-				<table border="0" cellpadding="2" cellspacing="10" align="center">
-					<tr>
-						<td>
-							<div class="button_small">
-								<a href="#">Letöltés</a>
-							</div> <!--close button_small-->
-						</td>
-						<td>
-							<div class="button_small">
-								<a href="#">Sikeres tesztek</a>
-							</div> <!--close button_small-->
-						</td>
-					
-					
-					<tr>
-						<td>
-							<div class="button_small">
-								<a href="#">Report megtekintése</a>
-							</div> <!--close button_small-->
-						</td>
-						<td>
-							<div class="button_small">
-								<a href="#">Kiterjesztett report</a>
-							</div>
-						</td>
-					</tr>
-				</table>
+				
+			<?php
+				$db = 'adatok';
+				$host = 'localhost';
+				$user = 'root';
+				$pass = '';
+				
+				//connection to the database
+				$dbhandle = mysql_connect($host, $user, $pass)
+				or die("Nem lehet kapcsolódni MySQL-hez!");
+				echo 'Kapcsolódva a MySQL-hez <br>';
+
+				//select a database to work with
+				$selected = mysql_select_db($db)
+				or die("Nem sikerült kapcsolódni az adatbázishoz!");
+
+				if (isset($_SESSION['successful']))
+				{
+					unset($_SESSION['successful']);
+					$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam, Eredmeny FROM adatok, tesztek, kitoltotttesztek
+						WHERE adatok.emailcim = kitoltotttesztek.emailcim and tesztek.idTesztek = kitoltotttesztek.idTesztek
+						and kitoltotttesztek.Eredmeny >= 5";
+				}
+				else 
+				{
+					$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam, Eredmeny FROM adatok, tesztek, kitoltotttesztek
+						WHERE adatok.emailcim = kitoltotttesztek.emailcim and tesztek.idTesztek = kitoltotttesztek.idTesztek";
+				}
+				$result=mysql_query($sql);
+				if(!$result)
+					die("Sikertelen lekérdezés!");
+				
+				echo '<form action = "report.php" method = "post">';
+				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
+				echo '<table><th>Check</th><th>Családnév</th><th>Keresztnév</th><th>Teszt név</th><th>Kérdések száma</th><th>Eredmény</th>';
+				while ($row = mysql_fetch_assoc($result)) {
+					echo '<tr>
+					<td><INPUT TYPE=radio NAME=\"radio\" VALUE=\"$gid\"/></td>
+					<td>'.$row['csaladnev'].'</td>
+					<td>'.$row['keresztnev'].'</td>
+					<td>'.$row['TesztNev'].'</td>
+					<td>'.$row['KerdesSzam'].'</td>
+					<td>'.$row['Eredmeny'].'</td></tr>';
+				}
+				echo '</TABLE><br /><br />';
+				echo '<input padding-right="2px" type="submit" name="submit" value="Report generálása" />&emsp;';
+				echo '<input type="submit" name="submit" value="Kiterjesztett report generálása" />&emsp;';
+				echo '<input type="submit" name="submit" value="Sikeres tesztek" />&emsp;';
+				echo '<input type="submit" name="submit" value="Összes teszt" /></form>';
+				
+				//free the resources associated with the result set
+				mysql_free_result($result);
+				//close connection
+				mysql_close($dbhandle);
+			?>				
 
 			</div>
 			<!--close content_item-->
