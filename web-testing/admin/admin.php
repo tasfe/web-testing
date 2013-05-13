@@ -127,14 +127,7 @@
 
 				<br></br>
 				<h2 align="center">Szemelyes adatok</h2>
-				<p>Itt megtekintheted a regisztrációnál megadott adataidat.</p>
-				<p>Ide jön a Data grid, ahol meg lesznek jelenítve a megfelelő
-					adatok egy táblázatban.</p>
-					<?php
-$dg = new C_DataGrid("SELECT * FROM orders", "orderNumber", "orders");
-$dg -> set_row_color('yellow', 'blue', 'lightgray');
-$dg -> display();
-?>
+				<p>A regisztrációs adataid:</p>
 					
 				<br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
 				<table border="0" cellpadding="2" cellspacing="10" align="center">
