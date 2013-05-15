@@ -20,41 +20,53 @@ if(isset($_POST['radio']))
 	$selected = mysql_select_db($db)
 	or die("Nem sikerült kapcsolódni az adatbázishoz!");
 	
-	$sql="SELECT * FROM  tesztek WHERE idTesztek=$selected_radio";
-	$akt = mysql_query($sql); 
+	switch ($_POST['submit']) {
 	
-	while ($row = mysql_fetch_assoc($akt)) {
-		$a = $row['TesztAktivitas'];	
-	}
+		case 'Teszt törlése':
+			echo 'teszt torles';
+			break;
+				
+		case 'Teszt aktiválása vagy inaktiválása':
 	
-	if($a==0)
-	{
-		$sql="UPDATE tesztek SET TesztAktivitas=1 WHERE idTesztek=$selected_radio";	
-		//echo 'beleptem 0';
-	}
-	if($a==1)
-	{
-		$sql="UPDATE tesztek SET TesztAktivitas=0 WHERE idTesztek=$selected_radio";
-		//echo 'beleptem 1';
-	}
+			$sql="SELECT * FROM  tesztek WHERE idTesztek=$selected_radio";
+			$akt = mysql_query($sql); 
 	
-	$result=mysql_query($sql);
-	if (!$result) {
-		$_SESSION['activation_result']='Sikertelen módosítás.';
-		die('Invalid query: ' . mysql_error());
-	}
-	else 
-	{
-		$_SESSION['activation_result']='A módosítás megtörtént.';
-		//close connection
-		mysql_close($dbhandle);
-	}
-}
+			while ($row = mysql_fetch_assoc($akt))
+			{
+				$a = $row['TesztAktivitas'];	
+			}
+	
+			if($a==0)
+			{
+				$sql="UPDATE tesztek SET TesztAktivitas=1 WHERE idTesztek=$selected_radio";	
+				//echo 'beleptem 0';
+			}
+			if($a==1)
+			{
+				$sql="UPDATE tesztek SET TesztAktivitas=0 WHERE idTesztek=$selected_radio";
+				//echo 'beleptem 1';
+			}
+	
+			$result=mysql_query($sql);
+			if (!$result) {
+				$_SESSION['activation_result']='Sikertelen módosítás.';
+				die('Invalid query: ' . mysql_error());
+			}
+			else 
+			{
+				$_SESSION['activation_result']='A módosítás megtörtént.';
+				//close connection
+				mysql_close($dbhandle);
+			}
+		}
+		break;
+	}	//end switch
 else 
 {
 	// store session data
-	$_SESSION['activation_result']='Válassz ki egy tesztet, aminek módosítani szeretnéd az aktivitását.';
+	$_SESSION['activation_result']='Válassz ki egy tesztet!'';
 }
-header("location:test_activate.php");
+
+//header("location:test_activate.php");
 
 ?>

@@ -166,7 +166,8 @@ session_start();
 					echo '<td>'.$row['Kategoria'].'</td></tr>';
 				}
 				echo '</TABLE><br /><br />';
-				echo '<input type="submit" name="submit" value="Teszt aktiválása vagy inaktiválása" /></form>';
+				echo '<input type="submit" name="submit" value="Teszt aktiválása vagy inaktiválása" />';
+				echo '<input type="submit" name="submit" value="Teszt törlése" /></form>';
 				
 				//free the resources associated with the result set
 				mysql_free_result($result);

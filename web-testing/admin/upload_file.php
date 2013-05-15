@@ -16,13 +16,15 @@ function validate($file) {
 
 
 function refreshList($file) {
+	
+	echo $file;
 
 	include '../readQuestion.php';
 	
 	$c = readName($file);
 	$k = readCategory($file);
 	
-	$osszes = array();
+	/*$osszes = array();
 	$osszes [] = array(
 			'nev' => $file,
 			'cim' => $c,
@@ -59,7 +61,7 @@ function refreshList($file) {
 		$root->appendChild( $b );
 	}
 
-	$doc->save("../xml/feltoltott_tesztek.xml");
+	$doc->save("../xml/feltoltott_tesztek.xml");*/
 	
 	$db = 'adatok';
 	$host = 'localhost';
@@ -74,7 +76,8 @@ function refreshList($file) {
 	$selected = mysql_select_db($db)
 	or die("Nem sikerült kapcsolódni az adatbázishoz!");
 	
-	$sql="INSERT INTO tesztek (TesztNev, KerdesSzam, TesztAktivitas) VALUES('UjNev', 8, 0 )";
+	$q_nb = readQnumber($c);
+	$sql="INSERT INTO tesztek (TesztNev, KerdesSzam, TesztAktivitas, Kategoria) VALUES($c, $q_nb, 0, $k )";
 	$result=mysql_query($sql);
 	if(!$result)
 		die("Sikertelen lekérdezés!");
@@ -103,7 +106,8 @@ if ($_FILES["file"]["type"] == "text/xml") {
 			if (validate($_FILES["file"]["tmp_name"])) {
 				move_uploaded_file($_FILES["file"]["tmp_name"],
 				"../tests/" . $_FILES["file"]["name"]);
-				refreshList($_FILES["file"]["name"]);
+				//refreshList($_FILES["file"]["name"]);
+				refreshList("../tests/" . $_FILES["file"]["name"]);
 				//adatbazisba is feltolteni az uj tesztet
 			} else
 				echo "Invalid file";
