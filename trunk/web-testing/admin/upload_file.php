@@ -60,6 +60,29 @@ function refreshList($file) {
 	}
 
 	$doc->save("../xml/feltoltott_tesztek.xml");
+	
+	$db = 'adatok';
+	$host = 'localhost';
+	$user = 'root';
+	$pass = '';
+	
+	//connection to the database
+	$dbhandle = mysql_connect($host, $user, $pass)
+	or die("Nem lehet kapcsolódni MySQL-hez!");
+	
+	//select a database to work with
+	$selected = mysql_select_db($db)
+	or die("Nem sikerült kapcsolódni az adatbázishoz!");
+	
+	$sql="INSERT INTO tesztek (TesztNev, KerdesSzam, TesztAktivitas) VALUES('UjNev', 8, 0 )";
+	$result=mysql_query($sql);
+	if(!$result)
+		die("Sikertelen lekérdezés!");
+	
+	//free the resources associated with the result set
+	mysql_free_result($result);
+	//close connection
+	mysql_close($dbhandle);
 }
 
 if ($_FILES["file"]["type"] == "text/xml") {
@@ -81,6 +104,7 @@ if ($_FILES["file"]["type"] == "text/xml") {
 				move_uploaded_file($_FILES["file"]["tmp_name"],
 				"../tests/" . $_FILES["file"]["name"]);
 				refreshList($_FILES["file"]["name"]);
+				//adatbazisba is feltolteni az uj tesztet
 			} else
 				echo "Invalid file";
 		}

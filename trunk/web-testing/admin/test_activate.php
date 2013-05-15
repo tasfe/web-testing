@@ -154,8 +154,6 @@ session_start();
 				echo '<form action = "activate.php" method = "post">';
 				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
 				echo '<table><th>Check</th><th>Tesztnév</th><th>Kérdések száma</th><th>Teszt aktivitása</th>';
-				//extract($rows);
-				//echo "<TR><TD><INPUT TYPE=radio NAME=\"radio\" VALUE=\"$gid\"/></TD><TD$unitname</TD><TD> $unitpartno</TD><TD$description</TD><TD>$partno</TD></TR>";
 				while ($row = mysql_fetch_assoc($result)) {
 					echo '<tr>
 					<td><input type=\'radio\' name=\'radio\' VALUE="'.$row['idTesztek'].'"></td>
