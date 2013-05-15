@@ -173,6 +173,7 @@
 		return $reply;
 	}
 
+	//teszt kategoriaja
 	function readCategory($teszt) {
 		$dom = new DOMDocument();
 		$dom->load($teszt);
@@ -184,6 +185,21 @@
 			->nodeValue;
 		}
 		
+		return $string;
+	}
+	
+	//teszt elvegzeseinek szama
+	function readPossibility($teszt) {
+		$dom = new DOMDocument();
+		$dom->load($teszt);
+		$jellemzok = $dom->getElementsByTagName('jellemzok');
+	
+		foreach ($jellemzok as $j) {
+			$string = $j->getElementsByTagName('kitoltesszam')
+			->item(0)
+			->nodeValue;
+		}
+	
 		return $string;
 	}
 
