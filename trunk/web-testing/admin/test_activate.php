@@ -138,7 +138,7 @@ session_start();
 				$selected = mysql_select_db($db)
 				or die("Nem sikerült kapcsolódni az adatbázishoz!");
 
-				$sql="SELECT idTesztek, TesztNev, KerdesSzam, TesztAktivitas FROM tesztek";
+				$sql="SELECT idTesztek, TesztNev, KerdesSzam, TesztAktivitas, Kategoria FROM tesztek";
 				$result=mysql_query($sql);
 				if(!$result)
 					die("Sikertelen lekérdezés!");
@@ -153,16 +153,17 @@ session_start();
 							
 				echo '<form action = "activate.php" method = "post">';
 				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
-				echo '<table><th>Check</th><th>Tesztnév</th><th>Kérdések száma</th><th>Teszt aktivitása</th>';
+				echo '<table><th>Check</th><th>Tesztnév</th><th>Kérdések száma</th><th>Teszt aktivitása</th><th>Kategória</th>';
 				while ($row = mysql_fetch_assoc($result)) {
 					echo '<tr>
 					<td><input type=\'radio\' name=\'radio\' VALUE="'.$row['idTesztek'].'"></td>
 					<td>'.$row['TesztNev'].'</td>
 					<td>'.$row['KerdesSzam'].'</td>';
 					if($row['TesztAktivitas'] == 0)
-						echo '<td>inaktív</td></tr>';
+						echo '<td>inaktív</td>';
 					else 
-						echo '<td>aktív</td></tr>';
+						echo '<td>aktív</td>';
+					echo '<td>'.$row['Kategoria'].'</td></tr>';
 				}
 				echo '</TABLE><br /><br />';
 				echo '<input type="submit" name="submit" value="Teszt aktiválása vagy inaktiválása" /></form>';
