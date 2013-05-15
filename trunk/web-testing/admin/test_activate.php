@@ -82,18 +82,9 @@ session_start();
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="statements.php"><h2>Kimutatás</h2> </a>
-							<p>A fenti menüpontot kiválasztva megtekinthetsz kimutatásokat.</p>
-						</div>
-						<!--close sidebar_item-->
-					</div>
-					<!--close sidebar-->
-
-					<div class="sidebar">
-						<div class="sidebar_item">
-							<h2>Teszt aktiválás/inaktiválás</h2>
+							<h2>Teszt aktiválás/törlés</h2>
 							<p>A fenti menüpontot kiválasztva lehetőséged van teszteket
-								aktiválni és inaktiválni.</p>
+								aktiválni, inaktiválni és törölni.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -121,7 +112,7 @@ session_start();
 
 
 				<br></br>
-				<h2 align="center">Tesztek aktiválása és inaktiválása</h2>
+				<h2 align="center">Tesztek aktiválása, inaktiválása és törlése</h2>
 				
 				
 				<?php
@@ -153,7 +144,7 @@ session_start();
 							
 				echo '<form action = "activate.php" method = "post">';
 				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
-				echo '<table><th>Check</th><th>Tesztnév</th><th>Kérdések száma</th><th>Teszt aktivitása</th><th>Kategória</th>';
+				echo '<table><th>&emsp;</th><th>Tesztnév</th><th>Kérdések száma</th><th>Teszt aktivitása</th><th>Kategória</th>';
 				while ($row = mysql_fetch_assoc($result)) {
 					echo '<tr>
 					<td><input type=\'radio\' name=\'radio\' VALUE="'.$row['idTesztek'].'"></td>
@@ -166,8 +157,9 @@ session_start();
 					echo '<td>'.$row['Kategoria'].'</td></tr>';
 				}
 				echo '</TABLE><br /><br />';
-				echo '<input type="submit" name="submit" value="Teszt aktiválása vagy inaktiválása" />';
+				echo '<input type="submit" name="submit" value="Teszt aktiválása vagy inaktiválása" />&emsp;';
 				echo '<input type="submit" name="submit" value="Teszt törlése" /></form>';
+				echo '<br />';
 				
 				//free the resources associated with the result set
 				mysql_free_result($result);

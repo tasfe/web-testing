@@ -23,7 +23,22 @@ if(isset($_POST['radio']))
 	switch ($_POST['submit']) {
 	
 		case 'Teszt törlése':
-			echo 'teszt torles';
+			
+			$sql = "DELETE FROM tesztek WHERE idTesztek=$selected_radio";
+			$result = mysql_query($sql);
+
+			if (!$result)
+			{
+				$_SESSION['activation_result']='Sikertelen törlés.';
+				die('Invalid query: ' . mysql_error());
+			}
+			else
+			{
+				$_SESSION['activation_result']='A törlés megtörtént.';
+				//close connection
+				mysql_close($dbhandle);
+			}
+			
 			break;
 				
 		case 'Teszt aktiválása vagy inaktiválása':
@@ -48,7 +63,8 @@ if(isset($_POST['radio']))
 			}
 	
 			$result=mysql_query($sql);
-			if (!$result) {
+			if (!$result) 
+			{
 				$_SESSION['activation_result']='Sikertelen módosítás.';
 				die('Invalid query: ' . mysql_error());
 			}
@@ -58,15 +74,16 @@ if(isset($_POST['radio']))
 				//close connection
 				mysql_close($dbhandle);
 			}
-		}
+		
 		break;
 	}	//end switch
+}
 else 
 {
 	// store session data
-	$_SESSION['activation_result']='Válassz ki egy tesztet!'';
+	$_SESSION['activation_result']='Válassz ki egy tesztet!';
 }
 
-//header("location:test_activate.php");
+header("location:test_activate.php");
 
 ?>
