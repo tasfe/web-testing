@@ -1,4 +1,6 @@
-<?php ?>
+<?php
+session_start();
+?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -31,7 +33,7 @@
       <ul id="menu">
         <li><a href="../index.php">Főoldal</a></li>
         <li class="current"><a href="user.php">Profil</a></li>
-        <li><a href="../logout.php">Kijelentkezés</a></li>
+        <li><a href="logout.php">Kijelentkezés</a></li>
       </ul>
     </div><!--close menubar-->
     
@@ -80,7 +82,23 @@
 					<p>A teszteket az alábbi kategóriákból választhatod ki.
 						Kívánunk hasznos időtöltést és jó tanulást!</p>
 
-					<?php include '../readTests.php';?>
+					<?php
+
+					$db = 'adatok';
+					$host = 'localhost';
+					$user = 'root';
+					$pass = '';
+					
+					//connection to the database
+					$dbhandle = mysql_connect($host, $user, $pass)
+					or die("Nem lehet kapcsolódni MySQL-hez!");
+					
+					//select a database to work with
+					$selected = mysql_select_db($db)
+					or die("Nem sikerült kapcsolódni az adatbázishoz!");
+					
+					include '../readTests.php';
+					include '../readQuestion.php';?>
 					<table  border="0" cellpadding="2" cellspacing="10" align = "center">
 						<tr>
 							<th rowspan="2" align="center"><img src="../images/algebra_icon.png" alt="image1" height="50"/></th>
@@ -89,22 +107,28 @@
 							<th align="center">Algebra elmélet</th>
 							<td></td>
 						</tr>
-						<tr>
-							<td></td><?php
-							$tesztek = readTestName("Algebra elmélet");
-							if ($tesztek[0] == "ok") {
-								$count = 0;
-								foreach ($tesztek as $t)
-									$count++;
-								$count--;
+						<?php
+							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Algebra elmelet'";
+							$result=mysql_query($sql);
+							if(!$result)
+								die("Sikertelen lekérdezés!");
 								
-								for ($i = 1; $i < $count; $i++) {
-									if ($i % 2 == 1)
-										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
+							while ($row = mysql_fetch_assoc($result)) {
+	
+								$sql2 = "SELECT Datum FROM `kitoltotttesztek` WHERE idTesztek = (SELECT idTesztek FROM `tesztek` WHERE TesztNev = '" . $row['TesztNev'] . "') AND emailcim = '" . $_SESSION['your_email'] . "'";
+								$result2 = mysql_query($sql2);
+								$num = mysql_num_rows($result2);
+
+								$cim = readName("../tests/" . $row['TesztNev']);
+								
+								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
+									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
+								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
+									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
-							?>
-						</tr>
+							}
+						?>
 						<tr>
 							<td></td>
 <!-- 							<td><a href="../alg_elm.html" ><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
@@ -119,24 +143,28 @@
 						<tr>
 							<th align="center">Algebra gyakorlat</th>
 							<td></td>
-						</tr>
-						<tr>
-							<td></td><?php
-							$tesztek = readTestName("Algebra gyakorlat");
-														
-							if ($tesztek[0] == "ok") {
-								$count = 0;
-								foreach ($tesztek as $t)
-									$count++;
-								$count--;
+						</tr><?php
+							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Algebra gyakorlat'";
+							$result=mysql_query($sql);
+							if(!$result)
+								die("Sikertelen lekérdezés!");
 								
-								for ($i = 1; $i < $count; $i++) {
-									if ($i % 2 == 1)
-										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
+								while ($row = mysql_fetch_assoc($result)) {
+	
+								$sql2 = "SELECT Datum FROM `kitoltotttesztek` WHERE idTesztek = (SELECT idTesztek FROM `tesztek` WHERE TesztNev = '" . $row['TesztNev'] . "') AND emailcim = '" . $_SESSION['your_email'] . "'";
+								$result2 = mysql_query($sql2);
+								$num = mysql_num_rows($result2);
+
+								$cim = readName("../tests/" . $row['TesztNev']);
+								
+								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
+									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
+								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
+									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
-							?>
-						</tr>
+							}
+						?>
 						<tr>
 							<td></td>
 <!-- 							<td><a href="../alg_gyak.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
@@ -151,23 +179,28 @@
 						<tr>
 							<th align="center">Mértan elmélet</th>
 							<td></td>
-						</tr>
-						<tr>
-							<td></td><?php
-							$tesztek = readTestName("Mértan elmélet");
-							if ($tesztek[0] == "ok") {
-								$count = 0;
-								foreach ($tesztek as $t)
-									$count++;
-								$count--;
+						</tr><?php
+							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Mertan elmelet'";
+							$result=mysql_query($sql);
+							if(!$result)
+								die("Sikertelen lekérdezés!");
 								
-								for ($i = 1; $i < $count; $i++) {
-									if ($i % 2 == 1)
-										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
+							while ($row = mysql_fetch_assoc($result)) {
+	
+								$sql2 = "SELECT Datum FROM `kitoltotttesztek` WHERE idTesztek = (SELECT idTesztek FROM `tesztek` WHERE TesztNev = '" . $row['TesztNev'] . "') AND emailcim = '" . $_SESSION['your_email'] . "'";
+								$result2 = mysql_query($sql2);
+								$num = mysql_num_rows($result2);
+
+								$cim = readName("../tests/" . $row['TesztNev']);
+								
+								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
+									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
+								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
+									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
-							?>
-						</tr>
+							}
+						?>
 						<tr>
 							<td></td>
 <!-- 							<td><a href="../geo_elm.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
@@ -182,23 +215,28 @@
 						<tr>
 							<th align="center">Mértan gyakorlat</th>
 							<td></td>
-						</tr>
-						<tr>
-							<td></td><?php
-							$tesztek = readTestName("Mértan gyakorlat");
-							if ($tesztek[0] == "ok") {
-								$count = 0;
-								foreach ($tesztek as $t)
-									$count++;
-								$count--;
+						</tr><?php
+							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Mertan gyakorlat'";
+							$result=mysql_query($sql);
+							if(!$result)
+								die("Sikertelen lekérdezés!");
 								
-								for ($i = 1; $i < $count; $i++) {
-									if ($i % 2 == 1)
-										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
+							while ($row = mysql_fetch_assoc($result)) {
+	
+								$sql2 = "SELECT Datum FROM `kitoltotttesztek` WHERE idTesztek = (SELECT idTesztek FROM `tesztek` WHERE TesztNev = '" . $row['TesztNev'] . "') AND emailcim = '" . $_SESSION['your_email'] . "'";
+								$result2 = mysql_query($sql2);
+								$num = mysql_num_rows($result2);
+
+								$cim = readName("../tests/" . $row['TesztNev']);
+								
+								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
+									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
+								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
+									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
-							?>
-						</tr>
+							}
+						?>
 						<tr>
 							<td></td>
 <!-- 							<td><a href="../geo_gyak.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
@@ -213,25 +251,28 @@
 						<tr>
 							<th align="center">Összefoglalók</th>
 							<td></td>
-						</tr>
-						<tr>
-							<td></td><?php
-							$tesztek = readTestName("Összefoglalók");
-
-							
-							if ($tesztek[0] == "ok") {
-								$count = 0;
-								foreach ($tesztek as $t)
-									$count++;
-								$count--;
+						</tr><?php
+							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Osszefoglalok'";
+							$result=mysql_query($sql);
+							if(!$result)
+								die("Sikertelen lekérdezés!");
 								
-								for ($i = 1; $i < $count; $i++) {
-									if ($i % 2 == 1)
-										?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $tesztek[$i];?>" target="_blank"><?php echo $tesztek[$i+1]; $i++;?></a></td></tr><?php
+							while ($row = mysql_fetch_assoc($result)) {
+	
+								$sql2 = "SELECT Datum FROM `kitoltotttesztek` WHERE idTesztek = (SELECT idTesztek FROM `tesztek` WHERE TesztNev = '" . $row['TesztNev'] . "') AND emailcim = '" . $_SESSION['your_email'] . "'";
+								$result2 = mysql_query($sql2);
+								$num = mysql_num_rows($result2);
+
+								$cim = readName("../tests/" . $row['TesztNev']);
+								
+								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
+									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
+								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
+									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
-							?>
-						</tr>
+							}
+						?>
 						<tr>
 							<td></td>
 <!-- 							<td><a href="../osszef.html"><font size="3">További tesztek...</font><img src="../images/arrow_brown2.png" alt="image1" height="20"/></a></td> -->
