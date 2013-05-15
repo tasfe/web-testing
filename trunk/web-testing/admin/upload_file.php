@@ -16,12 +16,10 @@ function validate($file) {
 
 
 function refreshList($file) {
-	
-	echo $file;
 
 	include '../readQuestion.php';
 	
-	$c = readName($file);
+	//$c = readName($file);
 	$k = readCategory($file);
 	
 	/*$osszes = array();
@@ -76,8 +74,8 @@ function refreshList($file) {
 	$selected = mysql_select_db($db)
 	or die("Nem sikerült kapcsolódni az adatbázishoz!");
 	
-	$q_nb = readQnumber($c);
-	$sql="INSERT INTO tesztek (TesztNev, KerdesSzam, TesztAktivitas, Kategoria) VALUES($c, $q_nb, 0, $k )";
+	$q_nb = readQnumber($file);
+	$sql="INSERT INTO tesztek (TesztNev, KerdesSzam, TesztAktivitas, Kategoria) VALUES('$file', $q_nb, 0, '$k' )";
 	$result=mysql_query($sql);
 	if(!$result)
 		die("Sikertelen lekérdezés!");
@@ -106,9 +104,7 @@ if ($_FILES["file"]["type"] == "text/xml") {
 			if (validate($_FILES["file"]["tmp_name"])) {
 				move_uploaded_file($_FILES["file"]["tmp_name"],
 				"../tests/" . $_FILES["file"]["name"]);
-				//refreshList($_FILES["file"]["name"]);
-				refreshList("../tests/" . $_FILES["file"]["name"]);
-				//adatbazisba is feltolteni az uj tesztet
+				refreshList($_FILES["file"]["name"]);
 			} else
 				echo "Invalid file";
 		}
