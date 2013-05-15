@@ -126,11 +126,8 @@
 				<br></br>
 				<form action = "upload_file.php" method = "post"
 					enctype="multipart/form-data">
-					<label for="file">Fájlnév:</label> <input type="file" name="file"
-						id="file" /> <br /> 
-						
+					<label for="file">Fájlnév:</label> <input type="file" name="file" id="file" /> <br /> 
 						<br></br>
-						
 						<input type="submit" name="submit" value="Feltölt" />
 				</form>
 			</div>

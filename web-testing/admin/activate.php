@@ -3,11 +3,8 @@ session_start();
 
 if(isset($_POST['radio']))
 {
-	// store session data
-	$_SESSION['activation_result']='ok';
 	
 	$selected_radio = $_POST['radio'];
-	//print $selected_radio;
 	
 	$db = 'adatok';
 	$host = 'localhost';
@@ -23,27 +20,32 @@ if(isset($_POST['radio']))
 	$selected = mysql_select_db($db)
 	or die("Nem sikerült kapcsolódni az adatbázishoz!");
 	
-	$akt="SELECT TesztAktivitas FROM  `tesztek` WHERE idTesztek ='$selected_radio'";
+	$sql="SELECT * FROM  tesztek WHERE idTesztek=$selected_radio";
+	$akt = mysql_query($sql); 
 	
-	if($akt==0)
-	{
-		$sql="UPDATE tesztek SET TesztAktivitas=1 WHERE idTesztek='$selected_radio'";	
+	while ($row = mysql_fetch_assoc($akt)) {
+		$a = $row['TesztAktivitas'];	
 	}
-	else
+	
+	if($a==0)
 	{
-		$sql="UPDATE tesztek SET TesztAktivitas=1 WHERE idTesztek='$selected_radio'";
+		$sql="UPDATE tesztek SET TesztAktivitas=1 WHERE idTesztek=$selected_radio";	
+		//echo 'beleptem 0';
+	}
+	if($a==1)
+	{
+		$sql="UPDATE tesztek SET TesztAktivitas=0 WHERE idTesztek=$selected_radio";
+		//echo 'beleptem 1';
 	}
 	
 	$result=mysql_query($sql);
 	if (!$result) {
-		die();
 		$_SESSION['activation_result']='Sikertelen módosítás.';
+		die('Invalid query: ' . mysql_error());
 	}
 	else 
 	{
 		$_SESSION['activation_result']='A módosítás megtörtént.';
-		//free the resources associated with the result set
-		mysql_free_result($result);
 		//close connection
 		mysql_close($dbhandle);
 	}
