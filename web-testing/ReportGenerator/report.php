@@ -53,19 +53,19 @@ function ujKerdes($kerdes, $pt) {
 		$betu++;
 		$this->pdf->SetFont('Arial','', 12);
 	}
-	$this->pdf->write(5, "\n\n\n");
+	$this->pdf->write(5, "\n");
 	$this->kerds++;
 	
 }	
 function envalaszaim($ans) {
-	$this->pdf->write(10, "Felhasználó válaszai: \n");
+	$this->pdf->write(3, "Felhasználó válaszai: ");
 	$num = count($ans);
 	for($i = 0; $i < $num; ++$i) 
-		$this->pdf->write(5, $ans[$i] . ",    ");
+		$this->pdf->write(3, $ans[$i] . ",    ");
 	$this->pdf->write(10, "\n");
 } 
 function pontokSzama($pontok) {
-	$this->pdf->write(10, "Az elért pontjaidnak a száma: " .$pontok);
+	$this->pdf->write(10, "Az elért jegy: " .$pontok);
 }
 function lezar() {
 	$this->pdf->Output('Diploma.PDF', 'I');
