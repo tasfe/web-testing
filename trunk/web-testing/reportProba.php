@@ -53,7 +53,7 @@ require("readQuestion.php");
   // elért pontok :
   $pontok = 5;
   // Generálás meghívása:
- meghivas($kerdesek, $pont, $felhasznalo, $ans, $pontok);
+ meghivas($kerdesek, $pont, $felhasznalo, $ans, 5);
  // vagy: 
  //meghivas($kerdesek,$pont, $felhasznalo, $ans, $pontok, 100, 20, 30);
 ?>
