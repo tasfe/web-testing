@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -29,6 +30,7 @@ function checkTheBox() {
 <body>
 	<?php
 		$tesztneve = $_GET['nev'];
+		$felhasznalo = $_SESSION['your_email'];
 	?>
 
     
