@@ -62,7 +62,7 @@ function envalaszaim($ans) {
 	$this->pdf->write(3, "Felhasználó válaszai: ");
 	$num = count($ans);
 	for($i = 0; $i < $num; ++$i) 
-		$this->pdf->write(3, $ans[$i] . ",    ");
+		$this->pdf->write(3, $ans[$i] . "   ");
 	$this->pdf->write(10, "\n");
 } 
 function pontokSzama($pontok) {
