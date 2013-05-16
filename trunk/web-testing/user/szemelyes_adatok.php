@@ -102,6 +102,78 @@
 				<h2 align="center">Személyes adatok</h2>
 				<p>Itt megtekintheted a regisztrációnál megadott adataid.</p>
 
+<?php
+$db = 'adatok';
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$table_name = 'adatok';
+
+session_start();
+
+	//connection to the database
+	$dbhandle = mysql_connect($host, $user, $pass)
+	or die("Nem lehet kapcsolódni MySQL-hez!");
+	echo 'Kapcsolódva a MySQL-hez <br>';
+	//select a database to work with
+	$selected = mysql_select_db($db)
+	or die("Nem sikerült kapcsolódni az adatbázishoz!");
+	$sql = "SELECT * FROM $table_name WHERE `emailcim` = '".$_SESSION['your_email'] ."'";
+	$result=mysql_query($sql);
+
+	// Mysql_num_row is counting table row
+	$count=mysql_num_rows($result);
+	if($count==1){
+	echo 'jo';
+	}
+	else {
+	?>
+	<script type="text/javascript">
+	alert("Több ilyen felhasználó létezik az adatbázisban.");
+	</script>
+	<?php 
+	}
+	
+	
+	//oszlopnev:adat
+	echo '<table>';
+	while ($row = mysql_fetch_assoc($result)) {
+	echo '<tr>
+	<td>E-mail cím:</td>
+	<td>'.$row['emailcim'].'</td>
+	</tr>
+	<tr>
+	<td>Csaladnév:</td>
+	<td>'.$row['csaladnev'].'</td>
+	</tr>
+	<tr>
+	<td>Keresztnév:</td>
+	<td>'.$row['keresztnev'].'</td>
+	</tr>
+	<tr>
+	<td>Születési dátum:</td>
+	<td>'.$row['szuletesi_datum'].'</td>
+	</tr>
+	<tr>
+	<td>Település:</td>
+	<td>'.$row['telepules'].'</td>
+	</tr>
+	<tr>
+	<td>Telefonszám:</td>
+	<td>'.$row['telefonszam'].'</td>
+	</tr>
+	<tr>
+	<td>Bejelentkezve:</td>
+	<td>'.$row['bejelentkezve'].'</td>
+	</tr>
+	<tr>
+	<td>Aktuális tesztkitöltés:</td>
+	<td>'.$row['akt_teszt_kitoltes'].'</td>
+	</tr>';
+	}
+	echo '</table>';
+?>
+				
 			</div>
 			<!--close content_item-->
 		</div>
@@ -119,7 +191,6 @@
 	<br></br>
 	<br></br>
 
-	</div>
 	<!-- close main -->
 
 </body>
