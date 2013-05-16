@@ -13,6 +13,7 @@ var $kerds = 1;
 function report($us, $ans) {
 	$this->user = $us;
 	$this->answers = $ans;
+	//valami
 }
 function irdKi($user, $R = 0, $G = 0, $B = 0) {
 		require('pdfgen/fpdf.php');
