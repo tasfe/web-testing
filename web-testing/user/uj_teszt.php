@@ -110,8 +110,8 @@ session_start();
 						<?php
 							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Algebra elmelet'";
 							$result=mysql_query($sql);
-							if(!$result)
-								die("Sikertelen lekérdezés!");
+							if($result) {
+								//die("Sikertelen lekérdezés!");
 								
 							while ($row = mysql_fetch_assoc($result)) {
 	
@@ -127,6 +127,7 @@ session_start();
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
+							}
 							}
 						?>
 						<tr>
@@ -146,8 +147,8 @@ session_start();
 						</tr><?php
 							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Algebra gyakorlat'";
 							$result=mysql_query($sql);
-							if(!$result)
-								die("Sikertelen lekérdezés!");
+							if($result) {
+								//die("Sikertelen lekérdezés!");
 								
 								while ($row = mysql_fetch_assoc($result)) {
 	
@@ -163,6 +164,7 @@ session_start();
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
+							}
 							}
 						?>
 						<tr>
@@ -182,8 +184,8 @@ session_start();
 						</tr><?php
 							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Mertan elmelet'";
 							$result=mysql_query($sql);
-							if(!$result)
-								die("Sikertelen lekérdezés!");
+							if($result) {
+								//die("Sikertelen lekérdezés!");
 								
 							while ($row = mysql_fetch_assoc($result)) {
 	
@@ -199,6 +201,7 @@ session_start();
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
+							}
 							}
 						?>
 						<tr>
@@ -218,8 +221,8 @@ session_start();
 						</tr><?php
 							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Mertan gyakorlat'";
 							$result=mysql_query($sql);
-							if(!$result)
-								die("Sikertelen lekérdezés!");
+							if($result) {
+								//die("Sikertelen lekérdezés!");
 								
 							while ($row = mysql_fetch_assoc($result)) {
 	
@@ -235,6 +238,7 @@ session_start();
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
+							}
 							}
 						?>
 						<tr>
@@ -254,8 +258,8 @@ session_start();
 						</tr><?php
 							$sql="SELECT TesztNev FROM tesztek WHERE TesztAktivitas = '1' AND Kategoria='Osszefoglalok'";
 							$result=mysql_query($sql);
-							if(!$result)
-								die("Sikertelen lekérdezés!");
+							if($result) {
+								//die("Sikertelen lekérdezés!");
 								
 							while ($row = mysql_fetch_assoc($result)) {
 	
@@ -271,6 +275,7 @@ session_start();
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
 								}
+							}
 							}
 						?>
 						<tr>
