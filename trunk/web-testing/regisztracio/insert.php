@@ -104,11 +104,12 @@ if(reg_check() == "igaz") {
 		die('Nem megfelelő lekérdezés: '.mysql_error());
 	}
 	if(mysql_num_rows($select) == 1 ) { //check if there is already an entry for that username
-		echo "Ezzel az e-mail cimmel mar valaki regisztralt. Kerem probalja meg egy masik hasznalatat! <br/>";
+		echo "Ezzel az e-mail címmel már valaki regisztrált. Kérem próbálja meg egy másik e-mail cím használatát! <br/>";
 	} else {
 		//mysql_query("TRUNCATE adatok.idadatok");
-		mysql_query("INSERT INTO adatok VALUES (0,'$_POST[email]','$_POST[your_password]','$_POST[reg_surname]','$_POST[reg_first_name]','$_POST[date_of_birth]','$_POST[city]','$_POST[tel_nr]')");
+		mysql_query("INSERT INTO adatok VALUES ('$_POST[email]','$_POST[your_password]','$_POST[reg_surname]','$_POST[reg_first_name]','$_POST[date_of_birth]','$_POST[city]','$_POST[tel_nr]',false,NULL)");
 	}
+	header('location:../login.html');
 }
 else {
 	echo 'Nem megfelelő adatok! Kérem ellenőrizze őket!';
