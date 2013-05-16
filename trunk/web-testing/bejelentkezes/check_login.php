@@ -58,7 +58,7 @@ else {
 		else {
 	?>
 			<script type="text/javascript">
-				alert("Wrong email or password");
+				alert("Hibás e-mail cím vagy jelszó");
 			</script>
 	<?php 
 		}
