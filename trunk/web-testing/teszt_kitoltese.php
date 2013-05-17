@@ -1,5 +1,33 @@
 <?php
 session_start();
+
+$db = 'adatok';
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+	
+//connection to the database
+$dbhandle = mysql_connect($host, $user, $pass)
+or die("Nem lehet kapcsolódni MySQL-hez!");
+	
+//select a database to work with
+$selected = mysql_select_db($db)
+or die("Nem sikerült kapcsolódni az adatbázishoz!");
+
+$sql = "SELECT `idTesztek` FROM `tesztek` WHERE `TesztNev`= '". $_GET['nev'] . "'";
+$result = mysql_query($sql);
+$row = mysql_fetch_assoc($result);
+$id = $row['idTesztek'];
+
+$sql2 = "UPDATE adatok SET akt_teszt_kitoltes=" . $id . " WHERE `emailcim`='" . $_SESSION['your_email'] . "'";
+$result2 = mysql_query($sql2);
+
+if ($_GET["count"] == 1) {
+	$nowFormat = date('Y-m-d H:i:s');
+	$_SESSION[$_SESSION['your_email'] . 'date'] = $nowFormat;
+	$sql3 = "	INSERT INTO `kitoltotttesztek`(`emailcim`, `idTesztek`, `Datum`) VALUES ('" . $_SESSION['your_email'] . "'," . $id . ",'" . $nowFormat . "')";
+	$result3 = mysql_query($sql3);
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,7 +42,8 @@ session_start();
   <script type="text/javascript" src="js/image_slide.js"></script>
   <script type = "text/javascript">
 function checkTheBox() {
-	obj = document.answers.elements("valasz[]");
+	//obj = document.answers.elements("valasz[]");
+	obj = document.getElementsByName("valasz[]");
 	for (i = 0; i < obj.length; i++) {
 		if (obj[i].checked) {
 	        return true;
@@ -23,13 +52,21 @@ function checkTheBox() {
     alert("Nem jelöltél be választ!");
     return false;
 }
+
+function nextQ() {
+	if (checkTheBox())
+		document.answers.submit();
+}
 </script>
   
 </head>
 
 <body>
 	<?php
-		$tesztneve = $_GET['nev'];
+		if ($_GET["count"] == 1)
+			$tesztneve = "tests/" . $_GET['nev'];
+		else
+			$tesztneve = $_GET['nev'];
 		$felhasznalo = $_SESSION['your_email'];
 	?>
 
@@ -38,16 +75,58 @@ function checkTheBox() {
 	 
 	  <div id="content">
         <div class="content_item" align = "left">
-        <form name="answers" action="teszt_kitoltese.php?nev=<?php echo $tesztneve;?>" method="post" onsubmit="return checkTheBox();">
+        <form name="answers" action="teszt_kitoltese.php?nev=<?php echo $tesztneve;?>&count=<?php echo $_GET["count"]+1 ?>" method="post">
 						<?php
 						include 'readQuestion.php';
-                      if (empty($_POST['q'])) {
+                      /*if (empty($_POST['q'])) {
                       	$reply = readQ(0, $tesztneve);
                       }
                       else {
                       	$reply = readQ($_POST['q']-1, $tesztneve);
-                      } 
-                      if ($reply[0] == "ok") {?>
+                      }*/
+
+					$reply = readQ($_GET["count"]-1, $tesztneve);
+                      
+                      if (!isset($_SESSION[$felhasznalo . "p".($_GET["count"])])) {
+                      	if (!isset($_SESSION[$felhasznalo . "continue"])) {
+                      		$_SESSION[$felhasznalo . "continue"] = ($_GET["count"]+1);
+                      		$_SESSION[$felhasznalo . "p" . ($_GET["count"]+1)] = 1;
+                      		
+                      		$_SESSION[$felhasznalo . "pont_backup"] = 1;
+                      	}
+                      	?>
+                      				<a href="teszt_kitoltese.php?nev=<?php echo $tesztneve; ?>&count=<?php echo $_SESSION[$felhasznalo . "continue"]; ?>">Teszt folytatása</a>
+                      				
+                      				<?php
+                      			} else if ($reply[0] == "ok") {
+                      				unset($_SESSION[$felhasznalo . "p".($_GET["count"])]);
+                      				unset($_SESSION[$felhasznalo . "continue"]);
+                      				$_SESSION[$felhasznalo . "p".($_GET["count"]+1)] = 1;
+                      			?><?php 
+                      
+                      /*if (empty($_POST['q']))
+                      	$count = 1;
+					  else
+						$count = $_POST['q'];
+					  
+					  $trimmed = $_SESSION[trim("p".($count))];
+					  	
+                      if (!isset($trimmed)) {
+                      	if (!isset($_SESSION["continue"])) {
+                      		$_SESSION["continue"] = ($count+1);
+                      		$_SESSION[trim("p".($count+1))] = 1;
+                      	}
+                      	?>
+                      	<a href="teszt_kitoltese.php?nev=<?php echo $tesztneve; ?>?count=<?php echo $_SESSION["continue"]; ?>">Continue</a>
+                      	<?php
+                      	} else if ($reply[0] == "ok") {
+							if ($count != 1)
+                      			unset($_SESSION[trim("p".($count-1))]);
+                      		unset($_SESSION["continue"]);
+                      		$_SESSION[trim("p".($count))] = 1;*/
+                     // }
+                      
+                      //if ($reply[0] == "ok") {?>
 						<h1> Cím: <?php
 	      					echo readName($tesztneve); ?>
 						</h1>
@@ -62,18 +141,23 @@ function checkTheBox() {
         							<li>Tesztkérdések száma: <?php
 	      								echo readQnumber($tesztneve); ?></li>
         							<li>Eddigi kérdések: <?php
-                      					if (!empty($_POST['q'])) 
+        								echo $_GET["count"]-1;
+                      					/*if (!empty($_POST['q'])) 
                       						echo $_POST['q']-1;
                       					else 
-                      						echo "0";
+                      						echo "0";*/
                     				?></li>
-                                   <li>Eddig elért pontszám:<?php 
-        								if (!empty($_POST['p'])) {
+                                   <li>Eddig elért pontszám:<?php
+                                   		if (isset($_SESSION[$felhasznalo . "pont_backup"])) {
+											unset($_SESSION[$felhasznalo . "pont_backup"]);
+											$_POST['p'] = $_SESSION[$felhasznalo . "pont"];
+											echo $_POST['p'];
+										} else if (!empty($_POST['p'])) {
 
 											$pont = 0;
 											$helyes = 0;
 											$check = readOneCorrectPoint($tesztneve);
-											$reply2 = readQ($_POST['q']-2, $tesztneve);
+											$reply2 = readQ(/*$_POST['q']*/$_GET["count"]-2, $tesztneve);
 										
 											$answers = 0;
 											foreach ($reply2 as $r)
@@ -88,7 +172,10 @@ function checkTheBox() {
 												foreach($_POST['valasz'] as $bejelolt) {
 													$ab_kimentes = $ab_kimentes . $bejelolt . ",";
 												}
-
+												
+												$sql4 = "UPDATE kitoltotttesztek SET " . ($_GET['count']-1) . "Kerdes ='" . $ab_kimentes . "' WHERE emailcim='" . $felhasznalo . "' AND Datum= '" . $_SESSION[$_SESSION['your_email'] . 'date'] . "'";
+												$result4 = mysql_query($sql4);
+												
 												foreach($_POST['valasz'] as $bejelolt) {
 													$index = 3 + 2*$bejelolt;
 													if ($reply2[$index] == "true") {
@@ -113,7 +200,9 @@ function checkTheBox() {
 													$pont = 0;
 											}
 										
-											echo $_POST['p']+$pont;
+											$_SESSION[$felhasznalo . 'pont'] = $_POST['p'] + $pont;
+											echo $_POST['p'] + $pont;
+											$_POST['p'] = $_POST['p']+ $pont;
 											}
                       					else 
                       						echo "0";?>/<?php echo readPoints($tesztneve);?></li>
@@ -122,14 +211,18 @@ function checkTheBox() {
     					</div><!--close menubar-->
     					<br></br>
     					<p><font size="6">	
-                      	<?php if (empty($_POST['q'])) {
+                      	<?php /*if (empty($_POST['q'])) {
                       		echo "1. ";
                       		echo $reply[1];
                       	}
                       	else {
                       		echo $_POST['q'] . ". ";
                       		echo $reply[1];
-                      		}
+                      		}*/
+                      					
+                      		echo $_GET["count"] . ". ";
+                      		echo $reply[1];
+                      		
                       		?>
                       	</font></p>
    
@@ -149,7 +242,7 @@ function checkTheBox() {
 											}	
 											}
 											?>
-											<input type="submit" value="Válasz küldése"/>
+											<input type="button" value="Válasz küldése" onclick="nextQ();"/>
 											<input type="hidden" name="q" value="
 											<?php 
 											if (!empty($_POST['q'])) echo $_POST['q']+1;
@@ -158,16 +251,22 @@ function checkTheBox() {
 											"/>
 											<input type="hidden" name="p" value="
 											<?php
-											if (!empty($_POST['p'])) echo $_POST['p']+$pont;
+											if (!empty($_POST['p'])) echo $_POST['p']/*+$pont*/;
 													else echo "0";
 								            ?>
 								 			"/>
+								 			<input type="hidden" name="d" value='
+											<?php
+											if (!empty($_POST['d'])) echo $_POST['d'];
+													else echo $nowFormat;
+								            ?>
+								 			'/>
 											</font></p>
 											</form>
 											<div id="menubar">
 												<div id="menubar_test">
 													<ul id="menu">    
-      													<li><a href="user/szemelyes_adatok.php">Teszt megszakítása</a></li>  
+      													<li><a href="user/szemelyes_adatok.php" >Teszt megszakítása</a></li>  
       												</ul>
       											</div>
 											</div> 
@@ -177,17 +276,21 @@ function checkTheBox() {
                       		<br></br>
 	      					<br></br>
 	      					<br></br>
-	      					<h1> GRATULÁLUNK!!! Az: <?php
+	      					<h1> GRATULÁLUNK!!! A(z): <?php
 	      						echo readName($tesztneve); ?>
 	      						című tesztet sikeresen kitöltötte! :)
 	      					<br></br>
-	      					
 	      					<?php
 	      						      					
+	      					$sql2 = "UPDATE adatok SET akt_teszt_kitoltes=NULL WHERE `emailcim`='" . $felhasznalo . "'";
+	      					$result2 = mysql_query($sql2);
+	      					
+	      					//unset($_SESSION["p".($_POST['q'])]);
+	      					unset($_SESSION[$felhasznalo . "p".($_GET["count"])]);
 											$pont = 0;
 											$helyes = 0;
 											$check = readOneCorrectPoint($tesztneve);
-											$reply2 = readQ($_POST['q']-2, $tesztneve);
+											$reply2 = readQ(/*$_POST['q']*/$_GET["count"]-2, $tesztneve);
 										
 											$answers = 0;
 											foreach ($reply2 as $r)
@@ -202,6 +305,9 @@ function checkTheBox() {
 												foreach($_POST['valasz'] as $bejelolt) {
 													$ab_kimentes = $ab_kimentes . $bejelolt . ",";
 												}
+												
+												$sql4 = "UPDATE kitoltotttesztek SET " . ($_GET['count']-1) . "Kerdes ='" . $ab_kimentes . "' WHERE emailcim='" . $felhasznalo . "' AND Datum= '" .$_SESSION[$_SESSION['your_email'] . 'date'] . "'";
+												$result4 = mysql_query($sql4);
 
 												foreach($_POST['valasz'] as $bejelolt) {
 													$index = 3 + 2*$bejelolt;
@@ -228,7 +334,10 @@ function checkTheBox() {
 											}
 										?>
 	      					
-	      					A tesztre kapott jegye: <?php echo number_format(($_POST['p']+$pont)*10/readPoints($tesztneve), 2, '.', '');?>
+	      					A tesztre kapott jegye: <?php echo number_format(($_POST['p']+$pont)*10/readPoints($tesztneve), 2, '.', '');
+	      					
+	      					$sql5 = "UPDATE kitoltotttesztek SET Eredmeny ='" . number_format(($_POST['p']+$pont)*10/readPoints($tesztneve), 2, '.', '') . "' WHERE emailcim='" . $felhasznalo . "' AND Datum= '" .$_SESSION[$_SESSION['your_email'] . 'date'] . "'";
+							$result5 = mysql_query($sql5);?>
 							</h1>
 							<br></br>
 							<br></br>
@@ -242,8 +351,9 @@ function checkTheBox() {
 							<div id="menubar">
 								<div id="menubar_test">
 									<ul id="menu">  
-      									<li><a href="user/szemelyes_adatok.php">Bővebb információ a tesztkitöltésről</a></li>  
+      									<li><a href="szemelyes_adatok.php">Bővebb információ a tesztkitöltésről</a></li>  
       									<li><a href="user/szemelyes_adatok.php">Saját profil</a></li>  
+      									<li><a href="#" onclick="window.close();">Ablak bezárása</a></li>  
       								</ul>
       							</div>
 							</div>		
