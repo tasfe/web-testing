@@ -1,5 +1,8 @@
 <?php
 session_start();
+$_SESSION[$_SESSION['your_email'] . "p1"] = 0;
+$_SESSION[$_SESSION['your_email'] . "pont"] = 0;
+unset($_SESSION[$_SESSION['your_email'] . "pont_backup"]);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -116,7 +119,7 @@ session_start();
 								$cim = readName("../tests/" . $row['TesztNev']);
 								
 								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
-									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
+									?><tr><td></td><td><a href="../start_test.php?nev=<?php echo $row["TesztNev"];?>&count=1" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
@@ -153,7 +156,7 @@ session_start();
 								$cim = readName("../tests/" . $row['TesztNev']);
 								
 								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
-									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
+									?><tr><td></td><td><a href="../start_test.php?nev=<?php echo $row["TesztNev"];?>&count=1" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
@@ -190,7 +193,7 @@ session_start();
 								$cim = readName("../tests/" . $row['TesztNev']);
 								
 								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
-									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
+									?><tr><td></td><td><a href="../start_test.php?nev=<?php echo $row["TesztNev"];?>&count=1" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
@@ -227,7 +230,7 @@ session_start();
 								$cim = readName("../tests/" . $row['TesztNev']);
 								
 								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
-									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
+									?><tr><td></td><td><a href="../start_test.php?nev=<?php echo $row["TesztNev"];?>&count=1" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
@@ -264,7 +267,7 @@ session_start();
 								$cim = readName("../tests/" . $row['TesztNev']);
 								
 								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
-									?><tr><td></td><td><a href="../teszt_kitoltese.php?nev=tests/<?php echo $row["TesztNev"];?>" target="_blank"><?php echo $cim;?></a></td></tr><?php 
+									?><tr><td></td><td><a href="../start_test.php?nev=<?php echo $row["TesztNev"];?>&count=1" target="_blank"><?php echo $cim;?></a></td></tr><?php 
 								}
 								if (readPossibility("../tests/" . $row['TesztNev']) <= $num) {
 									?><tr><td></td><td><?php echo $cim;?></td></tr><?php
