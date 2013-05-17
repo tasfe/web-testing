@@ -58,14 +58,23 @@
 					<br></br>
 
 					<h1>Üdvözlünk az oldalunkon!</h1>
-					<p>Az oldal rövid leírása itt található.</p>
+					<p>Az oldal rövid leírása:</p>
+					<p>Ez az oldal azon személyek számára készült, akik szeretnék matematikai tudásukat felmérni és folyamatosan bővíteni.
+					Amint regisztrált bármikor beléphet és kitöltheti a felkínált tesztek bármelyikét. Minden teszt kitöltése után jegyet
+					számolunk az elért pontszám alapján, sőt lehetőség van a teszt kitöltéséről bővebb információt is kérni, ahol részletesen
+					megtekintheti, mely válaszai voltak helyesek, a hibás válaszoknál pedig melyik lett volna a helyes válasz.
+					Több kategóriából kínálunk fel teszteket és a tesztek többszörös elvégzésére is lehetőséget adunk a fejlődés érdekében.
+					</p>
 
 					<div class="content_image" align="left">
 						<img src="images/content_image1.jpg" alt="image1" />
 					</div>
-					<p>Kép melletti szöveg itt található.</p>
-					<p>Új bekezdésben kép melletti szöveg.</p>
-					<br style="clear: both" /> <br></br> <br></br>
+					<p>Célunk, hogy felhasználóink minél közelebb kerüljenek a matematikához, kedvet kapjanak a tesztek elvégzéséhez és ők maguk
+					jöjjenek rá arra, hogy a matematika világa egy csodálatos világ.</p>
+					<p>Egyelőre többet nem árulunk el, akit sikerült kiváncsivá tegyünk, az regisztrálhat megadva az e-mailcímét és további személyes adatait
+					(regisztrálni a "Bejelentkezés" menüpont alatt lehet).</p>
+					<p>Mindenkit szeretettel várunk matekezni!!! :)</p>
+					<br style="clear: both" /> <br></br>
 
 					<h1>Elérhetőség</h1>
 					<p>Telefonszám: +44 (0)1234 567891</p>

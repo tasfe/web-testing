@@ -167,7 +167,7 @@ function checkTheBox() {
 											<div id="menubar">
 												<div id="menubar_test">
 													<ul id="menu">    
-      													<li><a href="szemelyes_adatok.php">Teszt megszakítása</a></li>  
+      													<li><a href="user/szemelyes_adatok.php">Teszt megszakítása</a></li>  
       												</ul>
       											</div>
 											</div> 
@@ -242,8 +242,8 @@ function checkTheBox() {
 							<div id="menubar">
 								<div id="menubar_test">
 									<ul id="menu">  
-      									<li><a href="szemelyes_adatok.php">Bővebb információ a tesztkitöltésről</a></li>  
-      									<li><a href="szemelyes_adatok.php">Saját profil</a></li>  
+      									<li><a href="user/szemelyes_adatok.php">Bővebb információ a tesztkitöltésről</a></li>  
+      									<li><a href="user/szemelyes_adatok.php">Saját profil</a></li>  
       								</ul>
       							</div>
 							</div>		

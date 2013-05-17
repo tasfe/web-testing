@@ -116,40 +116,43 @@ include '../readQuestion.php';
 
 				$sql="SELECT emailcim, idTesztek, Datum, Eredmeny FROM kitoltotttesztek WHERE emailcim = '" . $_SESSION['your_email'] . "'";
 				$result=mysql_query($sql);
-				if(!$result)
+				$row = mysql_fetch_assoc($result);
+				if(!$row) {
 					echo "Még nincs kitöltött teszted!";//die("Sikertelen lekérdezés!");
-else {
-				if (isset($_SESSION['activation_result']))
-				{
-					echo '<br />';
-					echo '<b>'.$_SESSION['activation_result'].'</b>';
-					echo '<br />';
-					unset($_SESSION['activation_result']);
-				}
+					}
+				else {
+					if (isset($_SESSION['activation_result']))
+					{
+						echo '<br />';
+						echo '<b>'.$_SESSION['activation_result'].'</b>';
+						echo '<br />';
+						unset($_SESSION['activation_result']);
+					}
 							
-				echo '<form action = "activate.php" method = "post">';
-				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
-				echo '<table><th>&emsp;</th><th>Tesztnév</th><th>Tesztre kapott jegy</th><th>Kitöltés dátuma</th>';
-				while ($row = mysql_fetch_assoc($result)) {
-					$sql2 = "SELECT TesztNev FROM tesztek WHERE idTesztek='" . $row['idTesztek'] . "'";
-					$result2=mysql_query($sql2);
-					$row2 = mysql_fetch_assoc($result2);
-					$cim = readName("../tests/" . $row2['TesztNev']);
-					echo '<tr>
-					<td><input type=\'radio\' name=\'radio\' VALUE='.$row2['TesztNev'].'"></td>
-					<td> '.$cim.' </td>
-					<td>'.$row['Eredmeny'].'</td>
-					<td>'.$row['Datum'].'</td>';
+					echo '<form action = "activate.php" method = "post">';
+					echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
+					echo '<table><th>&emsp;</th><th>Tesztnév</th><th>Tesztre kapott jegy</th><th>Kitöltés dátuma</th>';
+					while ($row) {
+						$sql2 = "SELECT TesztNev FROM tesztek WHERE idTesztek='" . $row['idTesztek'] . "'";
+						$result2=mysql_query($sql2);
+						$row2 = mysql_fetch_assoc($result2);
+						$cim = readName("../tests/" . $row2['TesztNev']);
+						echo '<tr>
+						<td><input type=\'radio\' name=\'radio\' VALUE='.$row2['TesztNev'].'"></td>
+						<td> '.$cim.' </td>
+						<td>'.$row['Eredmeny'].'</td>
+						<td>'.$row['Datum'].'</td>';
+						$row = mysql_fetch_assoc($result);
+					}
+					echo '</TABLE><br /><br />';
+					echo '<input type="submit" name="submit" value="Report generálása" />&emsp;';
+					echo '<br />';
+					
+					//free the resources associated with the result set
+					mysql_free_result($result);
+					//close connection
+					mysql_close($dbhandle);
 				}
-				echo '</TABLE><br /><br />';
-				echo '<input type="submit" name="submit" value="Report generálása" />&emsp;';
-				echo '<br />';
-				
-				//free the resources associated with the result set
-				mysql_free_result($result);
-				//close connection
-				mysql_close($dbhandle);
-}
 			?>
 			<br><br>
 			</div>

@@ -244,7 +244,7 @@ session_start();
 						<hr>
 					<table  border="0" cellpadding="2" cellspacing="10" align = "center">
 						<tr>
-							<th rowspan="2" align="center"><img src="../images/geom_icon.png" alt="image1" height="50"/></th>
+							<th rowspan="2" align="center"><img src="../images/osszef_icon.png" alt="image1" height="50"/></th>
 						</tr>
 						<tr>
 							<th align="center">Összefoglalók</th>
@@ -279,7 +279,7 @@ session_start();
 						</tr>
 						</table>
 
-					<br></br> <br></br>
+					<br></br>
 	      
 		</div><!--close content_item-->
       </div><!--close content-->   
