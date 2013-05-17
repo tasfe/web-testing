@@ -106,7 +106,7 @@ session_start();
 	//connection to the database
 	$dbhandle = mysql_connect($host, $user, $pass)
 	or die("Nem lehet kapcsolódni MySQL-hez!");
-	echo 'Kapcsolódva a MySQL-hez <br>';
+	//echo 'Kapcsolódva a MySQL-hez <br>';
 	//select a database to work with
 	$selected = mysql_select_db($db)
 	or die("Nem sikerült kapcsolódni az adatbázishoz!");
@@ -116,7 +116,7 @@ session_start();
 	// Mysql_num_row is counting table row
 	$count=mysql_num_rows($result);
 	if($count==1){
-	echo 'jo';
+	//echo 'jo';
 	}
 	else {
 	?>
@@ -164,7 +164,7 @@ session_start();
 	</tr>';
 	}
 	echo '</table>';
-?>
+?><br><br>
 				
 			</div>
 			<!--close content_item-->
