@@ -41,8 +41,7 @@ include '../readQuestion.php';
 
 		<div id="menubar">
 			<ul id="menu">
-				<li><a href="../index.php">Főoldal</a></li>
-				<li class="current"><a href="user.php">Profil</a></li>
+				<li><a href="index2.php">Főoldal</a></li>
 				<li><a href="logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
