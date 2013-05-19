@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-<meta http-equiv="Content-Type" content="../text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Tesztelő rendszer</title>
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
@@ -48,7 +48,7 @@
 				<div class="sidebar_container">
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="szemelyes_adatok.php"><h2>Személyes adatok</h2> </a>
+							<a href="szemelyes_adatok.php"><h2>Személyes adatok</h2></a>
 							<p>A fenti menüpont alatt megtekintheted a regisztráció során
 								megadott adataid.</p>
 						</div>
@@ -74,8 +74,8 @@
 					<!--close sidebar-->
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Eredmények</h2>
-							<p>A fenti menüpont alatt megnézheted az eddig elért eredmenyeid</p>
+							<a href="eredmenyek.php"><h2>Eredmények</h2> </a>
+							<p>A fenti menüpont alatt megnézheted az eddig elért eredményeid</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -85,10 +85,9 @@
 
 				<ul class="slideshow">
 					<li class="show"><img width="680" height="250"
-						src="../images/home_2.jpg" alt="&quot;Eredmények&quot;" /></li>
-					<li><a href="szemelyes_adatok.php"><img width="680" height="250"
-							src="../images/home_2.jpg" alt="&quot;Személyes adatok&quot;" />
-					</a></li>
+						src="../images/home_2.jpg" alt="&quot;Személyes adatok&quot;" /></li>
+					<li><a href="eredmenyek.php"><img width="680" height="250"
+							src="../images/home_2.jpg" alt="&quot;Eredmények&quot;" /> </a></li>
 					<li><a href="kitoltott_tesztek.php"><img width="680" height="250"
 							src="../images/home_2.jpg" alt="&quot;Kitöltött tesztek&quot;" />
 					</a></li>
@@ -97,18 +96,7 @@
 					</a></li>
 				</ul>
 
-
-				<br></br>
-				<h2 align="center">Eredmények</h2>
-				<p>Itt megtekintheted az eddig kitöltött tesztekre kapott
-					eredményeid.</p>
-				<p>Válassz egy témát a felsoroltak közül:</p>
-				<ul>
-					<li>Algebra</li>
-					<li>Geometria</li>
-					<li>Trigonometria</li>
-				</ul>
-
+				
 			</div>
 			<!--close content_item-->
 		</div>
@@ -126,7 +114,6 @@
 	<br></br>
 	<br></br>
 
-	</div>
 	<!-- close main -->
 
 </body>

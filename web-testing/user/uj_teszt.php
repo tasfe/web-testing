@@ -18,7 +18,7 @@ unset($_SESSION[$_SESSION['your_email'] . "pont_backup"]);
 </head>
 
 <body>
-
+	
   <div id="main">
   
     <div id="header">
@@ -34,8 +34,7 @@ unset($_SESSION[$_SESSION['your_email'] . "pont_backup"]);
 
 	<div id="menubar">
       <ul id="menu">
-        <li><a href="../index.php">Főoldal</a></li>
-        <li class="current"><a href="user.php">Profil</a></li>
+        <li><a href="index2.php">Főoldal</a></li>
         <li><a href="logout.php">Kijelentkezés</a></li>
       </ul>
     </div><!--close menubar-->
@@ -154,6 +153,8 @@ unset($_SESSION[$_SESSION['your_email'] . "pont_backup"]);
 								$num = mysql_num_rows($result2);
 
 								$cim = readName("../tests/" . $row['TesztNev']);
+								
+								$_SESSION['1Kerdes'] = 1; //beallitom, hogy az elso kerdes kitoltese kovetkezik
 								
 								if (readPossibility("../tests/" . $row['TesztNev']) > $num) {
 									?><tr><td></td><td><a href="../start_test.php?nev=<?php echo $row["TesztNev"];?>&count=1" target="_blank"><?php echo $cim;?></a></td></tr><?php 
