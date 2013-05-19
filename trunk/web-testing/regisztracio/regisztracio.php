@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
@@ -11,6 +15,7 @@
 </head>
 
 <body>
+
   <div id="main">
     <div id="header">
 	  <div id="banner">
@@ -72,11 +77,18 @@
 				</tr>
 				<tr>
 					<td><span><b>*Születési dátum(év.hónap.nap.):</b></span></td>	
-					<td><input class="contact" type="date" name="date_of_birth" value="" /></td>
+					<td><input class="contact" type="date1" name="date_of_birth" value="" /></td>
 				</tr>
 				<tr>
 					<td><span><b>Telefonszám:</b></span></td>
 					<td><input class="contact" type="text" name="tel_nr" value="" /></td>
+				</tr>		
+				<tr>
+					<td><br /> <img src="CaptchaSecurityImages.php?width=100&height=40&characters=5" /><br />
+					</td>
+					<td>
+					<label for="security_code">Security Code: </label><input id="security_code" name="security_code" type="text" /><br />
+					</td>
 				</tr>				
 				<tr>
 					<td>&nbsp;</td>
@@ -100,6 +112,36 @@
     <br></br>
  
   </div><!--close main-->
+
+<?php
+if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name']) 
+		|| isset($_SESSION['email']) || isset($_SESSION['your_email'])
+		|| isset($_SESSION['your_email2']) || isset($_SESSION['city'])
+		|| isset($_SESSION['date_of_birth']) || isset($_SESSION['tel_nr']) 
+        || isset($_SESSION['ok'])) {
+	if($_SESSION['reg_surname'] != '')
+		echo '<script type="text/javascript"> alert("Nem töltötte ki a családnév mezőt vagy nem megengedett karaktereket használt.\n Mező kitöltése kötelező !"); </script>';
+	else if($_SESSION['reg_first_name'] != '')
+			echo '<script type="text/javascript"> alert("Nem töltötte ki a keresztnév mezőt vagy nem megengedett karaktereket használt.\n Mező kitöltése kötelező !"); </script>';
+		 else if($_SESSION['email'] != '')
+		 		echo '<script type="text/javascript"> alert("Helytelen e-mail cím.\n Mező kitöltése kötelező !"); </script>';
+		 	  else if($_SESSION['your_password'] != '')
+		 			echo '<script type="text/javascript"> alert("A jelszónak legalább 6 karakterből kell állnia.\n Mező kitöltése kötelező !"); </script>';
+		 	  else if($_SESSION['your_password2'] != '')
+		 	  			echo '<script type="text/javascript"> alert("Helytelen jelszómegerősítés.\n Mező kitöltése kötelező !"); </script>';
+		 	  		else if($_SESSION['city'] != '')
+		 	  				echo '<script type="text/javascript"> alert("Helytelenül megadott városnév.\n Mező kitöltése kötelező !"); </script>';
+		 	  			 else if($_SESSION['date_of_birth'] != '')
+		 	  					echo '<script type="text/javascript"> alert("A születési dátumot a következő formában, adja meg : ÉÉÉÉ.HH.NN. !\n Mező kitöltése kötelező !"); </script>';
+		 	  			 	  else if($_SESSION['tel_nr'] != '')
+		 	  			 			echo '<script type="text/javascript"> alert("Nem megfelelő telefonszám."); </script>';
+		 	  			 	  		else if(!$_SESSION['ok'])
+		 	  			 	  			echo '<script type="text/javascript"> alert("Helytelen képfelismerés. Probálja újra!"); </script>';
+		 	  			 	  			else if($_SESSION['marvolt'] == 'igen')
+		 	  			 	  					echo '<script type="text/javascript"> alert("A megadott e-mail cím már használatban van!\n Kérem adjon meg másik e-mail címet!"); </script>';
+		
+}
+?>
 
 </body>
 </html>
