@@ -7,9 +7,7 @@ $pass = '';
 $table_name = 'adatok';
 	
 //connection to the database
-$dbhandle = mysql_connect($host, $user, $pass)
-or die("Nem lehet kapcslodni MySQL-hez!");
-echo "Kapcsolódva a MySQL-hez<br>";
+$dbhandle = mysql_connect($host, $user, $pass);
 
 //select a database to work with
 $selected = mysql_select_db($db)
@@ -37,7 +35,7 @@ if (($your_password == "") || ($your_email == "")){
 				alert("Nem töltöttél ki minden mezőt!");
 </script>
 <?php
-		 header("../login.html");
+		 header("../login.php");
 }
 else {
 	if($your_email=="admin" && $your_password=="admin")
@@ -56,11 +54,8 @@ else {
 			header("location:../user/szemelyes_adatok.php");
 		}
 		else {
-	?>
-			<script type="text/javascript">
-				alert("Hibás e-mail cím vagy jelszó");
-			</script>
-	<?php 
+			$_SESSION['hibas'] = true;
+			header("location:../login.php");
 		}
 	}
 }
