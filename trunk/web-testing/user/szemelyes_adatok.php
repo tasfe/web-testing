@@ -127,7 +127,7 @@ session_start();
 	
 	
 	//oszlopnev:adat
-	echo '<table>';
+	echo '<table border="1" align="center">';
 	while ($row = mysql_fetch_assoc($result)) {
 	echo '<tr>
 	<td>E-mail cím:</td>
@@ -152,14 +152,6 @@ session_start();
 	<tr>
 	<td>Telefonszám:</td>
 	<td>'.$row['telefonszam'].'</td>
-	</tr>
-	<tr>
-	<td>Bejelentkezve:</td>
-	<td>'.$row['bejelentkezve'].'</td>
-	</tr>
-	<tr>
-	<td>Aktuális tesztkitöltés:</td>
-	<td>'.$row['akt_teszt_kitoltes'].'</td>
 	</tr>';
 	}
 	echo '</table>';
