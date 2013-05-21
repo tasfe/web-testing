@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -39,6 +39,7 @@
 			<ul id="menu">
 				<li><a href="../index.php">Főoldal</a></li>
 				<li class="current"><a href="upload.html">Admin</a></li>
+				<li><a href="logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -51,7 +52,7 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="admin.html"><h2>Személyes adatok</h2></a>
+							<a href="admin.php"><h2>Személyes adatok</h2></a>
 							<p>A fenti menüpont alatt megtekintheted a regisztrácio során
 								megadott adataid.</p>
 						</div>
@@ -74,15 +75,6 @@
 							<a href="view_completed_test.html"><h2>Kitöltött tesztek</h2></a>
 							<p>A fenti menüpontot kiválasztva megtekintheted a kitöltött
 								teszteket.</p>
-						</div>
-						<!--close sidebar_item-->
-					</div>
-					<!--close sidebar-->
-
-					<div class="sidebar">
-						<div class="sidebar_item">
-							<h2>Kimutatás</h2>
-							<a href="statements.php"><p>A fenti menüpontot kiválasztva megtekinthetsz kimutatásokat.</p></a>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -124,6 +116,16 @@
 				<p>Válaszd ki, hogy melyik tesztet szeretnéd feltölteni.</p>
 				
 				<br></br>
+			<?php
+				if (isset($_SESSION['upload']))
+				{
+					echo '<br />';
+					echo '<b>'.$_SESSION['upload'].'</b>';
+					echo '<br />';
+					unset($_SESSION['upload']);
+				}
+			?>
+				
 				<form action = "upload_file.php" method = "post"
 					enctype="multipart/form-data">
 					<label for="file">Fájlnév:</label> <input type="file" name="file" id="file" /> <br /> 

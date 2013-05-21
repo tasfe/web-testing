@@ -20,29 +20,6 @@ if(isset($_POST['radio']))
 	$selected = mysql_select_db($db)
 	or die("Nem sikerült kapcsolódni az adatbázishoz!");
 	
-	switch ($_POST['submit']) {
-	
-		case 'Teszt törlése':
-			
-			$sql = "DELETE FROM tesztek WHERE idTesztek=$selected_radio";
-			$result = mysql_query($sql);
-
-			if (!$result)
-			{
-				$_SESSION['activation_result']='Sikertelen törlés.';
-				die('Invalid query: ' . mysql_error());
-			}
-			else
-			{
-				$_SESSION['activation_result']='A törlés megtörtént.';
-				//close connection
-				mysql_close($dbhandle);
-			}
-			
-			break;
-				
-		case 'Teszt aktiválása vagy inaktiválása':
-	
 			$sql="SELECT * FROM  tesztek WHERE idTesztek=$selected_radio";
 			$akt = mysql_query($sql); 
 	
@@ -74,9 +51,7 @@ if(isset($_POST['radio']))
 				//close connection
 				mysql_close($dbhandle);
 			}
-		
-		break;
-	}	//end switch
+
 }
 else 
 {

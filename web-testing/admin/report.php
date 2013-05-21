@@ -5,11 +5,7 @@
 		case 'Report generálása':
 			//echo 'report';
 			break;
-			
-		case 'Kiterjesztett report generálása':
-			//echo 'kiterjesztett report';
-			break;
-	
+
 		case 'Sikeres tesztek':
 			$_SESSION['successful']='true';
 			break;
