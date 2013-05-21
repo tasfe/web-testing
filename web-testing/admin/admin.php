@@ -2,15 +2,17 @@
 session_start();
 if (isset($_SESSION['your_email']))
 {
-	$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
-	header("location:../index.php");
-}  
-else
 	if($_SESSION['your_email']!='admin')
 	{
 		$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
 		header("location:../index.php");
 	}
+}  
+else
+{
+	$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
+	header("location:../index.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -49,7 +51,8 @@ else
 		<div id="menubar">
 			<ul id="menu">
 				<li><a href="index.php">Főoldal</a></li>
-				<li class="current"><a href="admin.html">Admin</a></li>
+				<li class="current"><a href="admin.php">Admin</a></li>
+				<li><a href="../user/logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -62,9 +65,7 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Személyes adatok</h2>
-							<p>A fenti menüpont alatt megtekintheted a regisztrácio során
-								megadott adataid.</p>
+							<h2>Kezdő oldal</h2>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -72,9 +73,10 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Jelenlegi tesztkitöltések</h2>
-							<p>A fenti menüpontot kiválasztva megtekintheted a
-								folyamatban levő tesztkitöltéseket.</p>
+							<a href="view_test_completing.php"><h2>Jelenlegi tesztkitöltések</h2>
+							</a>
+							<p>A fenti menüpontot kiválasztva megtekintheted a folyamatban
+								levő tesztkitöltéseket.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -82,7 +84,7 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Kitöltött tesztek</h2>
+							<a href="view_completed_test.php"><h2>Kitöltött tesztek</h2> </a>
 							<p>A fenti menüpontot kiválasztva megtekintheted a kitöltött
 								teszteket.</p>
 						</div>
@@ -92,17 +94,7 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<h2>Kimutatás</h2>
-							<p>A fenti menüpontot kiválasztva megtekinthetsz
-								kimutatásokat.</p>
-						</div>
-						<!--close sidebar_item-->
-					</div>
-					<!--close sidebar-->
-
-					<div class="sidebar">
-						<div class="sidebar_item">
-							<h2>Teszt aktiválás/inaktiválás</h2>
+							<a href="test_activate.php"><h2>Teszt aktiválás/inaktiválás</h2></a>
 							<p>A fenti menüpontot kiválasztva lehetőséged van teszteket
 								aktiválni és inaktiválni.</p>
 						</div>
@@ -112,7 +104,7 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="upload.php"><h2>Új teszt feltöltése</h2></a>
+							<a href="upload.php"><h2>Új teszt feltöltése</h2> </a>
 							<p>A fenti menüpontot kiválasztva új teszteket tölthetsz fel.</p>
 						</div>
 						<!--close sidebar_item-->
@@ -121,23 +113,23 @@ else
 
 				</div>
 				<!--close sidebar_container-->
-
+				
 				<ul class="slideshow">
 					<li class="show"><img width="680" height="250"
-						src="../images/home_2.jpg" alt="&quot;Szemelyes adatok&quot;" /></li>
-					<li><a href="eredmenyek.php"><img width="680" height="250"
-							src="../images/home_2.jpg" alt="&quot;Eredmenyek&quot;" /></a></li>
-					<li><a href="kitoltott_tesztek.php"><img width="680"
-							height="250" src="images/home_2.jpg"
-							alt="&quot;Kitoltott tesztek&quot;" /></a></li>
-					<li><a href="uj_teszt.php"><img width="680" height="250"
-							src="../images/home_1.jpg" alt="&quot;Uj teszt kitoltese&quot;" /></a></li>
+						src="../images/home_1.jpg" alt="&quot;Adminisztrátor&quot;" />
+					</li>
+					<li><img width="680" height="250" src="../images/home_2.jpg"
+						alt="&quot;Adminisztrátor&quot;" /></li>
 				</ul>
 
 
 				<br></br>
-				<h2 align="center">Szemelyes adatok</h2>
-				<p>A regisztrációs adataid:</p>
+				<h2 align="center">Kezdőoldal</h2>
+				<p>Be vagy jelentkezve, mint admin.</p>
+				<p>Lehetőséged van megtekinteni a jelenlegi tesztkitöltéseket, a felhasználók által kitöltött teszteket.
+				Aktiválhatod, vagy inaktiválhatod az adatbázisban megtalálható teszteket, ezzel szabályozva a tesztek elérhetőségét a felhasználók számára.
+				Új teszteket tölthetsz fel, ezek automatikuson aktívak lesznek.</p>
+				<p>Válassz a jobboldali menüből!</p>
 					
 				<br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
 				<table border="0" cellpadding="2" cellspacing="10" align="center">
