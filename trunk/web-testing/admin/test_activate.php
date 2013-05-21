@@ -49,7 +49,7 @@ else
 
 		<div id="menubar">
 			<ul id="menu">
-				<li><a href="index.php">Főoldal</a></li>
+				<li><a href="../index.php">Főoldal</a></li>
 				<li class="current"><a href="test_activate.php">Admin</a></li>
 				<li><a href="../user/logout.php">Kijelentkezés</a></li>
 			</ul>

@@ -49,7 +49,7 @@ else
 
 		<div id="menubar">
 			<ul id="menu">
-				<li><a href="index.php">Főoldal</a></li>
+				<li><a href="../index.php">Főoldal</a></li>
 				<li class="current"><a href="view_completed_test">Admin</a></li>
 				<li><a href="../user/logout.php">Kijelentkezés</a></li>
 			</ul>
@@ -93,10 +93,10 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="test_activate.php"><h2>Teszt aktiválás/törlés</h2>
+							<a href="test_activate.php"><h2>Teszt aktiválás/inaktiválás</h2>
 							</a>
 							<p>A fenti menüpontot kiválasztva lehetőséged van teszteket
-								aktiválni, inaktiválni és törölni.</p>
+								aktiválni vagy inaktiválni.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>

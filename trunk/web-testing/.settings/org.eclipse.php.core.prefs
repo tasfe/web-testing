@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-include_path=0;/web-testing
+include_path=0;/web-testing\u00050;/web-testing/server\u00050;/web-testing/bejelentkezes\u00050;/web-testing/regisztracio\u00050;/web-testing/user\u00050;/web-testing/xml\u00050;/web-testing/ReportGenerator\u00050;/web-testing/admin\u00050;/web-testing/tests
