@@ -38,6 +38,7 @@ session_start();
 			<ul id="menu">
 				<li><a href="index.php">Főoldal</a></li>
 				<li class="current"><a href="admin.html">Admin</a></li>
+				<li><a href="logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -157,7 +158,7 @@ session_start();
 				}
 				echo '</TABLE><br /><br />';
 				echo '<input type="submit" name="submit" value="Teszt aktiválása vagy inaktiválása" />&emsp;';
-				echo '<input type="submit" name="submit" value="Teszt törlése" /></form>';
+				echo '<br />';
 				echo '<br />';
 				
 				//free the resources associated with the result set

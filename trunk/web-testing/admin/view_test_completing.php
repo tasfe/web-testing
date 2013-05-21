@@ -38,6 +38,7 @@
 			<ul id="menu">
 				<li><a href="index.php">Főoldal</a></li>
 				<li class="current"><a href="admin.html">Admin</a></li>
+				<li><a href="logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -50,7 +51,7 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="admin.html"><h2>Személyes adatok</h2> </a>
+							<a href="admin.php"><h2>Személyes adatok</h2> </a>
 							<p>A fenti menüpont alatt megtekintheted a regisztrácio során
 								megadott adataid.</p>
 						</div>
@@ -80,19 +81,10 @@
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="statements.php"><h2>Kimutatás</h2> </a>
-							<p>A fenti menüpontot kiválasztva megtekinthetsz kimutatásokat.</p>
-						</div>
-						<!--close sidebar_item-->
-					</div>
-					<!--close sidebar-->
-
-					<div class="sidebar">
-						<div class="sidebar_item">
-							<a href="test_activate.php"><h2>Teszt aktiválás/inaktiválás</h2>
+							<a href="test_activate.php"><h2>Teszt aktiválás/törlés</h2>
 							</a>
 							<p>A fenti menüpontot kiválasztva lehetőséged van teszteket
-								aktiválni és inaktiválni.</p>
+								aktiválni, inaktiválni és törölni.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -131,26 +123,26 @@
 				//connection to the database
 				$dbhandle = mysql_connect($host, $user, $pass)
 				or die("Nem lehet kapcsolódni MySQL-hez!");
-				echo 'Kapcsolódva a MySQL-hez <br>';
 
 				//select a database to work with
 				$selected = mysql_select_db($db)
 				or die("Nem sikerült kapcsolódni az adatbázishoz!");
 
-				$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam FROM tesztek, adatok 
+				$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam, Kategoria FROM tesztek, adatok 
 					WHERE akt_teszt_kitoltes!=NULL and akt_teszt_kitoltes = idTesztek";
 				$result=mysql_query($sql);
 				if (!$result)
 					die("Sikertelen lekérdezés!");
 				
 				//tablazat, fejleccel
-				echo '<table><th>Családnév</th><th>Keresztnév</th><th>Teszt neve</th><th>Kérdések száma</th>';
+				echo '<table><th>Családnév</th><th>Keresztnév</th><th>Teszt neve</th><th>Kérdések száma</th><th>Kategória</th>';
 				while ($row = mysql_fetch_assoc($result)) {
 					echo '<tr>
 						<td>'.$row['csaladnev'].'</td>
 						<td>'.$row['keresztnev'].'</td>
 						<td>'.$row['TesztNev'].'</td>
 						<td>'.$row['KerdesSzam'].'</td>
+						<td>'.$row['Kategoria'].'</td>
 						</tr>';
 				}
 				echo '</table>';

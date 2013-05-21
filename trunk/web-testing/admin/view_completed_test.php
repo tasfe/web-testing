@@ -38,6 +38,7 @@ session_start();
 			<ul id="menu">
 				<li><a href="index.php">Főoldal</a></li>
 				<li class="current"><a href="admin.html">Admin</a></li>
+				<li><a href="logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -50,7 +51,7 @@ session_start();
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="admin.html"><h2>Személyes adatok</h2> </a>
+							<a href="admin.phpl"><h2>Személyes adatok</h2> </a>
 							<p>A fenti menüpont alatt megtekintheted a regisztrácio során
 								megadott adataid.</p>
 						</div>
@@ -81,19 +82,10 @@ session_start();
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="statements.php"><h2>Kimutatás</h2> </a>
-							<p>A fenti menüpontot kiválasztva megtekinthetsz kimutatásokat.</p>
-						</div>
-						<!--close sidebar_item-->
-					</div>
-					<!--close sidebar-->
-
-					<div class="sidebar">
-						<div class="sidebar_item">
-							<a href="test_activate.php"><h2>Teszt aktiválás/inaktiválás</h2>
+							<a href="test_activate.php"><h2>Teszt aktiválás/törlés</h2>
 							</a>
 							<p>A fenti menüpontot kiválasztva lehetőséged van teszteket
-								aktiválni és inaktiválni.</p>
+								aktiválni, inaktiválni és törölni.</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -132,7 +124,6 @@ session_start();
 				//connection to the database
 				$dbhandle = mysql_connect($host, $user, $pass)
 				or die("Nem lehet kapcsolódni MySQL-hez!");
-				echo 'Kapcsolódva a MySQL-hez <br>';
 
 				//select a database to work with
 				$selected = mysql_select_db($db)
@@ -141,13 +132,13 @@ session_start();
 				if (isset($_SESSION['successful']))
 				{
 					unset($_SESSION['successful']);
-					$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam, Eredmeny FROM adatok, tesztek, kitoltotttesztek
+					$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam, Kategoria, Eredmeny FROM adatok, tesztek, kitoltotttesztek
 						WHERE adatok.emailcim = kitoltotttesztek.emailcim and tesztek.idTesztek = kitoltotttesztek.idTesztek
 						and kitoltotttesztek.Eredmeny >= 5";
 				}
 				else 
 				{
-					$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam, Eredmeny FROM adatok, tesztek, kitoltotttesztek
+					$sql="SELECT csaladnev, keresztnev, TesztNev, KerdesSzam, Kategoria, Eredmeny FROM adatok, tesztek, kitoltotttesztek
 						WHERE adatok.emailcim = kitoltotttesztek.emailcim and tesztek.idTesztek = kitoltotttesztek.idTesztek";
 				}
 				$result=mysql_query($sql);
@@ -156,7 +147,7 @@ session_start();
 				
 				echo '<form action = "report.php" method = "post">';
 				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
-				echo '<table><th>Check</th><th>Családnév</th><th>Keresztnév</th><th>Teszt név</th><th>Kérdések száma</th><th>Eredmény</th>';
+				echo '<table><th>&emsp;</th><th>Családnév</th><th>Keresztnév</th><th>Teszt név</th><th>Kérdések száma</th><th>Kategória</th><th>Eredmény</th>';
 				while ($row = mysql_fetch_assoc($result)) {
 					echo '<tr>
 					<td><INPUT TYPE=radio NAME=\"radio\" VALUE=\"$gid\"/></td>
@@ -164,13 +155,14 @@ session_start();
 					<td>'.$row['keresztnev'].'</td>
 					<td>'.$row['TesztNev'].'</td>
 					<td>'.$row['KerdesSzam'].'</td>
+					<td>'.$row['Kategoria'].'</td>
 					<td>'.$row['Eredmeny'].'</td></tr>';
 				}
 				echo '</TABLE><br /><br />';
 				echo '<input padding-right="2px" type="submit" name="submit" value="Report generálása" />&emsp;';
-				echo '<input type="submit" name="submit" value="Kiterjesztett report generálása" />&emsp;';
 				echo '<input type="submit" name="submit" value="Sikeres tesztek" />&emsp;';
 				echo '<input type="submit" name="submit" value="Összes teszt" /></form>';
+				echo '<br /><br />';
 				
 				//free the resources associated with the result set
 				mysql_free_result($result);
