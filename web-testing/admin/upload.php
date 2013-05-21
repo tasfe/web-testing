@@ -1,5 +1,18 @@
 <?php
 session_start();
+if (isset($_SESSION['your_email']))
+{
+	if($_SESSION['your_email']!='admin')
+	{
+		$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
+		header("location:../index.php");
+	}
+}  
+else
+{
+	$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
+	header("location:../index.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,8 +51,8 @@ session_start();
 		<div id="menubar">
 			<ul id="menu">
 				<li><a href="../index.php">Főoldal</a></li>
-				<li class="current"><a href="upload.html">Admin</a></li>
-				<li><a href="logout.php">Kijelentkezés</a></li>
+				<li class="current"><a href="upload.php">Admin</a></li>
+				<li><a href="../user/logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -52,9 +65,7 @@ session_start();
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="admin.php"><h2>Személyes adatok</h2></a>
-							<p>A fenti menüpont alatt megtekintheted a regisztrácio során
-								megadott adataid.</p>
+							<a href="admin.php"><h2>Kezdő oldal</h2></a>
 						</div>
 						<!--close sidebar_item-->
 					</div>

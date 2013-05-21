@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
-	<buildpathentry kind="src" path=""/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+	<buildpathentry excluding="admin/|bejelentkezes/|plugins/|regisztracio/|ReportGenerator/|server/|tests/|user/|xml/" kind="src" path=""/>
+	<buildpathentry kind="src" path="admin"/>
+	<buildpathentry kind="src" path="bejelentkezes"/>
+	<buildpathentry kind="src" path="plugins"/>
+	<buildpathentry kind="src" path="regisztracio"/>
+	<buildpathentry kind="src" path="ReportGenerator"/>
+	<buildpathentry kind="src" path="server"/>
+	<buildpathentry kind="src" path="tests"/>
+	<buildpathentry kind="src" path="user"/>
+	<buildpathentry kind="src" path="xml"/>
 </buildpath>

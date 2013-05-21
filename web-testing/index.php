@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,7 +37,25 @@
 		<div id="menubar">
 			<ul id="menu">
 				<li class="current"><a href="index.php">Főoldal</a></li>
-				<li><a href="login.php">Bejelentkezés</a></li>
+				<?php
+					if (isset($_SESSION['your_email']))
+					{
+						if($_SESSION['your_email']=='admin')
+						{
+							echo '<li><a href="admin/admin.php">Admin</a></li>';
+							echo '<li><a href="user/logout.php">Kijelentkezés</a></li>';
+						}
+						else 
+						{
+							echo '<li><a href="user/szemelyes_adatok.php">Személyes adatok</a></li>';
+							echo '<li><a href="user/logout.php">Kijelentkezés</a></li>';
+						}
+					}  
+					else
+					{
+						echo '<li><a href="login.php">Bejelentkezés</a></li>';
+					}
+				?>		
 			</ul>
 		</div>
 		<!--close menubar-->
@@ -56,6 +74,15 @@
 				<div class="content_item" align="left">
 
 					<br></br>
+					
+				<?php
+					if (isset($_SESSION['login']))
+					{
+						echo '<b>'.$_SESSION['login'].'</b>';
+						echo '<br />';
+						unset($_SESSION['login']);
+					}  
+				?>	
 
 					<h1>Üdvözlünk az oldalunkon!</h1>
 					<p>Az oldal rövid leírása:</p>
