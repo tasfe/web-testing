@@ -69,6 +69,7 @@ if ($_FILES["file"]["type"] == "text/xml") {
 				move_uploaded_file($_FILES["file"]["tmp_name"],
 				"../tests/" . $_FILES["file"]["name"]);
 				refreshList($_FILES["file"]["name"]);
+				$_SESSION['upload']='Sikeres feltöltés.';
 			} else {
 				echo "Invalid file";
 				$_SESSION['upload']='Nem létező file név.';
