@@ -64,7 +64,7 @@
 					<td><input class="contact" type="text" name="email" value="" /></td>
 				</tr>
 				<tr>
-					<td><span><b>*Jelszó:</b></span></td>
+					<td><span><b>*Jelszó(legalább 6 karakter):</b></span></td>
 					<td><input class="contact" type="password" name="your_password" value="" /></td>
 				</tr>
 				<tr>
@@ -120,12 +120,12 @@ if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name'])
         || isset($_SESSION['ok'])) {
 	if($_SESSION['reg_surname'] != '')
 	{
-		echo '<script type="text/javascript"> alert("Nem töltötte ki a családnév mezőt vagy nem megengedett karaktereket használt.\n Mező kitöltése kötelező !"); </script>';
+		echo '<script type="text/javascript"> alert("Nem töltötte ki a családnév mezőt/nem megengedett karaktereket használt/3-nál kevesebb karaktert írt be.\n Mező kitöltése kötelező !"); </script>';
 		unset($_SESSION['reg_surname']);
 	}
 	else if($_SESSION['reg_first_name'] != '')
 	{
-			echo '<script type="text/javascript"> alert("Nem töltötte ki a keresztnév mezőt vagy nem megengedett karaktereket használt.\n Mező kitöltése kötelező !"); </script>';
+			echo '<script type="text/javascript"> alert("Nem töltötte ki a keresztnév mezőt/nem megengedett karaktereket használt/3-nál kevesebb karaktert írt be.\n Mező kitöltése kötelező !"); </script>';
 			unset($_SESSION['reg_first_name']);
 	}
 		 else if($_SESSION['email'] != '')
@@ -135,7 +135,7 @@ if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name'])
 		 }
 		 	  else if($_SESSION['your_password'] != '')
 		 	  {
-		 			echo '<script type="text/javascript"> alert("A jelszónak legalább 5 karakterből kell állnia.\n Mező kitöltése kötelező !"); </script>';
+		 			echo '<script type="text/javascript"> alert("A jelszónak legalább 6 karakterből kell állnia.\n Mező kitöltése kötelező !"); </script>';
 		 			unset($_SESSION['you_password']);
 		 	  }
 		 	  else if($_SESSION['your_password2'] != '')
@@ -145,7 +145,7 @@ if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name'])
 		 	  }
 		 	  		else if($_SESSION['city'] != '')
 		 	  		{
-		 	  				echo '<script type="text/javascript"> alert("Helytelenül megadott városnév.\n Mező kitöltése kötelező !"); </script>';
+		 	  				echo '<script type="text/javascript"> alert("Helytelenül megadott városnév/3-nál kevesebb karaktert írt be.\n Mező kitöltése kötelező !"); </script>';
 		 	  				unset($_SESSION['city']);
 		 	  		}
 		 	  			 else if($_SESSION['date_of_birth'] != '')
