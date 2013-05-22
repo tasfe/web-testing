@@ -115,8 +115,8 @@
 
 <?php
 if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name']) 
-		|| isset($_SESSION['email']) || isset($_SESSION['your_email'])
-		|| isset($_SESSION['your_email2']) || isset($_SESSION['city'])
+		|| isset($_SESSION['email']) || isset($_SESSION['your_password'])
+		|| isset($_SESSION['your_password2']) || isset($_SESSION['city'])
 		|| isset($_SESSION['date_of_birth']) || isset($_SESSION['tel_nr']) 
         || isset($_SESSION['ok'])) {
 	if($_SESSION['reg_surname'] != '')
@@ -136,7 +136,7 @@ if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name'])
 		 }
 		 	  else if($_SESSION['your_password'] != '')
 		 	  {
-		 			echo '<script type="text/javascript"> alert("A jelszónak legalább 6 karakterből kell állnia.\n Mező kitöltése kötelező !"); </script>';
+		 			echo '<script type="text/javascript"> alert("A jelszónak legalább 5 karakterből kell állnia.\n Mező kitöltése kötelező !"); </script>';
 		 			unset($_SESSION['you_password']);
 		 	  }
 		 	  else if($_SESSION['your_password2'] != '')

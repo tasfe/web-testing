@@ -122,7 +122,7 @@ if(reg_check() == "igaz") {
 	}
 	
 	
-	header('location:regisztracio.php');
+	header('location:../login.php');
 }
 else {
 	echo 'Nem megfelelő adatok! Kérem ellenőrizze őket!';
