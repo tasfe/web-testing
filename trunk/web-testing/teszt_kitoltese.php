@@ -123,8 +123,8 @@ function nextQ() {
 
 					if (!isset($_SESSION[$felhasznalo . "p".($_GET["count"])])) {
                       	if (!isset($_SESSION[$felhasznalo . "continue"])) {
-                      		$_SESSION[$felhasznalo . "continue"] = (/*$_GET["count"]+1*/$_SESSION[$felhasznalo . 'q']);
-                      		$_SESSION[$felhasznalo . "p" . (/*$_GET["count"]+1*/$_SESSION[$felhasznalo . 'q'])] = 1;
+                      		$_SESSION[$felhasznalo . "continue"] = ($_GET["count"]+1/*$_SESSION[$felhasznalo . 'q']*/);
+                      		$_SESSION[$felhasznalo . "p" . ($_GET["count"]+1/*$_SESSION[$felhasznalo . 'q']*/)] = 1;
 							
                       		$_SESSION[$felhasznalo . "pont_backup"] = 1;
                       	}
