@@ -119,7 +119,7 @@ if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name'])
 		|| isset($_SESSION['email']) || isset($_SESSION['your_password'])
 		|| isset($_SESSION['your_password2']) || isset($_SESSION['city'])
 		|| isset($_SESSION['date_of_birth']) || isset($_SESSION['tel_nr']) 
-        || isset($_SESSION['ok'])) {
+        || isset($_SESSION['ok']) || isset($_SESSION['marvolt'])) {
 	if(isset($_SESSION['reg_surname']))
 	{
 		echo '<script type="text/javascript"> alert("Nem töltötte ki a családnév mezőt/nem megengedett karaktereket használt/3-nál kevesebb karaktert írt be.\n Mező kitöltése kötelező !"); </script>';
@@ -240,7 +240,7 @@ if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name'])
 		 	  			 			unset($_SESSION['ok']);
 		 	  			 			//unset($_SESSION['tel_nr']);
 		 	  			 	  }
-		 	  			 	  		else if($_SESSION['ok'] == false)
+		 	  			 	  		else if(isset($_SESSION['ok']))
 		 	  			 	  		{
 		 	  			 	  			echo '<script type="text/javascript"> alert("Helytelen képfelismerés. Probálja újra!"); </script>';
 		 	  			 	  			unset($_SESSION['reg_surname']);
