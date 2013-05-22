@@ -145,9 +145,14 @@ else
 				if (!$result)
 					die("Sikertelen lekérdezés!");
 				
+				if(!($row = mysql_fetch_assoc($result))) {
+					?><br></br><?php 
+					echo "Nincsenek folyamatban levő tesztkitöltések!";//die("Sikertelen lekérdezés!");
+				}
+				else {
 				//tablazat, fejleccel
 				echo '<table><th>Családnév</th><th>Keresztnév</th><th>Teszt neve</th><th>Kérdések száma</th><th>Kategória</th>';
-				while ($row = mysql_fetch_assoc($result)) {
+				while ($row) {
 					echo '<tr>
 						<td>'.$row['csaladnev'].'</td>
 						<td>'.$row['keresztnev'].'</td>
@@ -155,9 +160,10 @@ else
 						<td>'.$row['KerdesSzam'].'</td>
 						<td>'.$row['Kategoria'].'</td>
 						</tr>';
+						$row = mysql_fetch_assoc($result);
 				}
 				echo '</table>';
-			
+				}
 				
 				//free the resources associated with the result set
 				mysql_free_result($result);
