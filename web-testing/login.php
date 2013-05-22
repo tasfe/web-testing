@@ -86,8 +86,16 @@
   </div><!--close main-->
 <?php 
 	if(isset($_SESSION['hibas']))
+	{
 		if($_SESSION['hibas'])
-			echo '<script type="text/javascript"> alert("Hibás e-mail cím vagy jelszó"); </script>';
+			echo '<script type="text/javascript"> alert("Hibás e-mail cím vagy jelszó!"); </script>';
+		unset($_SESSION['hibas']);
+	}
+	if(isset($_SESSION['empty_login']))
+	{
+		unset($_SESSION['empty_login']);
+		echo '<script type="text/javascript"> alert("Mindkét mezőt ki kell töltened a bejelentkezéshez!"); </script>';
+	}
 ?>
   
 </body>
