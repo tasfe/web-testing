@@ -74,7 +74,8 @@ function openWindow(user) {
 
 	if (readCookie(user) == null) {
 		createCookie(user, 1);
-		window.open('teszt_kitoltese.php?nev=<?php echo "tests/" . $_GET['nev'];?>&count=<?php echo $_GET['count']?>');	
+		window.open('teszt_kitoltese.php?nev=<?php echo "tests/" . $_GET['nev'];?>&count=<?php echo $_GET['count']?>');
+		window.close();
 	} else {
 		alert("Már meg van nyitva az ablak!\nHa véletlenül bezártad, akkor jelentkezz ki és jelentkezz be újra!");		
 	}
