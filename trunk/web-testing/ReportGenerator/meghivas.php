@@ -2,8 +2,8 @@
 header("Content-Type: text/html; charset=utf-8");
 ?>
 <?php
+require("report.php");
 function meghivasR($kerdesek,$pont, $user, $answers, $pontok, $R = 0, $G = 0, $B = 0) {
-  require('report.php');
   $generator = new report();
   $generator->irdKi($user, $R, $G, $B);
   $num = count($kerdesek);
