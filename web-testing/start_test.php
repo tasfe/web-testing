@@ -171,7 +171,6 @@ function openWindow(user) {
 	<!--site content-->
 
 	<div id="content_grey">
-		<p>Hasonló weboldalak</p>
 		<br style="clear: both" />
 	</div>
 	<!--close content_grey-->
