@@ -310,26 +310,6 @@ else
 
  
     <div id="content_grey">  
-      <h2>Hasonló weboldalak</h2> 
-      <table align="center">
-      <tr>
-      	<td>
-      		<div class="readmore">
-		  		<a href="http://realika.educatio.hu/ctrl.php/unregistered/preview/coursecs?c=43&pbka=0&pbk=%2Fctrl.php%2Funregistered%2Fcourses">Interaktív matematika</a>
-			</div><!--close readmore-->  
-		</td>
-		<td>
-      		<div class="readmore">
-		  		<a href="http://www.ementor.hu/?q=node/39">Tanulni sohasem késő</a>
-			</div><!--close readmore-->  
-		</td>
-		<td>
-      		<div class="readmore">
-		  		<a href="http://www.mathematika.hu/news.php">Minden, ami matematika</a>
-			</div><!--close readmore-->  
-		</td>
-	  </tr>
-	  </table>  
 	  <br style="clear:both"/>
     </div><!--close content_grey-->  
 
