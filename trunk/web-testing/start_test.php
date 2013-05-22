@@ -1,8 +1,18 @@
 <?php
 session_start();
-$_SESSION[$_SESSION['your_email'] . "p1"] = 0;
-$_SESSION[$_SESSION['your_email'] . "pont"] = 0;
-unset($_SESSION[$_SESSION['your_email'] . "pont_backup"]);
+if (isset($_SESSION['your_email']))
+{
+	if($_SESSION['your_email']=='admin')
+	{
+		$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
+		header("location:index.php");
+	}
+}
+else
+{
+	$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
+	header("location:index.php");
+}
 
 $db = 'adatok';
 $host = 'localhost';
@@ -32,9 +42,14 @@ if (is_null($working))
 else
 	$ok = false;
 
+$sql3 = "SELECT Datum FROM `kitoltotttesztek` WHERE idTesztek = '" . $id . "' AND emailcim = '" . $_SESSION['your_email'] . "'";
+$result3 = mysql_query($sql3);
+$num = mysql_num_rows($result3);
+
 ?>
 <html>
 <head>
+<script type="text/javascript" src="cookie.js"></script>
 <script type = "text/javascript">
 function askUser() {
 	
@@ -44,19 +59,32 @@ function askUser() {
     else
        	return false;
 }
+
+function openWindow(user) {
+
+	if (readCookie(user) == null) {
+		createCookie(user, 1);
+		window.open('teszt_kitoltese.php?nev=<?php echo "tests/" . $_GET['nev'];?>&count=<?php echo $_GET['count']?>');	
+	} else {
+		alert("Mar meg van nyitva az ablak!\nHa veletlenul bezartad, akkor zarj be minden ablakot es nyisd meg ujra a tesztet!");		
+	}
+
+}
 </script>
 </head>
 <body>
 	<div id="site_content" align="center">
 
 		<div id="content">
-			<form name="start" method="post" action="teszt_kitoltese.php?nev=<?php echo $_GET['nev'];?>&count=<?php echo $_GET['count']?>">
-				<?php if ($ok) { ?>
-				<input type="submit" value="Start"/>
-				<?php } else { ?>
-				<input type="submit" value="Start" onclick="return askUser();"/>
-				<?php } ?>
-			</form>
+			<?php include 'readQuestion.php';
+			if (readPossibility("tests/" . $_GET['nev']) > $num) { ?>
+				<a href="#" onclick="openWindow('<?php echo $_SESSION['your_email']; ?>');">Start</a> 
+			<?php 
+			$_SESSION[$_SESSION['your_email'] . "p1"] = 0;
+			$_SESSION[$_SESSION['your_email'] . "pont"] = 0;
+			unset($_SESSION[$_SESSION['your_email'] . "pont_backup"]);
+			//unset($_SESSION[$_SESSION['your_email'] . "continue"]);
+			} if (readPossibility("tests/" . $_GET['nev']) <= $num) { echo "Ezt a tesztet már nem végezheted el több alkalommal!"; } ?>
 		</div>
 	</div>
 
