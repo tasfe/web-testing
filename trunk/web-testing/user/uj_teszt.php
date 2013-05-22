@@ -79,10 +79,15 @@ else
        </div><!--close sidebar_container-->	
 	
       <ul class="slideshow">
-        <li class="show"><img width="680" height="250" src="../images/home_1.jpg" alt="&quot;Új teszt kitöltése&quot;" /></li>
-        <li><a href="szemelyes_adatok.php"><img width="680" height="250" src="../images/home_2.jpg" alt="&quot;Személyes adatok&quot;" /></a></li>
-        <li><a href="kitoltott_tesztek.php"><img width="680" height="250" src="../images/home_2.jpg" alt="&quot;Eddigi eredmények&quot;" /></a></li>
-      </ul> 
+					<li class="show"><img width="680" height="250"
+							src="../images/home_2.jpg" alt="&quot;Új teszt kitöltése&quot;" />
+					</li>
+					<li><a href="szemelyes_adatok.php"><img width="680" height="250"
+						src="../images/home_1.jpg" alt="&quot;Személyes adatok&quot;" /></a></li>
+					<li><a href="kitoltott_tesztek.php"><img width="680" height="250"
+							src="../images/home_2.jpg" alt="&quot;Eddigi eredmények&quot;" />
+					</a></li>
+				</ul>
       
       <div id="content">
 				<div class="content_item" align="center">
