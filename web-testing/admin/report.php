@@ -1,4 +1,6 @@
 <?php
+require("../ReportGenerator/meghivas.php");
+require("../readQuestion.php");
 	session_start();
 
 	if (isset($_SESSION['your_email']))
@@ -18,8 +20,7 @@
 	switch ($_POST['submit']) {
 		
 		case 'Report generálása':
-			$rad = $_POST['radio'];
-			
+			$radio = $_POST['radio'];
 			
 			
 			
@@ -53,25 +54,25 @@
 			}
 			$result=mysql_query($sql);
 			if(!$result)
-				die("Sikertelen lekérdezés!");
+				die("Sikertelen lekérdezés1!");
 			
 			$dia = 0;
 			$index = 0;
 			$felhasznalo = "";
 			$tesztneve = "";
-			while ($row = mysql_fetch_assoc($result) && dia == 0) {
+			while ($row = mysql_fetch_assoc($result)) {
 				if($index != $radio)
 					$index ++;
 				else {
 					$tesztneve = $row['TesztNev'];
-					$felhasznalo = $row['adatok.emailcim'];
+					$felhasznalo = $row['emailcim'];
 					$dia = 1;
-					
+					break;
 				}
 			}
 				
 			mysql_free_result($result);
-			mysql_free_result($res);
+			//mysql_free_result($res);
 			//close connection
 			mysql_close($dbhandle);
 			
@@ -89,12 +90,11 @@
 			$felhasznal = $sql = "SELECT `csaladnev`,`keresztnev` FROM `adatok` WHERE `emailcim`= '". $felhasznalo . "'";
 			// felhasználó válaszainak lekérdezése
 			$valaszok ="SELECT max(`Datum`), `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
- FROM `kitoltotttesztek`, `tesztek` WHERE `tesztek.idTesztek`= `kitoltotttesztek.idTesztek` and
-`TesztNev`= '". $_GET['nev'] . "' and WHERE `emailcim`= '". $felhasznalo . "'";
+ FROM `kitoltotttesztek`, `tesztek` WHERE tesztek.idTesztek= kitoltotttesztek.idTesztek and `emailcim`= '". $felhasznalo . "' and `TesztNev` = '". $tesztneve . "'";
 			// felhasználó adatainak átálítása tömbé
 			$result=mysql_query($felhasznal);
 			if (!$result)
-				die("Sikertelen lekérdezés!");
+				die("Sikertelen lekérdezés!2");
 			$felhaszn = array();
 			while ($row = mysql_fetch_assoc($result)) {
 				$felhaszn[0] = $row['csaladnev'] . "  " . $row['keresztnev'];
@@ -104,7 +104,7 @@
 			// felhasználó válaszainak átálítása tömbé
 			$res = mysql_query($valaszok);
 			if (!$res)
-				die("Sikertelen lekérdezés!");
+				die("Sikertelen lekérdezés!3");
 			$val = array();
 			$er = "";
 			while ($row = mysql_fetch_assoc($res)) {
@@ -131,19 +131,15 @@
 				$er = $row['Eredmeny'];
 			}
 			//kérdések lekérdezése
-			$kerdesek = atalakitReportTombe($tesztneve);
-			$pont = readOneCorrectPoint($tesztneve);
-			meghivas($kerdesek, $pont, $felhaszn, $val, $er);
+			$tsz = "../tests/" . $tesztneve;
+			$kerdesek = atalakitReportTombe($tsz);
+			$pont = readOneCorrectPoint($tsz);
 			//free the resources associated with the result set
 			mysql_free_result($result);
 			mysql_free_result($res);
 			//close connection
 			mysql_close($dbhandle);
-			
-			
-			
-			
-			
+			meghivasR($kerdesek, $pont, $felhaszn,$val ,$er);
 			break;
 
 		case 'Sikeres tesztek':
