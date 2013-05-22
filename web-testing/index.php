@@ -64,10 +64,10 @@ session_start();
 
 			<ul class="slideshow">
 				<li class="show"><img width="680" height="250"
-					src="images/home_1.jpg" alt="&quot;Enter your caption here&quot;" />
+					src="images/home_1.jpg" alt="&quot;Üdvözlünk az oldalunkon!&quot;" />
 				</li>
 				<li><img width="680" height="250" src="images/home_2.jpg"
-					alt="&quot;Enter your caption here&quot;" /></li>
+					alt="&quot;Webes tesztelő rendszer&quot;" /></li>
 			</ul>
 
 			<div id="content">
