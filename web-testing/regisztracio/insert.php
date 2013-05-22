@@ -19,23 +19,23 @@ function reg_check(){
 	if(strlen($_POST['reg_surname']) < 4)
 	{
 		$hibak = false;
-		$_SESSION['reg_surname'] = 'A családnév legalább 3 betűs legyen, kitöltése pedig kötelező';
+		$_SESSION['reg_surname'] = 'A családnév legalább 3 betűs legyen, kitöltése pedig kötelező!';
 	}
 	else if (!preg_match('/[-a-zA-ZáéíóúüöűőÁÉÍÚŰŐÓÜÖşţăîâŞŢĂÎÂ]*/', $_POST['reg_surname']))
 	{
 		$hibak = false;
-		$_SESSION['reg_surname'] = 'A családnévben csak a magyar ábécé kis - és nagybetűi engedélyezettek';
+		$_SESSION['reg_surname'] = 'A családnévben csak a magyar ábécé kis - és nagybetűi engedélyezettek!';
 	}
 	
 	if(strlen($_POST['reg_first_name']) < 4)
 	{
 		$hibak = false;
-		$_SESSION['reg_first_name'] = 'A keresztnév legalább 3 betűs legyen, kitöltése pedig kötelező';
+		$_SESSION['reg_first_name'] = 'A keresztnév legalább 3 betűs legyen, kitöltése pedig kötelező!';
 	}
 	else if (!preg_match('/[-a-zA-ZáéíóúüöűőÁÉÍÚŰŐÓÜÖşţăîâŞŢĂÎÂ]*/', $_POST['reg_first_name']))
 	{
 		$hibak = false;
-		$_SESSION['reg_first_name'] = 'A családnévben csak a magyar ábécé kis - és nagybetűi engedélyezettek';
+		$_SESSION['reg_first_name'] = 'A keresztnévben csak a magyar ábécé kis - és nagybetűi engedélyezettek!';
 		$szam=$szam+1;
 	}
 
@@ -45,7 +45,7 @@ function reg_check(){
 		$_SESSION['email'] = 'Hibás e-mail cím és az e-mail kitöltése kötelező!';
 	}
 
-	if (strlen($_POST['your_password']) < 7)
+	if (strlen($_POST['your_password']) < 6)
 	{
 		$hibak = false;
 		$_SESSION['your_password'] = 'A jelszónak legalább 6 karakterből kell állnia, és kitöltése kötelező!';
@@ -81,6 +81,14 @@ function reg_check(){
 			$_SESSION['tel_nr'] = 'Hibás telefonszám!';
 		}
 		
+	if( $_SESSION['security_code'] == $_POST['security_code'] && !empty($_SESSION['security_code'] ) ) {
+		unset($_SESSION['security_code']);
+		//$_SESSION['ok'] = true;
+	} else {
+		$hibak = false;
+		$_SESSION['ok'] = false;
+	}
+		
 	if ($hibak)
 		return "igaz";
 	else
@@ -107,22 +115,15 @@ if(reg_check() == "igaz") {
 	if(!$select) {
 		die('Nem megfelelő lekérdezés: '.mysql_error());
 	}
-	
-	if( $_SESSION['security_code'] == $_POST['security_code'] && !empty($_SESSION['security_code'] ) ) {
-		unset($_SESSION['security_code']);
-		$_SESSION['ok'] = true;
-	} else {
-		$_SESSION['ok'] = false;
-	}
-	
+		
 	if(mysql_num_rows($select) == 1) { //megnezem, hogy volt-e mar hasznalva az adott emailcim
 		$_SESSION['marvolt'] = 'igen';
+		header('location:regisztracio.php');
 	} else {
 		mysql_query("INSERT INTO adatok VALUES ('$_POST[email]','$_POST[your_password]','$_POST[reg_surname]','$_POST[reg_first_name]','$_POST[date_of_birth]','$_POST[city]','$_POST[tel_nr]',false,NULL)");
+		header('location:../login.php');
 	}
 	
-	
-	header('location:../login.php');
 }
 else {
 	echo 'Nem megfelelő adatok! Kérem ellenőrizze őket!';
