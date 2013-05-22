@@ -3,6 +3,21 @@ session_start();
 $_SESSION[$_SESSION['your_email'] . "p1"] = 0;
 $_SESSION[$_SESSION['your_email'] . "pont"] = 0;
 unset($_SESSION[$_SESSION['your_email'] . "pont_backup"]);
+
+if (isset($_SESSION['your_email']))
+{
+	if($_SESSION['your_email']=='admin')
+	{
+		$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
+		header("location:../index.php");
+	}
+}
+else
+{
+	$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
+	header("location:index.php");
+}
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

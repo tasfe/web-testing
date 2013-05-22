@@ -5,6 +5,21 @@
 <body>
 	<?php
 
+	session_start();
+	if (isset($_SESSION['your_email']))
+	{
+		if($_SESSION['your_email']=='admin')
+		{
+			$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
+			header("location:../index.php");
+		}
+	}
+	else
+	{
+		$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
+		header("location:index.php");
+	}
+	
 	//teszt cime
 	function readName($teszt) {
 		$dom = new DOMDocument();
