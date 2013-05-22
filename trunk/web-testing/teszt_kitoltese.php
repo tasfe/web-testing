@@ -137,8 +137,7 @@ function nextQ() {
                       		$_SESSION[$felhasznalo . "pont_backup"] = 1;
                       	}
                       	?>
-					<a href="teszt_kitoltese.php?nev=<?php echo $tesztneve; ?>&count=<?php echo $_SESSION[$felhasznalo . "continue"]; ?>">Teszt
-						folytatása</a>
+					<a href="teszt_kitoltese.php?nev=<?php echo $tesztneve; ?>&count=<?php echo $_SESSION[$felhasznalo . "continue"]; ?>"><font size="3">Teszt	folytatása</font></a>
 
 					<?php
                       			} else if ($reply[0] == "ok") {
