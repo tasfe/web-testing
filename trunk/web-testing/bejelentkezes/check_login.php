@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $db = 'adatok';
 $host = 'localhost';
@@ -12,8 +13,6 @@ $dbhandle = mysql_connect($host, $user, $pass);
 //select a database to work with
 $selected = mysql_select_db($db)
 or die("Nem sikerült kapcsolódni az adatbázishoz!");
-
-session_start();
 
 if (isset($_POST['login_button'])) {
 	$your_email= $_POST['your_email']; 
@@ -30,12 +29,8 @@ $your_email = mysql_real_escape_string($your_email);
 $your_password = mysql_real_escape_string($your_password);
 
 if (($your_password == "") || ($your_email == "")){
-?>
-<script type="text/javascript">
-				alert("Nem töltöttél ki minden mezőt!");
-</script>
-<?php
-		 header("../login.php");
+	$_SESSION['empty_login'] = "Mindkét mezőt ki kell töltened a bejelentkezéshez!";
+	header("location:../login.php");
 }
 else {
 	if($your_email=="admin" && $your_password=="admin")
