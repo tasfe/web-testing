@@ -95,17 +95,14 @@ include '../readQuestion.php';
 				<!--close sidebar_container-->
 
 				<ul class="slideshow">
-					<li class="show"><img width="680" height="250"
-						src="../images/home_2.jpg" alt="&quot;Kitöltött tesztek&quot;" />
-					</li>
 					<li><a href="szemelyes_adatok.php"><img width="680" height="250"
 							src="../images/home_2.jpg" alt="&quot;Személyes adatok&quot;" />
 					</a></li>
 					<li><a href="uj_teszt.php"><img width="680" height="250"
 							src="../images/home_1.jpg" alt="&quot;Új teszt kitöltése&quot;" />
 					</a></li>
-					<li><a href="eredmenyek.php"><img width="680" height="250"
-							src="../images/home_2.jpg" alt="&quot;Eredmények&quot;" /> </a></li>
+					<li><a href="kitoltott_tesztek.php"><img width="680" height="250"
+							src="../images/home_2.jpg" alt="&quot;Eddigi eredmények&quot;" /> </a></li>
 				</ul>
 
 
