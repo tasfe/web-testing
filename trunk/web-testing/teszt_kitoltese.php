@@ -107,11 +107,14 @@ function nextQ() {
 
 		<div id="content">
 			<div class="content_item" align="left">
+			<?php
+			include 'readQuestion.php';
+			$nr = readQnumber($tesztneve);
+			?>
 				<form name="answers"
-					action="teszt_kitoltese.php?nev=<?php echo $tesztneve;?>&count=<?php echo $_GET["count"]+1 ?>"
+					action="teszt_kitoltese.php?nev=<?php echo $tesztneve;?>&count=<?php /*if ($nr == $_GET["count"]) echo $_GET["count"]; else*/ echo $_GET["count"]+1; ?>"
 					method="post">
 					<?php
-					include 'readQuestion.php';
 					/*if (empty($_POST['q'])) {
 					 $reply = readQ(0, $tesztneve);
                       }
@@ -121,6 +124,11 @@ function nextQ() {
 
 					$reply = readQ($_GET["count"]-1, $tesztneve);
 
+					if (isset($_SESSION[$felhasznalo . "p1"])) {
+						unset($_SESSION[$felhasznalo . "vege"]);
+					}
+					
+					if (!isset($_SESSION[$felhasznalo . "vege"])) {
 					if (!isset($_SESSION[$felhasznalo . "p".($_GET["count"])])) {
                       	if (!isset($_SESSION[$felhasznalo . "continue"])) {
                       		$_SESSION[$felhasznalo . "continue"] = ($_GET["count"]+1/*$_SESSION[$felhasznalo . 'q']*/);
@@ -331,7 +339,7 @@ function nextQ() {
 				<div id="menubar">
 					<div id="menubar_test">
 						<ul id="menu">
-							<li><a href="user/szemelyes_adatok.php">Teszt megszakítása</a></li>
+							<li><a href="user/szemelyes_adatok.php"  onclick="eraseCookie('<?php echo $felhasznalo; ?> ');">Teszt megszakítása</a></li>
 						</ul>
 					</div>
 				</div>
@@ -346,6 +354,8 @@ function nextQ() {
 					című tesztet sikeresen kitöltötte! :) <br></br>
 					<?php
 
+					$_SESSION[$felhasznalo . "vege"] = 1;
+					
 					$sql2 = "UPDATE adatok SET akt_teszt_kitoltes=NULL WHERE `emailcim`='" . $felhasznalo . "'";
 					$result2 = mysql_query($sql2);
 
@@ -399,7 +409,10 @@ function nextQ() {
 											?>
 
 					A tesztre kapott jegye:
-					<?php echo number_format(($_POST['p']+$pont)*10/readPoints($tesztneve), 2, '.', '');
+					<?php 
+					
+					$_SESSION[$felhasznalo . "pont"] = $_POST['p'] + $pont;
+					echo number_format(($_POST['p']+$pont)*10/readPoints($tesztneve), 2, '.', '');
 
 					$sql5 = "UPDATE kitoltotttesztek SET Eredmeny ='" . number_format(($_POST['p']+$pont)*10/readPoints($tesztneve), 2, '.', '') . "' WHERE emailcim='" . $felhasznalo . "' AND Datum= '" .$_SESSION[$_SESSION['your_email'] . 'date'] . "'";
 							$result5 = mysql_query($sql5);?>
@@ -407,22 +420,112 @@ function nextQ() {
 				<br></br> <br></br>
 				<h2>Ha több információt szeretne kapni a tesztkitöltésről vagy
 					vissza szeretne térni a saját profiljára, kattintson kérem a
-					megfelelő menűpontra!</h2>
+					megfelelő menüpontra!</h2>
 
 				<br></br> <br></br>
 
 				<div id="menubar">
 					<div id="menubar_test">
 						<ul id="menu">
-							<li><a href="szemelyes_adatok.php">Bővebb információ a
+							<li><a href="user/report.php">Bővebb információ a
 									tesztkitöltésről</a></li>
-							<li><a href="user/szemelyes_adatok.php">Saját profil</a></li>
+							<!-- <li><a href="szemelyes_adatok.php" onclick="eraseCookie('<?php echo $felhasznalo; ?> ');">Saját profil</a></li>  -->
 							<li><a href="#" onclick="eraseCookie('<?php echo $felhasznalo; ?> '); window.close();">Ablak bezárása</a></li>
 						</ul>
 					</div>
 				</div>
 
-				<?php } ?>
+				<?php } }
+				else {?>
+					<br></br> <br></br> <br></br>
+					<h1>
+					GRATULÁLUNK!!! A(z):
+					<?php
+	      						echo readName($tesztneve); ?>
+					című tesztet sikeresen kitöltötte! :) <br></br>
+					<?php
+
+					$_SESSION[$felhasznalo . "vege"] = 1;
+					
+					
+					$sql2 = "UPDATE adatok SET akt_teszt_kitoltes=NULL WHERE `emailcim`='" . $felhasznalo . "'";
+					$result2 = mysql_query($sql2);
+
+					//unset($_SESSION["p".($_POST['q'])]);
+					unset($_SESSION[$felhasznalo . "p".($_GET["count"])]);
+					$pont = 0;
+					$helyes = 0;
+					$check = readOneCorrectPoint($tesztneve);
+					$reply2 = readQ(/*$_POST['q']*/$_GET["count"]-2, $tesztneve);
+
+					$answers = 0;
+					foreach ($reply2 as $r)
+						$answers++;
+					for ($i=3; $i < $answers; $i++) {
+												if (($i % 2 == 1) && ($reply2[$i] == "true"))
+													$helyes++;
+											}
+
+											$ab_kimentes = "";
+											if(!empty($_POST['valasz'])) {
+												foreach($_POST['valasz'] as $bejelolt) {
+													$ab_kimentes = $ab_kimentes . $bejelolt . ",";
+												}
+
+												$sql4 = "UPDATE kitoltotttesztek SET " . ($_GET['count']-1) . "Kerdes ='" . $ab_kimentes . "' WHERE emailcim='" . $felhasznalo . "' AND Datum= '" .$_SESSION[$_SESSION['your_email'] . 'date'] . "'";
+												$result4 = mysql_query($sql4);
+
+												foreach($_POST['valasz'] as $bejelolt) {
+													$index = 3 + 2*$bejelolt;
+													if ($reply2[$index] == "true") {
+														$pont++;
+													}
+													else {
+														$pont = 0;
+														break;
+													}
+												}
+											}
+
+											//echo $ab_kimentes;
+
+											if ($helyes == $pont) {
+												$pont = $pont*$check[0];
+											}
+											else {
+												if ($check[1] == "igen")
+													$pont = $pont*$check[0];
+												else
+													$pont = 0;
+											}
+											?>
+
+					A tesztre kapott jegye:
+					<?php
+					echo number_format((/*$_POST['p']*/$_SESSION[$felhasznalo . "pont"])*10/readPoints($tesztneve), 2, '.', '');
+
+					$sql5 = "UPDATE kitoltotttesztek SET Eredmeny ='" . number_format((/*$_POST['p']*/$_SESSION[$felhasznalo . "pont"])*10/readPoints($tesztneve), 2, '.', '') . "' WHERE emailcim='" . $felhasznalo . "' AND Datum= '" .$_SESSION[$_SESSION['your_email'] . 'date'] . "'";
+							$result5 = mysql_query($sql5);?>
+				</h1>
+				<br></br> <br></br>
+				<h2>Ha több információt szeretne kapni a tesztkitöltésről vagy
+					vissza szeretne térni a saját profiljára, kattintson kérem a
+					megfelelő menüpontra!</h2>
+
+				<br></br> <br></br>
+
+				<div id="menubar">
+					<div id="menubar_test">
+						<ul id="menu">
+							<li><a href="user/report.php">Bővebb információ a
+									tesztkitöltésről</a></li>
+							<!-- <li><a href="szemelyes_adatok.php" onclick="eraseCookie('<?php echo $felhasznalo; ?> ');">Saját profil</a></li>  -->
+							<li><a href="#" onclick="eraseCookie('<?php echo $felhasznalo; ?> '); window.close();">Ablak bezárása</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<?php }?>
 
 			</div>
 			<!--close content_item-->
