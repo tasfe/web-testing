@@ -2,41 +2,41 @@
 header("Content-Type: text/html; charset=utf-8");
 ?>
 <?php
-require("ReportGenerator/meghivas.php");
-require("readQuestion.php");
+require_once("ReportGenerator/meghivas.php");
+require_once("readQuestion.php");
 //function meghivas($kerdesek,$pont, $user, $answers, $pontok $R=0, $G=0, $B=0);
  /* A meghivas parameterei:
   * 
-  * $kerdesek --> readQuestion.php -ban lévõ atalakitReportTombe - függvény által
-  * visszatérített tömb; (kötelezõ megadni)
-  * pontszám --> readOneCorrectPoint($teszt) --> eredménye
-  * $user --> egy tömb aminek az elemei:
-  * Név, felhasználónév, emailcím(kötelezõ megadni)
-  * Az answers egy olyan tömb, aminek az elemei, a 
-  * felhasználó válaszai a kérdésre. Mûködik egyválasztos, és többválasztos
-  * kérdések esetén is. (kötelezõ megadni)
-  * $R, $G, $B - a szöveg rgb színe, nem kötelezõ megadni
-  * Példa: lennebb  
-  * $pontok --> az elért pontszámot tartalmazza
+  * $kerdesek --> readQuestion.php -ban lï¿½vï¿½ atalakitReportTombe - fï¿½ggvï¿½ny ï¿½ltal
+  * visszatï¿½rï¿½tett tï¿½mb; (kï¿½telezï¿½ megadni)
+  * pontszï¿½m --> readOneCorrectPoint($teszt) --> eredmï¿½nye
+  * $user --> egy tï¿½mb aminek az elemei:
+  * Nï¿½v, felhasznï¿½lï¿½nï¿½v, emailcï¿½m(kï¿½telezï¿½ megadni)
+  * Az answers egy olyan tï¿½mb, aminek az elemei, a 
+  * felhasznï¿½lï¿½ vï¿½laszai a kï¿½rdï¿½sre. Mï¿½kï¿½dik egyvï¿½lasztos, ï¿½s tï¿½bbvï¿½lasztos
+  * kï¿½rdï¿½sek esetï¿½n is. (kï¿½telezï¿½ megadni)
+  * $R, $G, $B - a szï¿½veg rgb szï¿½ne, nem kï¿½telezï¿½ megadni
+  * Pï¿½lda: lennebb  
+  * $pontok --> az elï¿½rt pontszï¿½mot tartalmazza
   */
 
-// kérdések beálítása
+// kï¿½rdï¿½sek beï¿½lï¿½tï¿½sa
  $kerdesek = atalakitReportTombe('xml/Proba.xml');
- // felhasználó beálítása
+ // felhasznï¿½lï¿½ beï¿½lï¿½tï¿½sa
  $felhasznalo = array();
- $felhasznalo[0] = "Vak Béla";
+ $felhasznalo[0] = "Vak BÃ©la";
  $felhasznalo[1] = "saito";
  $felhasznalo[2] = "vakbela@gmail.com";
- // válaszok beálítása
+ // vï¿½laszok beï¿½lï¿½tï¿½sa
  $ans = array();
- // egy helyes válasz van esetén:
- $ans[0] = 'a';   // elsõ kérdés, ha egy válasz van
+ // egy helyes vï¿½lasz van esetï¿½n:
+ $ans[0] = 'a';   // elsï¿½ kï¿½rdï¿½s, ha egy vï¿½lasz van
  $valasz = array();
- // második kérdés, ha több válasz van
+ // mï¿½sodik kï¿½rdï¿½s, ha tï¿½bb vï¿½lasz van
  $valasz[0] = 'a';
  $valasz[1] = 'b';
  $ans[1] = $valasz;
- // több helyes válasz van esetén:
+ // tï¿½bb helyes vï¿½lasz van esetï¿½n:
  /*
   * $valasz1 = array();
   * $valasz1[0] = 'a';
@@ -48,12 +48,12 @@ require("readQuestion.php");
   *  $ans[0] = $valasz1;
   *  $ans[1] = $valasz2;
   */
- // pontszám beálítása:
+ // pontszï¿½m beï¿½lï¿½tï¿½sa:
   $pont = readOneCorrectPoint('xml/Proba.xml');
-  // elért pontok :
+  // elï¿½rt pontok :
   $pontok = 5;
-  // Generálás meghívása:
- meghivas($kerdesek, $pont, $felhasznalo, $ans, 5);
+  // Generï¿½lï¿½s meghï¿½vï¿½sa:
+ meghivasR($kerdesek, $pont, $felhasznalo, $ans, 5);
  // vagy: 
  //meghivas($kerdesek,$pont, $felhasznalo, $ans, $pontok, 100, 20, 30);
 ?>
