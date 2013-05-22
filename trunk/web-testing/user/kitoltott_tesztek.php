@@ -128,7 +128,7 @@ include '../readQuestion.php';
 						unset($_SESSION['activation_result']);
 					}
 							
-					echo '<form action = "activate.php" method = "post">';
+					echo '<form action = "report.php" method = "get">';
 					echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
 					echo '<table><th>&emsp;</th><th>Tesztnév</th><th>Tesztre kapott jegy</th><th>Kitöltés dátuma</th>';
 					while ($row) {
