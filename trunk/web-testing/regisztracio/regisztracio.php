@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -113,60 +114,161 @@
   </div><!--close main-->
 
 <?php
+
 if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name']) 
 		|| isset($_SESSION['email']) || isset($_SESSION['your_password'])
 		|| isset($_SESSION['your_password2']) || isset($_SESSION['city'])
 		|| isset($_SESSION['date_of_birth']) || isset($_SESSION['tel_nr']) 
         || isset($_SESSION['ok'])) {
-	if($_SESSION['reg_surname'] != '')
+	if(isset($_SESSION['reg_surname']))
 	{
 		echo '<script type="text/javascript"> alert("Nem töltötte ki a családnév mezőt/nem megengedett karaktereket használt/3-nál kevesebb karaktert írt be.\n Mező kitöltése kötelező !"); </script>';
 		unset($_SESSION['reg_surname']);
+		unset($_SESSION['reg_first_name']);
+		unset($_SESSION['email']);
+		unset($_SESSION['your_password']);
+		unset($_SESSION['your_password2']);
+		unset($_SESSION['city']);
+		unset($_SESSION['date_of_birth']);
+		unset($_SESSION['tel_nr']);
+		unset($_SESSION['marvolt']);
+		unset($_SESSION['ok']);
+		//unset($_SESSION['reg_surname']);
 	}
-	else if($_SESSION['reg_first_name'] != '')
+	else if(isset($_SESSION['reg_first_name']))
 	{
 			echo '<script type="text/javascript"> alert("Nem töltötte ki a keresztnév mezőt/nem megengedett karaktereket használt/3-nál kevesebb karaktert írt be.\n Mező kitöltése kötelező !"); </script>';
+			unset($_SESSION['reg_surname']);
 			unset($_SESSION['reg_first_name']);
+			unset($_SESSION['email']);
+			unset($_SESSION['your_password']);
+			unset($_SESSION['your_password2']);
+			unset($_SESSION['city']);
+			unset($_SESSION['date_of_birth']);
+			unset($_SESSION['tel_nr']);
+			unset($_SESSION['marvolt']);
+			unset($_SESSION['ok']);
+			//unset($_SESSION['reg_first_name']);
 	}
-		 else if($_SESSION['email'] != '')
+		 else if(isset($_SESSION['email']))
 		 {
 		 		echo '<script type="text/javascript"> alert("Helytelen e-mail cím.\n Mező kitöltése kötelező !"); </script>';
+		 		unset($_SESSION['reg_surname']);
+		 		unset($_SESSION['reg_first_name']);
 		 		unset($_SESSION['email']);
+		 		unset($_SESSION['your_password']);
+		 		unset($_SESSION['your_password2']);
+		 		unset($_SESSION['city']);
+		 		unset($_SESSION['date_of_birth']);
+		 		unset($_SESSION['tel_nr']);
+		 		unset($_SESSION['marvolt']);
+		 		unset($_SESSION['ok']);
+		 		//unset($_SESSION['email']);
 		 }
-		 	  else if($_SESSION['your_password'] != '')
+		 	  else if(isset($_SESSION['your_password']))
 		 	  {
 		 			echo '<script type="text/javascript"> alert("A jelszónak legalább 6 karakterből kell állnia.\n Mező kitöltése kötelező !"); </script>';
-		 			unset($_SESSION['you_password']);
+		 			unset($_SESSION['reg_surname']);
+		 			unset($_SESSION['reg_first_name']);
+		 			unset($_SESSION['email']);
+		 			unset($_SESSION['your_password']);
+		 			unset($_SESSION['your_password2']);
+		 			unset($_SESSION['city']);
+		 			unset($_SESSION['date_of_birth']);
+		 			unset($_SESSION['tel_nr']);
+		 			unset($_SESSION['marvolt']);
+		 			unset($_SESSION['ok']);
+		 			//unset($_SESSION['your_password']);
 		 	  }
-		 	  else if($_SESSION['your_password2'] != '')
+		 	  else if(isset($_SESSION['your_password2']))
 		 	  {
 		 	  			echo '<script type="text/javascript"> alert("Helytelen jelszómegerősítés.\n Mező kitöltése kötelező !"); </script>';
+		 	  			unset($_SESSION['reg_surname']);
+		 	  			unset($_SESSION['reg_first_name']);
+		 	  			unset($_SESSION['email']);
+		 	  			unset($_SESSION['your_password']);
 		 	  			unset($_SESSION['your_password2']);
+		 	  			unset($_SESSION['city']);
+		 	  			unset($_SESSION['date_of_birth']);
+		 	  			unset($_SESSION['tel_nr']);
+		 	  			unset($_SESSION['marvolt']);
+		 	  			unset($_SESSION['ok']);
+		 	  			//unset($_SESSION['your_password2']);
 		 	  }
-		 	  		else if($_SESSION['city'] != '')
+		 	  		else if(isset($_SESSION['city']))
 		 	  		{
 		 	  				echo '<script type="text/javascript"> alert("Helytelenül megadott városnév/3-nál kevesebb karaktert írt be.\n Mező kitöltése kötelező !"); </script>';
+		 	  				unset($_SESSION['reg_surname']);
+		 	  				unset($_SESSION['reg_first_name']);
+		 	  				unset($_SESSION['email']);
+		 	  				unset($_SESSION['your_password']);
+		 	  				unset($_SESSION['your_password2']);
 		 	  				unset($_SESSION['city']);
+		 	  				unset($_SESSION['date_of_birth']);
+		 	  				unset($_SESSION['tel_nr']);
+		 	  				unset($_SESSION['marvolt']);
+		 	  				unset($_SESSION['ok']);
+		 	  				//unset($_SESSION['city']);
 		 	  		}
-		 	  			 else if($_SESSION['date_of_birth'] != '')
+		 	  			 else if(isset($_SESSION['date_of_birth']))
 		 	  			 {
 		 	  					echo '<script type="text/javascript"> alert("A születési dátumot a következő formában, adja meg : ÉÉÉÉ.HH.NN. !\n Mező kitöltése kötelező !"); </script>';
+		 	  					unset($_SESSION['reg_surname']);
+		 	  					unset($_SESSION['reg_first_name']);
+		 	  					unset($_SESSION['email']);
+		 	  					unset($_SESSION['your_password']);
+		 	  					unset($_SESSION['your_password2']);
+		 	  					unset($_SESSION['city']);
 		 	  					unset($_SESSION['date_of_birth']);
+		 	  					unset($_SESSION['tel_nr']);
+		 	  					unset($_SESSION['marvolt']);
+		 	  					unset($_SESSION['ok']);
+		 	  					//unset($_SESSION['date_of_birth']);
 		 	  			 }
-		 	  			 	  else if($_SESSION['tel_nr'] != '')
+		 	  			 	  else if(isset($_SESSION['tel_nr']))
 		 	  			 	  {
 		 	  			 			echo '<script type="text/javascript"> alert("Nem megfelelő telefonszám."); </script>';
+		 	  			 			unset($_SESSION['reg_surname']);
+		 	  			 			unset($_SESSION['reg_first_name']);
+		 	  			 			unset($_SESSION['email']);
+		 	  			 			unset($_SESSION['your_password']);
+		 	  			 			unset($_SESSION['your_password2']);
+		 	  			 			unset($_SESSION['city']);
+		 	  			 			unset($_SESSION['date_of_birth']);
 		 	  			 			unset($_SESSION['tel_nr']);
+		 	  			 			unset($_SESSION['marvolt']);
+		 	  			 			unset($_SESSION['ok']);
+		 	  			 			//unset($_SESSION['tel_nr']);
 		 	  			 	  }
-		 	  			 	  		else if(!$_SESSION['ok'])
+		 	  			 	  		else if($_SESSION['ok'] == false)
 		 	  			 	  		{
 		 	  			 	  			echo '<script type="text/javascript"> alert("Helytelen képfelismerés. Probálja újra!"); </script>';
+		 	  			 	  			unset($_SESSION['reg_surname']);
+		 	  			 	  			unset($_SESSION['reg_first_name']);
+		 	  			 	  			unset($_SESSION['email']);
+		 	  			 	  			unset($_SESSION['your_password']);
+		 	  			 	  			unset($_SESSION['your_password2']);
+		 	  			 	  			unset($_SESSION['city']);
+		 	  			 	  			unset($_SESSION['date_of_birth']);
+		 	  			 	  			unset($_SESSION['tel_nr']);
+		 	  			 	  			unset($_SESSION['marvolt']);
 		 	  			 	  			unset($_SESSION['ok']);
+		 	  			 	  			//unset($_SESSION['ok']);
 		 	  			 	  		}
-		 	  			 	  			else if($_SESSION['marvolt'] == 'igen')
+		 	  			 	  			else if(isset($_SESSION['marvolt']))
 		 	  			 	  			{
 		 	  			 	  					echo '<script type="text/javascript"> alert("A megadott e-mail cím már használatban van!\n Kérem adjon meg másik e-mail címet!"); </script>';
+		 	  			 	  					unset($_SESSION['reg_surname']);
+		 	  			 	  					unset($_SESSION['reg_first_name']);
+		 	  			 	  					unset($_SESSION['email']);
+		 	  			 	  					unset($_SESSION['your_password']);
+		 	  			 	  					unset($_SESSION['your_password2']);
+		 	  			 	  					unset($_SESSION['city']);
+		 	  			 	  					unset($_SESSION['date_of_birth']);
+		 	  			 	  					unset($_SESSION['tel_nr']);
 		 	  			 	  					unset($_SESSION['marvolt']);
+		 	  			 	  					unset($_SESSION['ok']);
+		 	  			 	  					//unset($_SESSION['marvolt']);
 		 	  			 	  			}
 }
 ?>
