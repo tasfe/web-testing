@@ -18,12 +18,12 @@ function irdKi($user, $R = 0, $G = 0, $B = 0) {
 		
 		 $this->pdf->SetFont('arial', '', 12);
 		$this->pdf->SetTextColor($R, $G, $B);
-	 	$this->pdf->write(5, "A felhasználó neve: ". $user[0]."\n");
-	     $this->pdf->write(5, "Felhasználó emailcíme: ".$user[2]."\n\n\n\n");	
+	 	$this->pdf->write(5, "A felhasznalo neve: ". $user[0]."\n");
+	     $this->pdf->write(5, "Felhasznalo emailcime: ".$user[2]."\n\n\n\n");	
 	
 		$this->pdf->SetFont('Arial', 'B', 54);
 		$this->pdf->SetTextColor(0, 0, 0);
-		$this->pdf->write(50, '           Oklevél'."\n");
+		$this->pdf->write(50, '           Oklevel'."\n");
 	
 		$this->pdf->SetFont('Arial', '', 12);
 		$this->pdf->SetTextColor($R, $G, $B);
@@ -54,14 +54,14 @@ function ujKerdes($kerdes, $pt) {
 	
 }	
 function envalaszaim($ans) {
-	$this->pdf->write(3, "Felhasználó válaszai: ");
+	$this->pdf->write(3, "Felhasznalo valaszai: ");
 	$num = count($ans);
 	for($i = 0; $i < $num; ++$i) 
 		$this->pdf->write(3, $ans[$i] . "   ");
 	$this->pdf->write(10, "\n");
 } 
 function pontokSzama($pontok) {
-	$this->pdf->write(10, "Az elért jegy: " .$pontok);
+	$this->pdf->write(10, "Az elert jegy: " .$pontok);
 }
 function lezar() {
 	$this->pdf->Output('Diploma.PDF', 'I');
