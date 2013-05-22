@@ -127,7 +127,7 @@ require_once("../readQuestion.php");
 				$val[16] = $row['17Kerdes'];
 				$val[17] = $row['18Kerdes'];
 				$val[18] = $row['19Kerdes'];
-				$val[019] = $row['20Kerdes'];
+				$val[19] = $row['20Kerdes'];
 				$er = $row['Eredmeny'];
 			}
 			//kérdések lekérdezése
