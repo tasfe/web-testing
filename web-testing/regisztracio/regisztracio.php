@@ -31,7 +31,7 @@
 	<div id="menubar">
       <ul id="menu">
         <li><a href="../index.php">Főoldal</a></li>
-        <li class="current"><a href="../login.html">Bejelentkezés</a></li>
+        <li class="current"><a href="../login.php">Bejelentkezés</a></li>
       </ul>
     </div><!--close menubar-->
 	
