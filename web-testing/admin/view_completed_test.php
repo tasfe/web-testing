@@ -158,7 +158,7 @@ else
 				
 				echo '<form action = "report.php" method = "post">';
 				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
-				echo '<table><th>&emsp;</th><th>Családnév</th><th>Keresztnév</th><th>Teszt név</th><th>Kérdések száma</th><th>Kategória</th><th>Eredmény</th>';
+				echo '<table><th>Családnév</th><th>Keresztnév</th><th>Teszt név</th><th>Kérdések száma</th><th>Kategória</th><th>Eredmény</th>';
 				while ($row = mysql_fetch_assoc($result)) {
 					echo '<tr>
 					<td><INPUT TYPE=radio NAME=\"radio\" VALUE=\"$gid\"/></td>
