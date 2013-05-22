@@ -119,8 +119,6 @@ $user = 'root';
 $pass = '';
 $table_name = 'adatok';
 
-session_start();
-
 	//connection to the database
 	$dbhandle = mysql_connect($host, $user, $pass)
 	or die("Nem lehet kapcsolódni MySQL-hez!");

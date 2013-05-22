@@ -82,17 +82,9 @@ else
 					<!--close sidebar-->
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="kitoltott_tesztek.php"><h2>Kitöltött tesztek</h2> </a>
+							<a href="kitoltott_tesztek.php"><h2>Eddigi eredmények</h2> </a>
 							<p>A fenti menüpont alatt megnézheted, illetve letöltheted a már
 								kitöltött tesztjeid.</p>
-						</div>
-						<!--close sidebar_item-->
-					</div>
-					<!--close sidebar-->
-					<div class="sidebar">
-						<div class="sidebar_item">
-							<a href="eredmenyek.php"><h2>Eredmények</h2> </a>
-							<p>A fenti menüpont alatt megnézheted az eddig elért eredményeid</p>
 						</div>
 						<!--close sidebar_item-->
 					</div>
@@ -103,13 +95,11 @@ else
 				<ul class="slideshow">
 					<li class="show"><img width="680" height="250"
 						src="../images/home_2.jpg" alt="&quot;Személyes adatok&quot;" /></li>
-					<li><a href="eredmenyek.php"><img width="680" height="250"
-							src="../images/home_2.jpg" alt="&quot;Eredmények&quot;" /> </a></li>
-					<li><a href="kitoltott_tesztek.php"><img width="680" height="250"
-							src="../images/home_2.jpg" alt="&quot;Kitöltött tesztek&quot;" />
-					</a></li>
 					<li><a href="uj_teszt.php"><img width="680" height="250"
 							src="../images/home_1.jpg" alt="&quot;Új teszt kitöltése&quot;" />
+					</a></li>
+					<li><a href="kitoltott_tesztek.php"><img width="680" height="250"
+							src="../images/home_2.jpg" alt="&quot;Eddigi eredmények&quot;" />
 					</a></li>
 				</ul>
 
