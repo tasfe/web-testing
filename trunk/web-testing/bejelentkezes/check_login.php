@@ -50,7 +50,7 @@ else {
 		if($count==1){
 			$_SESSION['your_email'] = $your_email;
 			$_SESSION['mypassword'] = $your_password;
-			header("location:../user/szemelyes_adatok.php");
+			header("location:../index.php");
 		}
 		else {
 			$_SESSION['hibas'] = true;
