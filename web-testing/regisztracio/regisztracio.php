@@ -87,7 +87,7 @@
 					<td><br /> <img src="CaptchaSecurityImages.php?width=100&height=40&characters=5" /><br />
 					</td>
 					<td>
-					<label for="security_code">Security Code: </label><input id="security_code" name="security_code" type="text" /><br />
+					<label for="security_code">*Security Code: </label><input id="security_code" name="security_code" type="text" /><br />
 					</td>
 				</tr>				
 				<tr>
@@ -120,26 +120,55 @@ if( isset($_SESSION['reg_surname']) || isset($_SESSION['reg_first_name'])
 		|| isset($_SESSION['date_of_birth']) || isset($_SESSION['tel_nr']) 
         || isset($_SESSION['ok'])) {
 	if($_SESSION['reg_surname'] != '')
+	{
 		echo '<script type="text/javascript"> alert("Nem töltötte ki a családnév mezőt vagy nem megengedett karaktereket használt.\n Mező kitöltése kötelező !"); </script>';
+		unset($_SESSION['reg_surname']);
+	}
 	else if($_SESSION['reg_first_name'] != '')
+	{
 			echo '<script type="text/javascript"> alert("Nem töltötte ki a keresztnév mezőt vagy nem megengedett karaktereket használt.\n Mező kitöltése kötelező !"); </script>';
+			unset($_SESSION['reg_first_name']);
+	}
 		 else if($_SESSION['email'] != '')
+		 {
 		 		echo '<script type="text/javascript"> alert("Helytelen e-mail cím.\n Mező kitöltése kötelező !"); </script>';
+		 		unset($_SESSION['email']);
+		 }
 		 	  else if($_SESSION['your_password'] != '')
+		 	  {
 		 			echo '<script type="text/javascript"> alert("A jelszónak legalább 6 karakterből kell állnia.\n Mező kitöltése kötelező !"); </script>';
+		 			unset($_SESSION['you_password']);
+		 	  }
 		 	  else if($_SESSION['your_password2'] != '')
+		 	  {
 		 	  			echo '<script type="text/javascript"> alert("Helytelen jelszómegerősítés.\n Mező kitöltése kötelező !"); </script>';
+		 	  			unset($_SESSION['your_password2']);
+		 	  }
 		 	  		else if($_SESSION['city'] != '')
+		 	  		{
 		 	  				echo '<script type="text/javascript"> alert("Helytelenül megadott városnév.\n Mező kitöltése kötelező !"); </script>';
+		 	  				unset($_SESSION['city']);
+		 	  		}
 		 	  			 else if($_SESSION['date_of_birth'] != '')
+		 	  			 {
 		 	  					echo '<script type="text/javascript"> alert("A születési dátumot a következő formában, adja meg : ÉÉÉÉ.HH.NN. !\n Mező kitöltése kötelező !"); </script>';
+		 	  					unset($_SESSION['date_of_birth']);
+		 	  			 }
 		 	  			 	  else if($_SESSION['tel_nr'] != '')
+		 	  			 	  {
 		 	  			 			echo '<script type="text/javascript"> alert("Nem megfelelő telefonszám."); </script>';
+		 	  			 			unset($_SESSION['tel_nr']);
+		 	  			 	  }
 		 	  			 	  		else if(!$_SESSION['ok'])
+		 	  			 	  		{
 		 	  			 	  			echo '<script type="text/javascript"> alert("Helytelen képfelismerés. Probálja újra!"); </script>';
+		 	  			 	  			unset($_SESSION['ok']);
+		 	  			 	  		}
 		 	  			 	  			else if($_SESSION['marvolt'] == 'igen')
+		 	  			 	  			{
 		 	  			 	  					echo '<script type="text/javascript"> alert("A megadott e-mail cím már használatban van!\n Kérem adjon meg másik e-mail címet!"); </script>';
-		
+		 	  			 	  					unset($_SESSION['marvolt']);
+		 	  			 	  			}
 }
 ?>
 
