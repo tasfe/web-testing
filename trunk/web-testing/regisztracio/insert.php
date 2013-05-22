@@ -16,7 +16,7 @@ unset($_SESSION['ok']);
 function reg_check(){
 
 	$hibak = true;
-	if(strlen($_POST['reg_surname']) < 3)
+	if(strlen($_POST['reg_surname']) < 4)
 	{
 		$hibak = false;
 		$_SESSION['reg_surname'] = 'A családnév legalább 3 betűs legyen, kitöltése pedig kötelező';
@@ -27,7 +27,7 @@ function reg_check(){
 		$_SESSION['reg_surname'] = 'A családnévben csak a magyar ábécé kis - és nagybetűi engedélyezettek';
 	}
 	
-	if(strlen($_POST['reg_first_name']) < 3)
+	if(strlen($_POST['reg_first_name']) < 4)
 	{
 		$hibak = false;
 		$_SESSION['reg_first_name'] = 'A keresztnév legalább 3 betűs legyen, kitöltése pedig kötelező';
@@ -45,10 +45,10 @@ function reg_check(){
 		$_SESSION['email'] = 'Hibás e-mail cím és az e-mail kitöltése kötelező!';
 	}
 
-	if (strlen($_POST['your_password']) < 5)
+	if (strlen($_POST['your_password']) < 7)
 	{
 		$hibak = false;
-		$_SESSION['your_password'] = 'A jelszónak legalább 5 karakterből kell állnia, és kitöltése kötelező!';
+		$_SESSION['your_password'] = 'A jelszónak legalább 6 karakterből kell állnia, és kitöltése kötelező!';
 		
 	}
 	
@@ -58,10 +58,10 @@ function reg_check(){
 		$_SESSION['your_password2'] = 'Helytelen jelszó megerősítés.';
 	}
 	
-	if(strlen($_POST['city']) < 3)
+	if(strlen($_POST['city']) < 4)
 	{
 		$hibak = false;
-		$_SESSION['city'] = 'A település neve legalább 4 betűs legyen, kitöltése pedig kötelező!';
+		$_SESSION['city'] = 'A település neve legalább 3 betűs legyen, kitöltése pedig kötelező!';
 	}
 	else if (!preg_match('/[-a-zA-ZáéíóúüöűőÁÉÍÚŰŐÓÜÖşţăîâŞŢĂÎÂ]*/', $_POST['city']))
 	{
