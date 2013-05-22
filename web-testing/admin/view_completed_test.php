@@ -4,14 +4,14 @@ if (isset($_SESSION['your_email']))
 {
 	if($_SESSION['your_email']!='admin')
 	{
-		$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
-		header("location:../index.php");
+		//$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
+		//header("location:../index.php");
 	}
 }  
 else
 {
-	$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
-	header("location:../index.php");
+	//$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
+	//header("location:../index.php");
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -159,15 +159,20 @@ else
 				echo '<form action = "report.php" method = "post">';
 				echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
 				echo '<table><th>Családnév</th><th>Keresztnév</th><th>Teszt név</th><th>Kérdések száma</th><th>Kategória</th><th>Eredmény</th>';
+				//$gid beálítása, lehet, hogy nem kell
+				$gid = 0;
+				
+				
 				while ($row = mysql_fetch_assoc($result)) {
 					echo '<tr>
-					<td><INPUT TYPE=radio NAME=\"radio\" VALUE=\"$gid\"/></td>
+					<td><INPUT TYPE=\'radio\' NAME=\'radio\' VALUE='.$gid .'></td>
 					<td>'.$row['csaladnev'].'</td>
 					<td>'.$row['keresztnev'].'</td>
 					<td>'.$row['TesztNev'].'</td>
 					<td>'.$row['KerdesSzam'].'</td>
 					<td>'.$row['Kategoria'].'</td>
 					<td>'.$row['Eredmeny'].'</td></tr>';
+					$gid ++;
 				}
 				echo '</TABLE><br /><br />';
 				echo '<input padding-right="2px" type="submit" name="submit" value="Report generálása" />&emsp;';
