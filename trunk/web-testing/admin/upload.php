@@ -73,7 +73,7 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="view_test_completing.html"><h2>Jelenlegi tesztkitöltések</h2></a>
+							<a href="view_test_completing.php"><h2>Jelenlegi tesztkitöltések</h2></a>
 							<p>A fenti menüpontot kiválasztva megtekintheted a folyamatban
 								levő tesztkitöltéseket.</p>
 						</div>
@@ -83,7 +83,7 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="view_completed_test.html"><h2>Kitöltött tesztek</h2></a>
+							<a href="view_completed_test.php"><h2>Kitöltött tesztek</h2></a>
 							<p>A fenti menüpontot kiválasztva megtekintheted a kitöltött
 								teszteket.</p>
 						</div>
