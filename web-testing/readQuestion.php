@@ -4,7 +4,8 @@
 </head>
 <body>
 	<?php
-	if (isset($_SESSION['your_email']))
+	
+	/*if (isset($_SESSION['your_email']))
 	{
 		if($_SESSION['your_email']=='admin')
 		{
@@ -17,6 +18,7 @@
 		$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
 		header("location:index.php");
 	}
+	*/
 	
 	//teszt cime
 	function readName($teszt) {

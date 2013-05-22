@@ -2,8 +2,8 @@
 header("Content-Type: text/html; charset=utf-8");
 ?>
 <?php
-require("ReportGenerator/meghivas.php");
-require("readQuestion.php");
+require_once("ReportGenerator/report.php");
+require_once("readQuestion.php");
 session_start();
 // teszt neve a Get-ből
 $tesztneve = $_GET['nev'];
@@ -75,6 +75,21 @@ mysql_free_result($result);
 mysql_free_result($res);
 //close connection
 mysql_close($dbhandle);
-meghivasR($kerdesek, $pont, $felhaszn,$val ,$er);
+$generator = new report();
+$generator->irdKi($felhaszn, $R, $G, $B);
+$num = count($kerdesek);
+for($i = 0; $i <$num; ++$i) {
+	$x = $kerdesek[$i];
+	if($x[0] === 'ok') {
+		$generator->ujKerdes($x, $pont[0]);
+		$generator->enValaszaim($val[$i]);
+	}
+		
+}
+$generator->pontokSzama($er);
+	
+while (ob_get_level())
+	ob_end_clean();
+$generator->lezar();
 
 ?>
