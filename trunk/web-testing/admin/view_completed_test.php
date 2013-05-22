@@ -4,14 +4,14 @@ if (isset($_SESSION['your_email']))
 {
 	if($_SESSION['your_email']!='admin')
 	{
-		//$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
-		//header("location:../index.php");
+		$_SESSION['login']='Nincs jogosultságod megtekinteni ezt az oldalt!';
+		header("location:../index.php");
 	}
 }  
 else
 {
-	//$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
-	//header("location:../index.php");
+	$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
+	header("location:../index.php");
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -64,7 +64,7 @@ else
 
 					<div class="sidebar">
 						<div class="sidebar_item">
-							<a href="admin.phpl"><h2>Kezdő oldal</h2> </a>
+							<a href="admin.php"><h2>Kezdő oldal</h2> </a>
 						</div>
 						<!--close sidebar_item-->
 					</div>
