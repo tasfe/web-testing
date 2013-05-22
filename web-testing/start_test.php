@@ -37,6 +37,14 @@ $result2 = mysql_query($sql2);
 $row2 = mysql_fetch_assoc($result2);
 $working = $row2['akt_teszt_kitoltes'];
 
+$sql3 = "SELECT `keresztnev` FROM `adatok` WHERE `emailcim`='" . $_SESSION['your_email'] . "'";
+$result3 = mysql_query($sql3);
+$row3 = mysql_fetch_assoc($result3);
+$keresztnev = $row3['keresztnev'];
+
+include 'readQuestion.php';
+$tesztcim = readName("tests/" . $_GET['nev']);
+
 if (is_null($working))
 	$ok = true;
 else
@@ -47,8 +55,10 @@ $result3 = mysql_query($sql3);
 $num = mysql_num_rows($result3);
 
 ?>
-<html>
-<head>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
 <script type="text/javascript" src="cookie.js"></script>
 <script type = "text/javascript">
 function askUser() {
@@ -66,19 +76,66 @@ function openWindow(user) {
 		createCookie(user, 1);
 		window.open('teszt_kitoltese.php?nev=<?php echo "tests/" . $_GET['nev'];?>&count=<?php echo $_GET['count']?>');	
 	} else {
-		alert("Mar meg van nyitva az ablak!\nHa veletlenul bezartad, akkor zarj be minden ablakot es nyisd meg ujra a tesztet!");		
+		alert("Már meg van nyitva az ablak!\nHa véletlenül bezártad, akkor jelentkezz ki és jelentkezz be újra!");		
 	}
 
 }
 </script>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tesztelő rendszer</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/image_slide.js"></script>
 </head>
+
 <body>
-	<div id="site_content" align="center">
+
+	<div id="main">
+
+		<div id="header">
+			<div id="banner">
+				<div id="welcome">
+					<h1>
+						Kedves <?php echo $keresztnev ?>,
+					</h1>
+				</div>
+				<!--close welcome-->
+				<div id = welcome_slogan>
+				<h2>
+						A Start gombra kattintva a(z)
+						"<?php echo $tesztcim ?>" című teszt
+						 kitöltésére van lehetőséged. <br>
+					</h2>
+					<h2>Sok sikert! :)</h2>
+				</div>
+				<!--close welcome_slogan-->
+				
+			</div>
+			<!--close banner-->
+		</div>
+		<!--close header-->
+
+		<br><br>
+		
+		<div id="menubar">
+			<ul id="menu">
+				<li><a href="index2.php">Főoldal</a></li>
+				<li><a href="logout.php">Kijelentkezés</a></li>
+			</ul>
+		</div>
+		<!--close menubar-->
+
+		<br><br>
+					
+		<div id="site_content" align="center">
 
 		<div id="content">
-			<?php include 'readQuestion.php';
+			<?php
 			if (readPossibility("tests/" . $_GET['nev']) > $num) { ?>
-				<a href="#" onclick="openWindow('<?php echo $_SESSION['your_email']; ?>');">Start</a> 
+				<a href="#" onclick="openWindow('<?php echo $_SESSION['your_email']; ?>');"><h2>Start</h2></a> 
 			<?php 
 			$_SESSION[$_SESSION['your_email'] . "p1"] = 0;
 			$_SESSION[$_SESSION['your_email'] . "pont"] = 0;
@@ -86,7 +143,44 @@ function openWindow(user) {
 			//unset($_SESSION[$_SESSION['your_email'] . "continue"]);
 			} if (readPossibility("tests/" . $_GET['nev']) <= $num) { echo "Ezt a tesztet már nem végezheted el több alkalommal!"; } ?>
 		</div>
+		
+		<div class="sidebar_container">
+			<div class="sidebar">
+				<div class="sidebar_item">
+					<a href="user/szemelyes_adatok.php"><h2>Személyes adatok</h2> </a>
+					<p>A fenti menüpont alatt megtekintheted a regisztráció során
+								megadott adataid.</p>
+				</div>
+				<!--close sidebar_item-->
+			</div>
+			<!--close sidebar-->
+			<!--close sidebar-->
+			<div class="sidebar">
+				<div class="sidebar_item">
+					<a href="user/kitoltott_tesztek.php"><h2>Eddigi eredmények</h2> </a>
+					<p>A fenti menüpont alatt megnézheted, illetve letöltheted a már
+								kitöltött tesztjeid.</p>
+				</div>
+				<!--close sidebar_item-->
+			</div>
+			<!--close sidebar-->
+		</div>
+		<!--close sidebar_container-->
 	</div>
+	<!--site content-->
+
+	<div id="content_grey">
+		<p>Hasonló weboldalak</p>
+		<br style="clear: both" />
+	</div>
+	<!--close content_grey-->
+
+	<br></br>
+	<br></br>
+
+	<!-- close main -->
 
 </body>
+
 </html>
+	

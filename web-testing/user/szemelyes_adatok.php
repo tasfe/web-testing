@@ -12,7 +12,7 @@ if (isset($_SESSION['your_email']))
 else
 {
 	$_SESSION['login']='Jelentkezz be ahhoz, hogy megtekinthesd ezt az oldalt!';
-	header("location:index.php");
+	header("location:../index.php");
 }
 
 ?>
