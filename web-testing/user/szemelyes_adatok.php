@@ -55,7 +55,7 @@ else
 
 		<div id="menubar">
 			<ul id="menu">
-				<li><a href="index.php">Főoldal</a></li>
+				<li><a href="../index.php">Főoldal</a></li>
 				<li><a href="logout.php">Kijelentkezés</a></li>
 			</ul>
 		</div>
