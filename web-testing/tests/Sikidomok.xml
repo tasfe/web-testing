@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<teszt>
+	<cim>
+		Sokszögek fontosabb tulajdonságai
+	</cim>
+	<feladat>
+		<kerdes>A háromszög szögeinek összege:</kerdes>
+		<valasz>
+			<szoveg>180 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>90 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>360 fok</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mely állítás(ok) igaz(ak) a háromszögekre?</kerdes>
+		<valasz>
+			<szoveg>lehet egy vagy több derékszöge</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>legfelejebb egy tompaszöge lehet</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>ha egyenlő oldalú, akkor szögei is egyenlőek</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>minden háromszög körbeírható</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>magasságai megegyeznek</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Minden négyszög konvex</kerdes>
+		<valasz>
+			<szoveg>igaz</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>hamis</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mely állítások igazak?</kerdes>
+		<valasz>
+			<szoveg>minden téglalap paralelogramma</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>a négyzet egy sajátos paralelogramma</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>minden paralelogramma téglalap</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>a rombusz nem paralelogramma</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mi nem jellemző a téglalapra?</kerdes>
+		<valasz>
+			<szoveg>minden téglalap paralelogramma</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>minden szöge derékszög</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>oldalai és szögei egyenlőek</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>átlói kongruensek</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>A rombusz:</kerdes>
+		<valasz>
+			<szoveg>egy olyan paralelogramma, melynek két szomszédos oldala kongruens</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>átlói merőlegesek egymásra és szögfelezők is</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>szögei derékszögek</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>oldalai és szögei kongruensek</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mely állítások igazak egy négyzetre?</kerdes>
+		<valasz>
+			<szoveg>minden rombusz mégyzet</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>olyan paralelogramma, amely téglalap és rombusz</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>oldalai kongruensek és szögei derékszögek</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>átlói merőlegesek</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Mit nevezünk szabályos háromszögnek?</kerdes>
+		<valasz>
+			<szoveg>az egyenlő szárú háromszöget</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>az egyenlő oldalú háromszöget</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>a derékszögű háromszöget</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>egy olyan háromszöget, melynek minden szöge hegyesszög</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>azt a háromszöget, melynek minden szöge egyenlő</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Az alábbiak közül melyek nem szabályos négyszögek?</kerdes>
+		<valasz>
+			<szoveg>a téglalap</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>a rombusz</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>a négyzet</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>a trapéz</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>A konvex négyszög:</kerdes>
+		<valasz>
+			<szoveg>domború</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>homorú</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>minden szöge kifele mutat és összegük 360 fok</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>A trapez két szemben fekvő oldala párhúzamos és a másik kettő nem.</kerdes>
+		<valasz>
+			<szoveg>igaz</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>hamis</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Minden szabályos sokszög tulajdonsága az, hogy:</kerdes>
+		<valasz>
+			<szoveg>oldalai kongruensek, de szögei nem</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>szögei kongruensek,de oldalai nem</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>oldalai és szögei egyaránt kongruensek</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<egyhelyesvalaszp>10</egyhelyesvalaszp>
+	<reszpont>igen</reszpont>
+	<jellemzok>
+		<kategoria>Mertan elmelet</kategoria>
+		<kitoltesszam>10</kitoltesszam>
+		<helyesvalaszszam>6</helyesvalaszszam>
+	</jellemzok>
+</teszt>
