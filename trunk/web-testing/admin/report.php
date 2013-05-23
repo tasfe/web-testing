@@ -49,7 +49,7 @@ require_once("../readQuestion.php");
 			}
 			else
 			{
-				$sql="SELECT csaladnev, keresztnev, adatok.emailcim, TesztNev, KerdesSzam, Kategoria, Eredmeny FROM adatok, tesztek, kitoltotttesztek
+				$sql="SELECT Datum, csaladnev, keresztnev, adatok.emailcim, TesztNev, KerdesSzam, Kategoria, Eredmeny FROM adatok, tesztek, kitoltotttesztek
 						WHERE adatok.emailcim = kitoltotttesztek.emailcim and tesztek.idTesztek = kitoltotttesztek.idTesztek";
 			}
 			$result=mysql_query($sql);
@@ -60,12 +60,14 @@ require_once("../readQuestion.php");
 			$index = 0;
 			$felhasznalo = "";
 			$tesztneve = "";
+			$datum = "";
 			while ($row = mysql_fetch_assoc($result)) {
 				if($index != $radio)
 					$index ++;
 				else {
 					$tesztneve = $row['TesztNev'];
 					$felhasznalo = $row['emailcim'];
+					$datum = $row['Datum'];
 					$dia = 1;
 					break;
 				}
@@ -89,8 +91,8 @@ require_once("../readQuestion.php");
 			
 			$felhasznal = $sql = "SELECT `csaladnev`,`keresztnev` FROM `adatok` WHERE `emailcim`= '". $felhasznalo . "'";
 			// felhasználó válaszainak lekérdezése
-			$valaszok ="SELECT max(`Datum`), `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
- FROM `kitoltotttesztek`, `tesztek` WHERE tesztek.idTesztek= kitoltotttesztek.idTesztek and `emailcim`= '". $felhasznalo . "' and `TesztNev` = '". $tesztneve . "'";
+			$valaszok ="SELECT `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
+ FROM `kitoltotttesztek`, `tesztek` WHERE tesztek.idTesztek= kitoltotttesztek.idTesztek and `emailcim`= '". $felhasznalo . "' and `TesztNev` = '". $tesztneve . "' and `Datum` = '". $datum . "'";
 			// felhasználó adatainak átálítása tömbé
 			$result=mysql_query($felhasznal);
 			if (!$result)
@@ -142,7 +144,7 @@ require_once("../readQuestion.php");
 			//meghivasR($kerdesek, $pont, $felhaszn,$val ,$er);
 			
 			$generator = new report();
-			$generator->irdKi($felhaszn, $R, $G, $B);
+			$generator->irdKi($felhaszn, $datum, $R, $G, $B);
 			$num = count($kerdesek);
 			for($i = 0; $i <$num; ++$i) {
 				$x = $kerdesek[$i];
