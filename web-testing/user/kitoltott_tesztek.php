@@ -144,12 +144,15 @@ include '../readQuestion.php';
 					echo '<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="2">';
 					echo '<table><th>&emsp;</th><th>Tesztnév</th><th>Tesztre kapott jegy</th><th>Kitöltés dátuma</th>';
 					while ($row) {
+                     
 						$sql2 = "SELECT TesztNev FROM tesztek WHERE idTesztek='" . $row['idTesztek'] . "'";
 						$result2=mysql_query($sql2);
 						$row2 = mysql_fetch_assoc($result2);
+						$adatok[0] = $row['Datum'];
+						$adatok[1] = $row2['TesztNev'];
 						$cim = readName("../tests/" . $row2['TesztNev']);
 						echo '<tr>
-						<td><input type=\'radio\' name=\'radio\' VALUE='.$row2['TesztNev'].'"></td>
+						<td><input type=\'radio\' name=\'radio\' VALUE='. $row2['TesztNev'] ."~".$row['Datum'].'"></td>
 						<td> '.$cim.' </td>
 						<td>'.$row['Eredmeny'].'</td>
 						<td>'.$row['Datum'].'</td>';

@@ -5,11 +5,13 @@ header("Content-Type: text/html; charset=utf-8");
 require_once("../ReportGenerator/report.php");
 require_once("../readQuestion.php");
 session_start();
-// teszt neve a Get-ből
-$tesztneve = $_POST['radio'];
+// teszt neve és dátum a Get-ből
+$radio = explode("~", $_POST['radio']);
+//tesztnev -- radio -0
+// datum -- radio -1
+
 //felhasználó neve a Session-ból
 $felhasznalo = $_SESSION['your_email'];
-
 
 $db = 'adatok';
 $host = 'localhost';
@@ -26,9 +28,7 @@ or die("Nem sikerült kapcsolódni az adatbázishoz!");
 
 $felhasznal = $sql = "SELECT `csaladnev`,`keresztnev` FROM `adatok` WHERE `emailcim`= '". $felhasznalo . "'";
 // felhasználó válaszainak lekérdezése
-$valaszok ="SELECT max(`Datum`), `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
- FROM `kitoltotttesztek`, `tesztek` WHERE tesztek.idTesztek= kitoltotttesztek.idTesztek and `emailcim`= '". $felhasznalo . "' and `TesztNev` = '". $tesztneve . "'";
-// felhasználó adatainak átálítása tömbé
+
 $result=mysql_query($felhasznal);
 if (!$result)
 	die("Sikertelen lekérdezés!2");
@@ -38,13 +38,23 @@ while ($row = mysql_fetch_assoc($result)) {
 	$felhaszn[1] ="";
 	$felhaszn[2] = $felhasznalo;
 }
-// felhasználó válaszainak átálítása tömbé
+
+mysql_free_result($result);
+
+
+$valaszok = "Select `Datum`, `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
+ FROM `kitoltotttesztek`, `tesztek` where TesztNev =  '".$radio[0]."' and `emailcim` = '" . $felhasznalo ."'";
+
 $res = mysql_query($valaszok);
 if (!$res)
 	die("Sikertelen lekérdezés!3");
 $val = array();
 $er = "";
+$datum = "";
+
+
 while ($row = mysql_fetch_assoc($res)) {
+	$datum = $row['Datum'];
 	$val[0] = $row['1Kerdes'];
 	$val[1] = $row['2Kerdes'];
 	$val[2] = $row['3Kerdes'];
@@ -66,9 +76,10 @@ while ($row = mysql_fetch_assoc($res)) {
 	$val[18] = $row['19Kerdes'];
 	$val[19] = $row['20Kerdes'];
 	$er = $row['Eredmeny'];
+	if($datum == $radio[1])
+		break;
 }
-//kérdések lekérdezése
-$tsz = "../tests/" . $tesztneve;
+$tsz = "../tests/" . $radio[0];
 $kerdesek = atalakitReportTombe($tsz);
 $pont = readOneCorrectPoint($tsz);
 //free the resources associated with the result set
@@ -78,7 +89,7 @@ mysql_free_result($res);
 mysql_close($dbhandle);
 
 $generator = new report();
-$generator->irdKi($felhaszn, $R, $G, $B);
+$generator->irdKi($felhaszn, $radio[1], $R, $G, $B);
 $num = count($kerdesek);
 for($i = 0; $i <$num; ++$i) {
 	$x = $kerdesek[$i];
@@ -86,13 +97,12 @@ for($i = 0; $i <$num; ++$i) {
 		$generator->ujKerdes($x, $pont[0]);
 		$generator->enValaszaim($val[$i]);
 	}
-		
+
 }
 $generator->pontokSzama($er);
-	
+
+
 while (ob_get_level())
 	ob_end_clean();
 $generator->lezar();
-
-
 ?>
