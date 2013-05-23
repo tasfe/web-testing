@@ -1,9 +1,6 @@
 <?php
-header("Content-Type: text/html; charset=utf-8");
-?>
-<?php
-require_once("ReportGenerator/meghivas.php");
-require_once("readQuestion.php");
+require("ReportGenerator/meghivas.php");
+require("readQuestion.php");
 //function meghivas($kerdesek,$pont, $user, $answers, $pontok $R=0, $G=0, $B=0);
  /* A meghivas parameterei:
   * 
@@ -24,7 +21,7 @@ require_once("readQuestion.php");
  $kerdesek = atalakitReportTombe('xml/Proba.xml');
  // felhaszn�l� be�l�t�sa
  $felhasznalo = array();
- $felhasznalo[0] = "Vak Béla";
+ $felhasznalo[0] = "Vak B�la";
  $felhasznalo[1] = "saito";
  $felhasznalo[2] = "vakbela@gmail.com";
  // v�laszok be�l�t�sa
@@ -53,7 +50,8 @@ require_once("readQuestion.php");
   // el�rt pontok :
   $pontok = 5;
   // Gener�l�s megh�v�sa:
- meghivasR($kerdesek, $pont, $felhasznalo, $ans, 5);
+  
+ meghivasR($kerdesek, $pont, $felhasznalo, $ans, $pontok);
  // vagy: 
  //meghivas($kerdesek,$pont, $felhasznalo, $ans, $pontok, 100, 20, 30);
 ?>
