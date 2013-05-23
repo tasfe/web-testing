@@ -32,13 +32,13 @@ function irdKi($user, $R = 0, $G = 0, $B = 0) {
 	}
 function ujKerdes($kerdes, $pt) {
 	$leng = count($kerdes);
-	$this->pdf->write(5, $this->kerds . ") ".$kerdes[1]. "   (".$pt . "pont)"."\n\n");
+	$this->pdf->write(5, $this->kerds . ".kerdes) ".$kerdes[1]. "   (".$pt . "pont)"."\n\n");
 	$i = 2;
-	$betu = 'a';
+	$betu = 0;
 	$helyesvalasz = "";
 	while($i < $leng) {
 		if($kerdes[$i+1] === 'true')
-			$helyesvalasz = $helyesvalasz . "     " . $kerdes[$i];
+			$helyesvalasz = $helyesvalasz . "     " . $betu;
 		$this->pdf->write(5, " ".$betu.") ".$kerdes[$i] ."\n");
 		$i = $i + 2;
 		$betu++;
@@ -50,11 +50,7 @@ function ujKerdes($kerdes, $pt) {
 	
 }	
 function envalaszaim($ans) {
-	$this->pdf->write(10, "\nA felhasználó ezt(ezeket) választotta: \n");
-	$num = count($ans);
-	$this->pdf->write(5, "    ");
-	for($i = 0; $i < $num; ++$i) 
-		$this->pdf->write(5, $ans[$i] . ",    ");
+	$this->pdf->write(10, "\nA felhasználó ezt(ezeket) választotta:  \n  " .$ans ."\n");
 	$this->pdf->write(10, "\n\n\n\n");
 } 
 function pontokSzama($pontok) {
