@@ -64,7 +64,7 @@ while ($row = mysql_fetch_assoc($res)) {
 	$val[16] = $row['17Kerdes'];
 	$val[17] = $row['18Kerdes'];
 	$val[18] = $row['19Kerdes'];
-	$val[019] = $row['20Kerdes'];
+	$val[19] = $row['20Kerdes'];
 	$er = $row['Eredmeny'];
 }
 //kérdések lekérdezése
@@ -76,7 +76,6 @@ mysql_free_result($result);
 mysql_free_result($res);
 //close connection
 mysql_close($dbhandle);
-meghivasR($kerdesek, $pont, $felhaszn,$val ,$er);
 
 $generator = new report();
 $generator->irdKi($felhaszn, $R, $G, $B);
