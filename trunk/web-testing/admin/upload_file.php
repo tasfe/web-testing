@@ -94,6 +94,7 @@ if ($_FILES["file"]["type"] == "text/xml") {
 else
 {
 	echo "Invalid file";
+	$_SESSION['upload']='Nem megfelelő file típus. Csak text/xml fileok tölthetők fel.';
 }
 
 header('location:upload.php');
