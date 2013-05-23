@@ -28,8 +28,12 @@ or die("Nem sikerült kapcsolódni az adatbázishoz!");
 
 $felhasznal = $sql = "SELECT `csaladnev`,`keresztnev` FROM `adatok` WHERE `emailcim`= '". $felhasznalo . "'";
 // felhasználó válaszainak lekérdezése
-$valaszok ="SELECT max(`Datum`), `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
- FROM `kitoltotttesztek`, `tesztek` WHERE tesztek.idTesztek= kitoltotttesztek.idTesztek and `emailcim`= '". $felhasznalo . "' and `TesztNev` = '". $tesztneve . "'";
+
+$valaszok = "SELECT `Datum`, `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
+FROM `kitoltotttesztek`, `tesztek` WHERE tesztek.idTesztek= kitoltotttesztek.idTesztek and `emailcim`= '". $felhasznalo . "' and `TesztNev` = '". $tesztneve . "' and `Datum` = (SELECT max(`Datum`) FROM `kitoltotttesztek`, `tesztek` WHERE tesztek.idTesztek= kitoltotttesztek.idTesztek and `emailcim` = '" . $felhasznalo . "' and `TesztNev` = '" . $tesztneve . "')";
+
+//$valaszok ="SELECT max(`Datum`), `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
+// FROM `kitoltotttesztek`, `tesztek` WHERE tesztek.idTesztek= kitoltotttesztek.idTesztek and `emailcim`= '". $felhasznalo . "' and `TesztNev` = '". $tesztneve . "'";
 // felhasználó adatainak átálítása tömbé
 $result=mysql_query($felhasznal);
 if (!$result)
@@ -44,6 +48,7 @@ while ($row = mysql_fetch_assoc($result)) {
 $res = mysql_query($valaszok);
 if (!$res)
 	die("Sikertelen lekérdezés!3");
+
 $val = array();
 $er = "";
 while ($row = mysql_fetch_assoc($res)) {
