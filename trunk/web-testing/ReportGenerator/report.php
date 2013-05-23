@@ -13,7 +13,7 @@ var $kerds = 1;
 function report() {
 
 }
-function irdKi($user, $R = 0, $G = 0, $B = 0) {
+function irdKi($user, $datum = "", $R = 0, $G = 0, $B = 0) {
 		require('tcpdf/tcpdf.php');
 		$this->pdf=new TCPDF();
 		$this->pdf->AddPage();
@@ -23,6 +23,9 @@ function irdKi($user, $R = 0, $G = 0, $B = 0) {
 	 	$this->pdf->write(5, "A felhasználó neve: ". $user[0]."\n");
 	     $this->pdf->write(5, "Felhasználó emailcíme: ".$user[2]."\n\n\n\n");	
 	
+	     if($datum != "")
+	     	$this->pdf->write(5, "Kitöltés dátuma ".$datum."\n\n\n\n");
+	     	
 		$this->pdf->SetFontSize(54);
 		$this->pdf->SetTextColor(0, 0, 0);
 		$this->pdf->write(50, '           Oklevél'."\n");
