@@ -2,11 +2,14 @@
 header("Content-Type: text/html; charset=utf-8");
 ?>
 <?php
+session_start();
 require_once("ReportGenerator/report.php");
 require_once("readQuestion.php");
-session_start();
-// teszt neve a Get-ből
-$tesztneve = $_GET['nev'];
+
+$tsz = explode("/", $_GET['radio']);
+$tesztneve = $tsz[1];
+
+
 //felhasználó neve a Session-ból
 $felhasznalo = $_SESSION['your_email'];
 
@@ -17,12 +20,12 @@ $pass = '';
 //connection to the database
 $dbhandle = mysql_connect($host, $user, $pass)
 or die("Nem lehet kapcsolódni MySQL-hez!");
-	
+
 //select a database to work with
 $selected = mysql_select_db($db)
 or die("Nem sikerült kapcsolódni az adatbázishoz!");
-	
-	
+
+
 $felhasznal = $sql = "SELECT `csaladnev`,`keresztnev` FROM `adatok` WHERE `emailcim`= '". $felhasznalo . "'";
 // felhasználó válaszainak lekérdezése
 $valaszok ="SELECT max(`Datum`), `1Kerdes`, `2Kerdes`, `3Kerdes`, `4Kerdes`, `5Kerdes`, `6Kerdes`, `7Kerdes`, `9Kerdes`,`8Kerdes`, `10Kerdes`, `11Kerdes`,`12Kerdes`,`13Kerdes`, `14Kerdes`, `15Kerdes`,`16Kerdes`, `17Kerdes`, `18Kerdes`, `19Kerdes`, `20Kerdes`, `Eredmeny`
@@ -63,11 +66,11 @@ while ($row = mysql_fetch_assoc($res)) {
 	$val[16] = $row['17Kerdes'];
 	$val[17] = $row['18Kerdes'];
 	$val[18] = $row['19Kerdes'];
-	$val[019] = $row['20Kerdes'];
+	$val[19] = $row['20Kerdes'];
 	$er = $row['Eredmeny'];
 }
 //kérdések lekérdezése
-$tsz = "../tests/" . $tesztneve;
+$tsz = "tests/" . $tesztneve;
 $kerdesek = atalakitReportTombe($tsz);
 $pont = readOneCorrectPoint($tsz);
 //free the resources associated with the result set
@@ -75,6 +78,7 @@ mysql_free_result($result);
 mysql_free_result($res);
 //close connection
 mysql_close($dbhandle);
+
 $generator = new report();
 $generator->irdKi($felhaszn, $R, $G, $B);
 $num = count($kerdesek);
@@ -84,12 +88,12 @@ for($i = 0; $i <$num; ++$i) {
 		$generator->ujKerdes($x, $pont[0]);
 		$generator->enValaszaim($val[$i]);
 	}
-		
+
 }
 $generator->pontokSzama($er);
-	
+
+
 while (ob_get_level())
 	ob_end_clean();
 $generator->lezar();
-
 ?>
