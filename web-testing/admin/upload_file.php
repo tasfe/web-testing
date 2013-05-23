@@ -35,7 +35,7 @@ function refreshList($file) {
 	include '../readQuestion.php';
 	
 	//$c = readName($file);
-	$k = readCategory($file);
+	$k = readCategory("../tests/" . $file);
 	
 	$db = 'adatok';
 	$host = 'localhost';
