@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<teszt>
+	<cim>
+		Terület- és kerületszámítás
+	</cim>
+	<feladat>
+		<kerdes>Ha ABC háromszögben AB = AC = 10 cm és BC = 12 cm, akkor mennyi a háromszög területe?</kerdes>
+		<valasz>
+			<szoveg>32 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>48 cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>50 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy négyzet kerülete 2,8 cm. Mennyi a területe?</kerdes>
+		<valasz>
+			<szoveg>0,49 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>2,49 cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>4,2 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy rombusz átlóinak hossza 10 cm és 24 cm. Mennyi a rombusz kerülete?</kerdes>
+		<valasz>
+			<szoveg>44 cm</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>50 cm</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>68 cm</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy téglalap szélessége a hosszúságának 3/4-e és kerülete 14cm. Mennyi a területe?</kerdes>
+		<valasz>
+			<szoveg>36,75 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>10,5 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>12 cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy kör átmérője 6 cm. Mennyi a kör területe?</kerdes>
+		<valasz>
+			<szoveg>9\pi cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>10\pi cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>36\pi cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy ABCD paralelogrammában a B szög mértéke 150fok. AB = 4 cm és AD = 6 cm. A paralelogramma területe:</kerdes>
+		<valasz>
+			<szoveg>24 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>12 cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>18 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy kör átmérője 6 cm. Mennyi a kör kerülete?</kerdes>
+		<valasz>
+			<szoveg>6\pi cm</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>12\pi cm</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>9\pi cm</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy egyenlő szárú trapéz nagyalapja 15 cm, magasága 12 cm, szárainak hossza pedig 13 cm. Mennyi a területe?</kerdes>
+		<valasz>
+			<szoveg>180 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>140 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>120 cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy téglalap hosszúsága 15 cm, szélessége 8 cm. Mennyi a téglalap területe?</kerdes>
+		<valasz>
+			<szoveg>120 cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>46 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>60 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy téglalap átlója 13 cm és egyik oldala 5 cm. Mennyi a téglalap területe?</kerdes>
+		<valasz>
+			<szoveg>65 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>48 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>60 cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+	</feladat>
+	<feladat>
+		<kerdes>Egy trapéz alapjainak összege 16 cm és magassága 4 cm. A tarpéz területe:</kerdes>
+		<valasz>
+			<szoveg>64 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>32 cm²</szoveg>
+			<helyes>true</helyes>
+		</valasz>
+		<valasz>
+			<szoveg>40 cm²</szoveg>
+			<helyes>false</helyes>
+		</valasz>
+	</feladat>
+	<egyhelyesvalaszp>9</egyhelyesvalaszp>
+	<reszpont>igen</reszpont>
+	<jellemzok>
+		<kategoria>Mertan gyakorlat</kategoria>
+		<kitoltesszam>3</kitoltesszam>
+		<helyesvalaszszam>1</helyesvalaszszam>
+	</jellemzok>
+</teszt>
