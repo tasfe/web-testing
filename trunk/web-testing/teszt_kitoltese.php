@@ -73,6 +73,13 @@ function nextQ() {
 	if (checkTheBox())
 		document.answers.submit();
 }
+
+function openWindow(user) {
+
+	window.open('reportgeneralas.php?radio=<?php echo $_GET['nev'];?>');
+	window.close();
+
+}
 </script>
 
 </head>
@@ -426,7 +433,7 @@ function nextQ() {
 				<div id="menubar">
 					<div id="menubar_test">
 						<ul id="menu">
-							<li><a href="reportgeneralas.php?radio=<?php echo $_GET['nev'];?>">Bővebb információ a
+							<li><a href="#" onclick="eraseCookie('<?php echo $felhasznalo; ?> '); openWindow();">Bővebb információ a
 									tesztkitöltésről</a></li>
 							<!-- <li><a href="szemelyes_adatok.php" onclick="eraseCookie('<?php echo $felhasznalo; ?> ');">Saját profil</a></li>  -->
 							<li><a href="#" onclick="eraseCookie('<?php echo $felhasznalo; ?> '); window.close();">Ablak bezárása</a></li>
@@ -516,7 +523,7 @@ function nextQ() {
 				<div id="menubar">
 					<div id="menubar_test">
 						<ul id="menu">
-							<li><a href="user/report.php">Bővebb információ a
+							<li><a href="#" onclick="eraseCookie('<?php echo $felhasznalo; ?> '); openWindow();">Bővebb információ a
 									tesztkitöltésről</a></li>
 							<!-- <li><a href="szemelyes_adatok.php" onclick="eraseCookie('<?php echo $felhasznalo; ?> ');">Saját profil</a></li>  -->
 							<li><a href="#" onclick="eraseCookie('<?php echo $felhasznalo; ?> '); window.close();">Ablak bezárása</a></li>
