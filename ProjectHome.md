@@ -1,0 +1,1 @@
+We would like to obtain a system based on web technologies that will make possible creating tests assessing different knowledge areas, providing access to students to take these tests and reporting the evaluation of students' achievement.
